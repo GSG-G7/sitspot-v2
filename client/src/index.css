@@ -3,10 +3,12 @@
   padding: 0;
   box-sizing: border-box;
 }
+
 html {
   font-size: 10px;
   font-family: "Raleway", sans-serif;
 }
+
 :root {
   --main-color: #ec6408;
   --placeholder-color: #5d686e;
