@@ -1,11 +1,20 @@
-.floating-action {
+.circle-main-color-button {
   background-color: var(--main-color);
-  position: fixed;
   border: 0px;
   border-radius: 50%;
-  width: 30px;
-  height: 30px;
+  width: 6rem;
+  height: 6rem;
 }
-.floating-action:focus{
-    outline: none;
+
+.floating-action:focus {
+  outline: none;
+}
+
+.floating {
+  position: fixed;
+  margin: 90vh 0 0 83vw;
+}
+
+.plus-text {
+    font-size: 4rem;
 }
