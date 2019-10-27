@@ -8,5 +8,7 @@ html {
   font-family: "amRaleway", sans-serif;
 }
 :root {
-  --main-color: #f65b1c;
+  --main-color: #EC6408;
+  --placeholder-color: #5D686E;
+  --opacity-search-button: 63%
 }
