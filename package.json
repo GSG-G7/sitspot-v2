@@ -1,0 +1,37 @@
+{
+  "name": "sitspot",
+  "version": "1.0.0",
+  "description": "## Problem - People love traveling independently - People are making ethical choices in food, fashion - People want to bring travel in line with their sustainable values - **Travellers lack resources to make informed environment-friendly choices**",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint:client": "cd client && npm run lint"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GSG-G7/sitspot.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/GSG-G7/sitspot/issues"
+  },
+  "homepage": "https://github.com/GSG-G7/sitspot#readme",
+  "dependencies": {},
+  "devDependencies": {
+    "eslint": "^6.1.0",
+    "eslint-config-airbnb-base": "^14.0.0",
+    "eslint-config-prettier": "^6.4.0",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-prettier": "^3.1.1",
+    "eslint-plugin-react": "^7.16.0",
+    "eslint-plugin-react-hooks": "^2.2.0",
+    "pre-commit": "^1.2.2",
+    "prettier": "1.18.2"
+  },
+  "pre-commit": [
+    "lint:client"
+  ]
+}
