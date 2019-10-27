@@ -1,13 +1,9 @@
 import React from 'react';
-import { Fab } from '../components';
 import './style.css';
 
 const App = () => {
-  return (
-    <div className="App">
-      <Fab onClick={() => {}} />
-    </div>
-  );
+  // eslint-disable-next-line react/self-closing-comp
+  return <div className="App"></div>;
 };
 
 export default App;
