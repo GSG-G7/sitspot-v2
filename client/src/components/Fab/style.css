@@ -1,0 +1,11 @@
+.floating-action {
+  background-color: var(--main-color);
+  position: fixed;
+  border: 0px;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+}
+.floating-action:focus{
+    outline: none;
+}
