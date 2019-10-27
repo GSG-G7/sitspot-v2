@@ -5,10 +5,10 @@
 }
 html {
   font-size: 10px;
-  font-family: "amRaleway", sans-serif;
+  font-family: "Raleway", sans-serif;
 }
 :root {
-  --main-color: #EC6408;
-  --placeholder-color: #5D686E;
-  --opacity-search-button: 63%
+  --main-color: #ec6408;
+  --placeholder-color: #5d686e;
+  --opacity-search-button: 63%;
 }
