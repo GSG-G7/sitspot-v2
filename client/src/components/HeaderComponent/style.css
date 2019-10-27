@@ -1,0 +1,19 @@
+button > div {
+  width: 5rem;
+  height:0.5rem;
+  background-color: white;
+  margin: 1rem 0;
+}
+.burger{
+  background-color: transparent;
+  margin-inline-end: 2%;
+  border: 0ch;
+}
+ header{
+   width: 100%;
+   height: 10%;
+   background-color: transparent;
+   display: flex;
+   justify-content: space-between;
+  
+ }
