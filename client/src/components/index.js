@@ -1,3 +1,4 @@
 import Keywords from './Keywords';
+import Button from './Button';
 
-export default Keywords;
+export { Button, Keywords };

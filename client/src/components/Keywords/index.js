@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Icon } from 'antd';
 import propTypes from 'prop-types';
 import keywordsData from './fakeData';
+import Button from '../Button';
 import './index.css';
 
 class Keywords extends Component {
@@ -25,19 +26,18 @@ class Keywords extends Component {
         <div className="keywords__list">
           {keywordsData.map((el, index) => {
             return (
-              <button
+              <Button
                 key={`keyword${index + 1}`}
+                onClick={btn => this.handleKeywordChange(btn.target)}
+                value={el.value}
                 className={
                   value && el.value === value
                     ? 'keywords__list--item active-btn'
                     : 'keywords__list--item'
                 }
-                value={el.value}
-                type="button"
-                onClick={btn => this.handleKeywordChange(btn.target)}
               >
                 {el.text}
-              </button>
+              </Button>
             );
           })}
         </div>

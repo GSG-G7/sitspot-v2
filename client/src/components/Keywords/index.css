@@ -23,11 +23,8 @@
 .keywords__list--item {
   margin-right: 9%;
   width: 40%;
-  flex-grow: 1 1;
   color: var(--placeholder-color);
-  border: 0;
   background: 0;
-  outline: 0;
   font-size: 1.6rem;
   font-family: "Raleway", sans-serif ;
   display: block;
