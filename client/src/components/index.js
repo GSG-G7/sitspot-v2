@@ -1,5 +1,4 @@
 import Button from './Button';
+import Menu from './Menu';
 
-// delete this eslint disable in the next edit on this file
-// eslint-disable-next-line import/prefer-default-export
-export { Button };
+export { Button, Menu };
