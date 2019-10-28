@@ -6,7 +6,7 @@
   display: flex;
   justify-content: flex-end;
   font-size: 2.5rem;
-  color: #E8267C;
+  color: #e8267c;
 }
 
 .keywords__title {
@@ -26,12 +26,12 @@
   color: var(--placeholder-color);
   background: 0;
   font-size: 1.6rem;
-  font-family: "Raleway", sans-serif ;
+  font-family: 'Raleway', sans-serif;
   display: block;
-  padding: .5rem 0;
+  padding: 0.5rem 0;
   font-weight: 600;
   margin-bottom: 1rem;
-  text-align: left;  
+  text-align: left;
 }
 
 .active-btn {
