@@ -6,7 +6,6 @@ import './style.css';
 
 const Fab = ({ onClick }) => (
   <Button
-    type="button"
     onClick={onClick}
     className="circle-main-color-button floating plus-text"
   >
