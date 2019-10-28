@@ -4,6 +4,12 @@ import { Icon } from 'antd';
 
 import './index.css';
 
+const routes = [
+  { content: 'FAQ', path: '/faq' },
+  { content: 'About us', path: '/about-us' },
+  { content: 'Contact', path: '/contact' },
+];
+
 const Menu = () => {
   return (
     <div className="menu">
@@ -14,21 +20,13 @@ const Menu = () => {
           </NavLink>
           <Icon className="menu__list__close" type="close" />
         </li>
-        <li>
-          <NavLink className="menu__list__item" to="/faq">
-            FAQ
-          </NavLink>
-        </li>
-        <li>
-          <NavLink className="menu__list__item" to="/about-us">
-            About us
-          </NavLink>
-        </li>
-        <li>
-          <NavLink className="menu__list__item" to="/contact">
-            Contact
-          </NavLink>
-        </li>
+        {routes.map(({ content, path }) => (
+          <li key={path}>
+            <NavLink className="menu__list__item" to={path}>
+              {content}
+            </NavLink>
+          </li>
+        ))}
       </ul>
     </div>
   );
