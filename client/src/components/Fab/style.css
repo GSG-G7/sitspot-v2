@@ -1,13 +1,8 @@
 .circle-main-color-button {
   background-color: var(--main-color);
-  border: 0px;
   border-radius: 50%;
   width: 6rem;
   height: 6rem;
-}
-
-.floating-action:focus {
-  outline: none;
 }
 
 .floating {
