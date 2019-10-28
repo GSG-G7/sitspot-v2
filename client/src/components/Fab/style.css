@@ -3,6 +3,11 @@
   border-radius: 50%;
   width: 6rem;
   height: 6rem;
+  cursor: pointer;
+}
+
+.circle-main-color-button:hover {
+  background-color: #ff7137;
 }
 
 .floating {
