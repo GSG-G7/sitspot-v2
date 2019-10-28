@@ -1,0 +1,33 @@
+.magical {
+  display: flex;
+  align-items: center;
+  color: var(--eco-color);
+}
+.magical__keyword {
+  width: 30%;
+  align-items: center;
+  display: flex;
+  height: 4rem;
+  justify-content: space-around;
+}
+
+.magical__keyword__img {
+  padding: 2px;
+  height: 85%;
+}
+.magical__keyword__div {
+  display: flex;
+  margin-left: 2px;
+  font-size: 1.4rem;
+}
+
+.smaller {
+  font-size: 1.2rem;
+}
+.magical__review {
+  margin-left: 5%;
+  width: 65%;
+}
+.magical__review__p {
+  overflow-wrap: break-word;
+}
