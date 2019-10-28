@@ -1,4 +1,5 @@
 import Fab from './Fab';
 import Button from './Button';
+import Menu from './Menu';
 
-export { Button, Fab };
+export { Button, Menu, Fab };
