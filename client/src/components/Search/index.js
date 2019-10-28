@@ -1,14 +1,15 @@
 /* eslint-disable react/state-in-constructor */
 /* eslint-disable react/no-unused-state */
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { AutoComplete, Select, Radio, Button } from 'antd';
 import world from 'full-countries-cities';
 
 import 'antd/dist/antd.css';
 
-const { Option } = Select;
+import './style.css';
 
-const dataSource = ['Burns Bay Road', 'Downing Street', 'Wall Street'];
+const { Option } = Select;
 
 class Search extends Component {
   state = {
@@ -16,31 +17,32 @@ class Search extends Component {
     country: '',
     city: '',
     lookingFor: '',
+    keyword: '',
   };
 
   renderOptions = list => {
-    const countres = list.map(item => {
-      return (
-        <Option key={item} value={item}>
-          {item}
-        </Option>
-      );
-    });
+    const countres = list.map(item => (
+      <Option key={item} value={item}>
+        {item}
+      </Option>
+    ));
     return countres;
   };
 
+  onSubmit = () => {};
+
   render() {
     const { sitspot, country, city } = this.state;
+    const { sitspots } = this.props;
+
     return (
-      <>
-        <form onSubmit={this.getSitSpots.bind(this)}>
+      <form className="search__form">
+        <div className="place-name">
+          <p>Place Name</p>
           <AutoComplete
-            style={{ width: 200 }}
-            onChange={value => {
-              this.setState({ sitspot: value });
-            }}
+            onChange={value => this.setState({ sitspot: value })}
             value={sitspot}
-            dataSource={dataSource}
+            dataSource={sitspots}
             placeholder="Place Name"
             filterOption={(inputValue, option) => {
               return (
@@ -50,16 +52,18 @@ class Search extends Component {
               );
             }}
           />
-          <div>
-            <div>WHICH Country?</div>
+        </div>
+
+        <div className="country-city-container">
+          <div className="autocomplete-box">
+            <div>Which Country?</div>
             <Select
+              className="select"
+              style={{ width: 170 }}
               showSearch
-              style={{ width: 130 }}
               placeholder="Select"
               optionFilterProp="children"
-              onChange={value => {
-                this.setState({ country: value, city: '' });
-              }}
+              onChange={value => this.setState({ country: value, city: '' })}
               value={country}
               filterOption={(input, option) =>
                 option.props.children
@@ -70,59 +74,76 @@ class Search extends Component {
               {this.renderOptions(world.getCountryNames())}
             </Select>
           </div>
-          <div>WHICH City?</div>
-          <Select
-            showSearch
-            style={{ width: 130 }}
-            placeholder="Select"
-            optionFilterProp="children"
-            onChange={value => {
-              this.setState({ city: value });
-            }}
-            value={city}
-            filterOption={(input, option) =>
-              option.props.children
-                .toLowerCase()
-                .indexOf(input.toLowerCase()) >= 0
-            }
-          >
-            {country &&
-              world.getCities(country) !== undefined &&
-              this.renderOptions(world.getCities(country))}
-          </Select>
-          <div>What Are You Looking For</div>
-          <Radio.Group defaultValue="" buttonStyle="solid">
-            <Radio.Button
-              value="Stay"
-              onChange={() => {
-                this.setState({ lookingFor: 'stay' });
+          <div className="autocomplete-box">
+            <div>WHICH City?</div>
+            <Select
+              className="select"
+              style={{ width: 170 }}
+              showSearch
+              placeholder="Select"
+              optionFilterProp="children"
+              onChange={value => {
+                this.setState({ city: value });
               }}
+              value={city}
+              filterOption={(input, option) =>
+                option.props.children
+                  .toLowerCase()
+                  .indexOf(input.toLowerCase()) >= 0
+              }
+            >
+              {country &&
+                world.getCities(country) !== undefined &&
+                this.renderOptions(world.getCities(country))}
+            </Select>
+          </div>
+        </div>
+
+        <div className="type-filter__container">
+          <Radio.Group className="radio-group" buttonStyle="solid">
+            <p className="button-label">What Are You Looking For</p>
+            <Radio.Button
+              className="radio-button"
+              value="Stay"
+              onClick={() => this.setState({ lookingFor: 'stay' })}
             >
               Stay
             </Radio.Button>
             <Radio.Button
+              className="radio-button"
               value="eat"
-              onChange={() => {
-                this.setState({ lookingFor: 'eat' });
-              }}
+              onClick={() => this.setState({ lookingFor: 'eat' })}
             >
               Eat & drink
             </Radio.Button>
             <Radio.Button
+              className="radio-button"
               value="shop"
-              onChange={() => {
-                this.setState({ lookingFor: 'shop' });
-              }}
+              onClick={() => this.setState({ lookingFor: 'shop' })}
             >
               Shop
             </Radio.Button>
           </Radio.Group>
-          <Button onClick={() => {}}>KeyWords</Button>
-          <Button onClick={() => {}}>Search</Button>
-        </form>
-        <Button onClick={() => {}}>+ Add your recommendation</Button>
-      </>
+          <div className="type-filter__container__filter">
+            <p className="button-label">Filter</p>
+            <Button onClick={() => {}}>KeyWords</Button>
+          </div>
+        </div>
+        <div className="form-action">
+          <Button className="search-btn" onClick={() => this.onSubmit()}>
+            Search
+          </Button>
+          <Button className="recommendation-btn" onClick={() => {}}>
+            + Add your recommendation
+          </Button>
+        </div>
+      </form>
     );
   }
 }
+
+Search.propTypes = {
+  sitspots: PropTypes.arrayOf(PropTypes.string).isRequired,
+};
+
 export default Search;
