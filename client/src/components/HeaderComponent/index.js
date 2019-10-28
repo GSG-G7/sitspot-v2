@@ -1,5 +1,6 @@
 import React from 'react';
 import logo from '../../assets/images/logo.svg';
+import Button from '../Button/index';
 import './style.css';
 
 export default class Header extends React.Component {
@@ -19,16 +20,14 @@ export default class Header extends React.Component {
       return (
         <div>
           <header>
-            <img alt="logo" src={logo} />
-            <button
-              className="burger"
-              type="button"
-              onClick={this.onClickHandler}
-            >
+            <div className="logo">
+              <img alt="logo" src={logo} className="image" />
+            </div>
+            <Button className="burger" onClick={this.onClickHandler}>
               <div />
               <div />
               <div />
-            </button>
+            </Button>
           </header>
           <p>Hello</p>
         </div>
@@ -38,16 +37,14 @@ export default class Header extends React.Component {
     return (
       <div>
         <header>
-          <img alt="logo" src={logo} />
-          <button
-            className="burger"
-            type="button"
-            onClick={this.onClickHandler}
-          >
+          <div className="logo">
+            <img alt="logo" src={logo} className="image" />
+          </div>
+          <Button className="burger" onClick={this.onClickHandler}>
             <div />
             <div />
             <div />
-          </button>
+          </Button>
         </header>
       </div>
     );
