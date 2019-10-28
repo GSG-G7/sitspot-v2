@@ -14,15 +14,15 @@ const Menu = () => {
   return (
     <div className="menu">
       <ul className="menu__list">
-        <li>
-          <NavLink className="menu__list__item" to="/review">
+        <li className="menu__list__item">
+          <NavLink className="menu__list__link" to="/review">
             Add your recommendation
           </NavLink>
           <Icon className="menu__list__close" type="close" />
         </li>
         {routes.map(({ content, path }) => (
-          <li key={path}>
-            <NavLink className="menu__list__item" to={path}>
+          <li className="menu__list__item" key={path}>
+            <NavLink className="menu__list__link" to={path}>
               {content}
             </NavLink>
           </li>
