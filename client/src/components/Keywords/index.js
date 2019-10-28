@@ -12,18 +12,18 @@ const Keywords = ({ keyword, setKeyword }) => (
     <Icon className="keywords__close" type="close" />
     <h2 className="keywords__title">Keywords</h2>
     <div className="keywords__list">
-      {keywordsData.map((el, index) => {
+      {keywordsData.map(element => {
         return (
           <Button
-            key={`keyword${index + 1}`}
-            onClick={() => setKeyword(el.value)}
+            key={element.value}
+            onClick={() => setKeyword(element.value)}
             className={
-              el.value === keyword
+              element.value === keyword
                 ? 'keywords__list--item active-btn'
                 : 'keywords__list--item'
             }
           >
-            {el.text}
+            {element.text}
           </Button>
         );
       })}
