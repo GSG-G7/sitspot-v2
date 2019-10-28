@@ -1,0 +1,45 @@
+.keywords {
+  padding: 1rem;
+}
+
+.keywords__close {
+  display: flex;
+  justify-content: flex-end;
+  font-size: 2.5rem;
+  color: #E8267C;
+}
+
+.keywords__title {
+  color: var(--main-color);
+  margin-bottom: 2rem;
+  font-size: 2.4rem;
+}
+
+.keywords__list {
+  display: flex;
+  justify-content: space-between;
+}
+
+.keywords__list__left,
+.keywords__list__right {
+  width: 45%;
+}
+
+.keywords__list--item {
+  color: var(--placeholder-color);
+  border: 0;
+  background: 0;
+  outline: 0;
+  font-size: 1.6rem;
+  font-family: "Raleway", sans-serif ;
+  display: block;
+  padding: .5rem 0;
+  font-weight: 600;
+  margin-bottom: 2.2rem;
+  text-align: left;
+  
+}
+
+.active-btn {
+  color: var(--main-color);
+}
