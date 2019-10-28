@@ -1,4 +1,5 @@
 import Keywords from './Keywords';
 import Button from './Button';
+import Fab from './Fab';
 
-export { Button, Keywords };
+export { Button, Keywords, Fab };
