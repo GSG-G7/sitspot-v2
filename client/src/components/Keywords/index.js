@@ -12,8 +12,8 @@ class Keywords extends Component {
   handleKeywordChange = keywords => {
     this.setState({ value: keywords.value });
     // this function will passed in this component to take a value
-    // const { getKeyword } = this.props;
-    // getKeyword(keywords.value);
+    const { getKeyword } = this.props;
+    getKeyword(keywords.value);
   };
 
   render() {
