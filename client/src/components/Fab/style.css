@@ -12,9 +12,10 @@
 
 .floating {
   position: fixed;
-  margin: 90vh 0 0 83vw;
+  bottom: 2rem;
+  right: 2rem;
 }
 
 .plus-text {
-    font-size: 4rem;
+  font-size: 4rem;
 }
