@@ -8,9 +8,11 @@ const Button = ({ onClick, className, children }) => (
     {children}
   </button>
 );
+
 Button.defaultProps = {
   children: [],
 };
+
 Button.propTypes = {
   onClick: propTypes.func.isRequired,
   className: propTypes.string.isRequired,
