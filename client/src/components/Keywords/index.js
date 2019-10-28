@@ -3,6 +3,7 @@ import { Icon } from 'antd';
 import propTypes from 'prop-types';
 import keywordsData from './fakeData';
 import Button from '../Button';
+
 import './index.css';
 
 class Keywords extends Component {
