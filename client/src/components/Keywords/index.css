@@ -17,15 +17,13 @@
 
 .keywords__list {
   display: flex;
-  justify-content: space-between;
-}
-
-.keywords__list__left,
-.keywords__list__right {
-  width: 45%;
+  flex-wrap: wrap;
 }
 
 .keywords__list--item {
+  margin-right: 9%;
+  width: 40%;
+  flex-grow: 1 1;
   color: var(--placeholder-color);
   border: 0;
   background: 0;
@@ -35,9 +33,8 @@
   display: block;
   padding: .5rem 0;
   font-weight: 600;
-  margin-bottom: 2.2rem;
-  text-align: left;
-  
+  margin-bottom: 1rem;
+  text-align: left;  
 }
 
 .active-btn {
