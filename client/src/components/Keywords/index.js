@@ -9,7 +9,9 @@ import './index.css';
 
 const Keywords = ({ keyword, setKeyword }) => (
   <div className="keywords">
-    <Icon className="keywords__close" type="close" />
+    <div className="keywords__close">
+      <Icon type="close" />
+    </div>
     <h2 className="keywords__title">Keywords</h2>
     <div className="keywords__list">
       {keywordsData.map(element => {
