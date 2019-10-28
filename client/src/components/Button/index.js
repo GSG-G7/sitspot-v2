@@ -16,7 +16,11 @@ Button.defaultProps = {
 Button.propTypes = {
   onClick: propTypes.func.isRequired,
   className: propTypes.string.isRequired,
-  children: propTypes.arrayOf(propTypes.element),
+  // children propTypes from https://stackoverflow.com/a/42122662
+  children: propTypes.oneOfType([
+    propTypes.arrayOf(propTypes.node),
+    propTypes.node,
+  ]),
 };
 
 export default Button;
