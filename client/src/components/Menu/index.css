@@ -22,8 +22,8 @@
   text-decoration: none;
   font-size: 2rem;
   color: var(--main-color);
-  padding: 1rem .8rem;
+  padding: 1rem 0.8rem;
   font-weight: 600;
   display: block;
-  margin-bottom: .8rem;
+  margin-bottom: 0.8rem;
 }
