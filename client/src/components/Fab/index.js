@@ -1,15 +1,17 @@
 import React from 'react';
 import propTypes from 'prop-types';
+import Button from '../Button';
+
 import './style.css';
 
 const Fab = ({ onClick }) => (
-  <button
+  <Button
     type="button"
     onClick={onClick}
     className="circle-main-color-button floating plus-text"
   >
-    +
-  </button>
+    <span>+</span>
+  </Button>
 );
 
 Fab.propTypes = {
