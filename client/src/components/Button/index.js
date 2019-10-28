@@ -3,20 +3,14 @@ import propTypes from 'prop-types';
 
 import './style.css';
 
-const Button = ({ onClick, className, children, value }) => (
-  <button
-    type="button"
-    value={value}
-    onClick={onClick}
-    className={`button ${className}`}
-  >
+const Button = ({ onClick, className, children }) => (
+  <button type="button" onClick={onClick} className={`button ${className}`}>
     {children}
   </button>
 );
 
 Button.defaultProps = {
   children: [],
-  value: '',
 };
 
 Button.propTypes = {
@@ -27,7 +21,6 @@ Button.propTypes = {
     propTypes.arrayOf(propTypes.node),
     propTypes.node,
   ]),
-  value: propTypes.string,
 };
 
 export default Button;
