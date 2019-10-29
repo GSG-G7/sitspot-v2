@@ -1,8 +1,6 @@
 import React from 'react';
 import { Collapse } from 'antd';
 
-import bgImage from '../../assets/FAQ-header.png';
-
 import './index.css';
 
 const FAQ = () => {
@@ -12,7 +10,7 @@ const FAQ = () => {
   return (
     <div className="faq">
       <div className="faq__header">
-        <img src={bgImage} alt="backgorund" className="faq__header__img" />
+        <h3 className="faq__header__title">FAQ</h3>
       </div>
       <div className="faq__content">
         <p className="faq__content__desc">

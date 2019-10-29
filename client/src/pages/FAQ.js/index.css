@@ -1,6 +1,18 @@
-.faq__header__img {
-  width: 100%;
-  height: auto;
+.faq__header {
+  background-image: url('../../assets/FAQ-header.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 19rem;
+  position: relative;
+}
+
+.faq__header__title {
+  position: absolute;
+  color: #fff;
+  margin-bottom: 0;
+  left: 1.5rem;
+  bottom: 1rem;
+  font-weight: 600;
 }
 
 .faq__content {
@@ -43,7 +55,6 @@
   font-weight: 600;
   /* margin-bottom: 3rem; */
   border: 0;
-  
 }
 
 #faq1 .ant-collapse {
