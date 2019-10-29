@@ -37,6 +37,10 @@ class Search extends Component {
     else this.setState({ viewKeywords: false });
   };
 
+  hideKeyword = () => {
+    this.setState(({ viewKeywords }) => ({ viewKeywords: !viewKeywords }));
+  };
+
   render() {
     const { sitspot, country, city, keyword, viewKeywords } = this.state;
     const { sitspots } = this.props;
@@ -151,7 +155,11 @@ class Search extends Component {
           </Button>
         </div>
         {viewKeywords ? (
-          <Keywords keyword={keyword} setKeyword={this.setKeyword} />
+          <Keywords
+            keyword={keyword}
+            setKeyword={this.setKeyword}
+            hideKeyword={this.hideKeyword}
+          />
         ) : (
           ''
         )}
