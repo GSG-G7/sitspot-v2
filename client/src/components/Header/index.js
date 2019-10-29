@@ -11,29 +11,28 @@ export default class Header extends Component {
     menuIsShown: false,
   };
 
-  toggleMenu = () => {
-    return this.setState(prevState => ({
+  toggleMenu = () =>
+    this.setState(prevState => ({
       menuIsShown: !prevState.menuIsShown,
     }));
-  };
 
   render() {
     const { menuIsShown } = this.state;
 
     return (
-      <div>
+      <header>
         {menuIsShown && <Menu closeHandler={this.toggleMenu} />}
-        <header className="nav_header">
-          <div className="header_container-img">
-            <img alt="logo" src={logo} className="header_container-img_logo" />
+        <div className="nav__header">
+          <div className="header__div__img">
+            <img alt="logo" src={logo} className="header__div__img__logo" />
           </div>
-          <Button className="header_menu-button" onClick={this.toggleMenu}>
-            <div className="header_menu-button_div" />
-            <div className="header_menu-button_div header_menu-button_div--middle" />
-            <div className="header_menu-button_div" />
+          <Button className="header__button" onClick={this.toggleMenu}>
+            <div className="header__button__div" />
+            <div className="header__button__div header__button__div--middle" />
+            <div className="header__button__div" />
           </Button>
-        </header>
-      </div>
+        </div>
+      </header>
     );
   }
 }
