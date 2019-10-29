@@ -2,7 +2,7 @@ import React from 'react';
 import { Icon } from 'antd';
 import propTypes from 'prop-types';
 
-import keywordsData from './fakeData';
+import keywordsData from '../../staticDataSet/keywords';
 import Button from '../Button';
 
 import './index.css';

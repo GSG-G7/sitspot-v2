@@ -1,7 +1,7 @@
 import React from 'react';
 import { MagicalFactor } from '../components';
 import './style.css';
-import Keywords from '../components/MagicalFactor/keywords';
+import Keywords from '../staticDataSet/keywords';
 
 const App = () => {
   const { family, solo, wildlife } = Keywords;
