@@ -1,0 +1,35 @@
+.nav_header {
+  height: 10vh;
+  background-color: transparent;
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem 1rem;
+  text-align: center;
+}
+
+.header_menu-button {
+  background-color: transparent;
+  border: none;
+  text-align: center;
+}
+
+.header_menu-button_div {
+  width: 3rem;
+  height: 0.25rem;
+  background-color: white;
+}
+
+.header_menu-button_div--middle {
+  margin: 0.7rem 0;
+}
+
+.header_container-img {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.header_container-img_logo {
+  width: 45%;
+  height: auto;
+}

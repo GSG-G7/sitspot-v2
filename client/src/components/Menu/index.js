@@ -1,4 +1,5 @@
 import React from 'react';
+import propTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
 import { Icon } from 'antd';
 
@@ -10,7 +11,7 @@ const routes = [
   { content: 'Contact', path: '/contact' },
 ];
 
-const Menu = () => {
+const Menu = ({ closeHandler }) => {
   return (
     <div className="menu">
       <ul className="menu__list">
@@ -18,7 +19,11 @@ const Menu = () => {
           <NavLink className="menu__list__link" to="/review">
             Add your recommendation
           </NavLink>
-          <Icon className="menu__list__close" type="close" />
+          <Icon
+            className="menu__list__close"
+            type="close"
+            onClick={closeHandler}
+          />
         </li>
         {routes.map(({ content, path }) => (
           <li className="menu__list__item" key={path}>
@@ -30,6 +35,10 @@ const Menu = () => {
       </ul>
     </div>
   );
+};
+
+Menu.propTypes = {
+  closeHandler: propTypes.func.isRequired,
 };
 
 export default Menu;
