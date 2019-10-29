@@ -1,11 +1,11 @@
-/* eslint-disable react/state-in-constructor */
 /* eslint-disable react/no-unused-state */
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { AutoComplete, Select, Radio, Button } from 'antd';
 import world from 'full-countries-cities';
-
 import 'antd/dist/antd.css';
+
+import Keywords from '../Keywords';
 
 import './style.css';
 
@@ -18,6 +18,7 @@ class Search extends Component {
     city: '',
     lookingFor: '',
     keyword: '',
+    viewKeywords: false,
   };
 
   renderOptions = list => {
@@ -31,8 +32,13 @@ class Search extends Component {
 
   onSubmit = () => {};
 
+  setKeyword = value => {
+    if (value) this.setState({ keyword: value, viewKeywords: false });
+    else this.setState({ viewKeywords: false });
+  };
+
   render() {
-    const { sitspot, country, city } = this.state;
+    const { sitspot, country, city, keyword, viewKeywords } = this.state;
     const { sitspots } = this.props;
 
     return (
@@ -59,7 +65,6 @@ class Search extends Component {
             <div>Which Country?</div>
             <Select
               className="select"
-              style={{ width: 170 }}
               showSearch
               placeholder="Select"
               optionFilterProp="children"
@@ -78,7 +83,6 @@ class Search extends Component {
             <div>WHICH City?</div>
             <Select
               className="select"
-              style={{ width: 170 }}
               showSearch
               placeholder="Select"
               optionFilterProp="children"
@@ -126,7 +130,16 @@ class Search extends Component {
           </Radio.Group>
           <div className="type-filter__container__filter">
             <p className="button-label">Filter</p>
-            <Button onClick={() => {}}>KeyWords</Button>
+            <Button
+              onClick={() => {
+                // eslint-disable-next-line no-unused-vars
+                this.setState(_state => ({
+                  viewKeywords: !viewKeywords,
+                }));
+              }}
+            >
+              KeyWords
+            </Button>
           </div>
         </div>
         <div className="form-action">
@@ -137,6 +150,11 @@ class Search extends Component {
             + Add your recommendation
           </Button>
         </div>
+        {viewKeywords ? (
+          <Keywords keyword={keyword} setKeyword={this.setKeyword} />
+        ) : (
+          ''
+        )}
       </form>
     );
   }

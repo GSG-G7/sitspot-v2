@@ -10,7 +10,7 @@ import './index.css';
 const Keywords = ({ keyword, setKeyword }) => (
   <div className="keywords">
     <div className="keywords__close">
-      <Icon type="close" />
+      <Icon type="close" onClick={() => setKeyword()} />
     </div>
     <h2 className="keywords__title">Keywords</h2>
     <div className="keywords__list">

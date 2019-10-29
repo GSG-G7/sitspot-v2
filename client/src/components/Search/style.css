@@ -1,7 +1,7 @@
 .search__form {
   display: flex;
   flex-direction: column;
-  max-width: 800px;
+  max-width: 98%;
   padding: 1rem;
   margin: auto;
 }
@@ -11,6 +11,10 @@
   width: 100%;
   margin: auto;
   margin-bottom: 1rem;
+}
+
+.place-name--label {
+  margin: 0;
 }
 
 .country-city-container {
@@ -30,7 +34,7 @@
 
 .radio-group {
   max-width: 70%;
-  margin-left: 0.5rem;
+  margin-left: 0.25rem;
 }
 
 .button-label {
@@ -50,8 +54,10 @@
 .country-dropdown {
   margin-right: 1rem;
 }
-
-.ant-radio-button-wrapper {
+.select {
+  width:15rem !important;
+}
+.radio-group .ant-radio-button-wrapper {
   margin-right: 0.5rem !important;
 }
 
@@ -71,7 +77,7 @@
 .search-btn {
   background-color: var(--main-color) !important;
   color:#fff !important;
-  font-size: 2rem !important;
+  font-size: 1.25rem !important;
   border: none;
 }
 
@@ -92,5 +98,5 @@
 }
 
 .ant-select-arrow-icon {
-  color:var(--main-color) !important;
+  color: var(--main-color) !important;
 }
