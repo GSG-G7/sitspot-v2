@@ -20,20 +20,17 @@ class Search extends Component {
     viewKeywords: false,
   };
 
-  renderOptions = list => {
-    const countres = list.map(item => (
+  renderOptions = list =>
+    list.map(item => (
       <Option key={item} value={item}>
         {item}
       </Option>
     ));
-    return countres;
-  };
 
   onSubmit = () => {};
 
   setKeyword = value => {
-    if (value) this.setState({ keyword: value, viewKeywords: false });
-    else this.setState({ viewKeywords: false });
+    this.setState({ keyword: value, viewKeywords: false });
   };
 
   hideKeyword = () => {
@@ -112,25 +109,29 @@ class Search extends Component {
         </div>
 
         <div className="type-filter__container">
-          <Radio.Group className="radio-group" buttonStyle="solid">
+          <Radio.Group
+            className="radio-group"
+            value={lookingFor}
+            buttonStyle="solid"
+          >
             <p className="button-label">What Are You Looking For</p>
             <Radio.Button
               className="radio-button"
-              value={lookingFor}
+              value="stay"
               onClick={() => this.setState({ lookingFor: 'stay' })}
             >
               Stay
             </Radio.Button>
             <Radio.Button
               className="radio-button"
-              value={lookingFor}
+              value="eat"
               onClick={() => this.setState({ lookingFor: 'eat' })}
             >
               Eat & drink
             </Radio.Button>
             <Radio.Button
               className="radio-button"
-              value={lookingFor}
+              value="shop"
               onClick={() => this.setState({ lookingFor: 'shop' })}
             >
               Shop
@@ -140,9 +141,8 @@ class Search extends Component {
             <p className="button-label">Filter</p>
             <Button
               onClick={() => {
-                // eslint-disable-next-line no-unused-vars
-                this.setState(_state => ({
-                  viewKeywords: !viewKeywords,
+                this.setState(state => ({
+                  viewKeywords: !state.viewKeywords,
                 }));
               }}
             >
