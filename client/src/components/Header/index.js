@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 
-import logo from '../../assets/images/logo.svg';
 import Menu from '../Menu';
 import Button from '../Button';
+
+import logo from '../../assets/images/logo.svg';
 import './style.css';
 
 export default class Header extends Component {
