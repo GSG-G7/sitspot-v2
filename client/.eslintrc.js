@@ -19,6 +19,7 @@ module.exports = {
     'jest': true
   },
   'rules': {
+    'react/state-in-constructor': 0,
     // disables the windows/unix linebreak checks.
     'linebreak-style': 0,
     'react/state-in-constructor':0,

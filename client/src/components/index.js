@@ -1,5 +1,6 @@
+import Keywords from './Keywords';
 import Button from './Button';
+import Menu from './Menu';
+import Fab from './Fab';
 
-// delete this eslint disable in the next edit on this file
-// eslint-disable-next-line import/prefer-default-export
-export { Button };
+export { Button, Menu, Keywords, Fab };
