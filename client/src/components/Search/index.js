@@ -1,4 +1,3 @@
-/* eslint-disable react/no-unused-state */
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { AutoComplete, Select, Radio, Button } from 'antd';
@@ -42,7 +41,14 @@ class Search extends Component {
   };
 
   render() {
-    const { sitspot, country, city, keyword, viewKeywords } = this.state;
+    const {
+      sitspot,
+      country,
+      city,
+      keyword,
+      viewKeywords,
+      lookingFor,
+    } = this.state;
     const { sitspots } = this.props;
 
     return (
@@ -112,21 +118,21 @@ class Search extends Component {
             <p className="button-label">What Are You Looking For</p>
             <Radio.Button
               className="radio-button"
-              value="Stay"
+              value={lookingFor}
               onClick={() => this.setState({ lookingFor: 'stay' })}
             >
               Stay
             </Radio.Button>
             <Radio.Button
               className="radio-button"
-              value="eat"
+              value={lookingFor}
               onClick={() => this.setState({ lookingFor: 'eat' })}
             >
               Eat & drink
             </Radio.Button>
             <Radio.Button
               className="radio-button"
-              value="shop"
+              value={lookingFor}
               onClick={() => this.setState({ lookingFor: 'shop' })}
             >
               Shop
