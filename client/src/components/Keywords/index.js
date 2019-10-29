@@ -2,7 +2,7 @@ import React from 'react';
 import { Icon } from 'antd';
 import propTypes from 'prop-types';
 
-import keywordsData from '../../staticDataSet/keywords';
+import keywords from '../../staticDataSet/keywords';
 import Button from '../Button';
 
 import './index.css';
@@ -14,18 +14,18 @@ const Keywords = ({ keyword, setKeyword }) => (
     </div>
     <h2 className="keywords__title">Keywords</h2>
     <div className="keywords__list">
-      {keywordsData.map(element => {
+      {Object.keys(keywords).map(key => {
         return (
           <Button
-            key={element.value}
-            onClick={() => setKeyword(element.value)}
+            key={key}
+            onClick={() => setKeyword(key)}
             className={
-              element.value === keyword
+              key === keyword
                 ? 'keywords__list--item active-btn'
                 : 'keywords__list--item'
             }
           >
-            {element.text}
+            {keywords[key].text}
           </Button>
         );
       })}
