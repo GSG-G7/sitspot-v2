@@ -23,8 +23,12 @@ export default class Header extends Component {
       <header>
         {menuIsShown && <Menu closeHandler={this.toggleMenu} />}
         <div className="nav__header">
-          <div className="header__div__img">
-            <img alt="logo" src={logo} className="header__div__img__logo" />
+          <div className="header__div__img-container">
+            <img
+              alt="logo"
+              src={logo}
+              className="header__div__img-container__logo"
+            />
           </div>
           <Button className="header__button" onClick={this.toggleMenu}>
             <div className="header__button__div" />

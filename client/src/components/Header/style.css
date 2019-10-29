@@ -23,13 +23,13 @@
   margin: 0.7rem 0;
 }
 
-.header__div__img {
+.header__div__img-container {
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
 
-.header__div__img__logo {
+.header__div__img-container__logo {
   width: 50%;
   height: auto;
 }
