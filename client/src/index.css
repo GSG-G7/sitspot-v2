@@ -12,5 +12,5 @@ html {
 :root {
   --main-color: #F65B1C;
   --placeholder-color: #5d686e;
-  --opacity-search-button: 63%;
+  --opacity-search-button: .70;
 }

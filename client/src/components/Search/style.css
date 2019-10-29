@@ -51,9 +51,7 @@
 .country-dropdown {
   margin-right: 1rem;
 }
-.select {
-  width:15rem !important;
-}
+
 .radio-group .ant-radio-button-wrapper {
   margin-right: 0.5rem !important;
 }
@@ -80,6 +78,7 @@
   color: #fff !important;
   font-size: 1.25rem !important;
   border: none;
+  width: 34%;
 }
 
 .search-btn:hover {
@@ -92,7 +91,8 @@
   background-color: var(--main-color) !important;
   color: #fff !important;
   border: none;
-  width: 70%;
+  width: 65%;
+  opacity: var(--opacity);
 }
 
 .type-filter__container__filter {
