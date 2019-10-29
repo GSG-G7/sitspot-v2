@@ -3,11 +3,13 @@
   align-items: center;
   color: var(--eco-color);
 }
+
 .magical__keyword {
   width: 30%;
   align-items: center;
   display: flex;
   height: 4rem;
+  align-self: flex-start;
   justify-content: space-around;
 }
 
@@ -15,19 +17,29 @@
   padding: 2px;
   height: 85%;
 }
-.magical__keyword__div {
-  display: flex;
-  margin-left: 2px;
-  font-size: 1.4rem;
+
+.magical__keyword__img img {
+  height: 100%;
 }
 
-.smaller {
+.magical__keyword-label {
+  display: flex;
+  margin-left: 2px;
+  font-size: 1.3rem;
+}
+
+.magical__keyword-label--smaller {
+  display: flex;
+  margin-left: 2px;
   font-size: 1.2rem;
 }
+
 .magical__review {
   margin-left: 5%;
   width: 65%;
 }
-.magical__review__p {
+
+.magical__review p {
   overflow-wrap: break-word;
+  font-size: 1.2rem;
 }

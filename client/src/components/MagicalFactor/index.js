@@ -4,20 +4,22 @@ import Keywords from '../../assets/Keywords';
 
 import './style.css';
 
-const MagicalFactor = ({ value: { text, src }, reviewText }) => (
+const MagicalFactor = ({ value: { text, src: imgSrc }, reviewText }) => (
   <div className="magical">
     <div className="magical__keyword">
       <div className="magical__keyword__img">
-        <img src={Keywords[src]} alt={text} className="magical__keyword__img" />
+        <img src={Keywords[imgSrc]} alt={text} />
       </div>
       <div
-        className={`magical__keyword__div${text.length > 18 ? ' smaller' : ''}`}
+        className={`magical__keyword-label${
+          text.length > 18 ? '--smaller' : ''
+        }`}
       >
         <p>{text}</p>
       </div>
     </div>
     <div className="magical__review">
-      <p className="magical__review__p">{reviewText}</p>
+      <p>{reviewText}</p>
     </div>
   </div>
 );
