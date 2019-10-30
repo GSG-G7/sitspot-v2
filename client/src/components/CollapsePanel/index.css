@@ -1,0 +1,40 @@
+#faq__questions .ant-collapse-item,
+#faq__questions .ant-collapse-content {
+  border: 0;
+}
+
+#faq__questions .ant-collapse-header {
+  font-size: 2rem;
+  color: var(--main-color);
+  font-weight: 600;
+  margin-bottom: 2rem;
+  border: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+}
+
+#faq__questions .sub-title .ant-collapse-header {
+  font-size: 1.7rem;
+  color: var(--main-color);
+  opacity: 0.9;
+  font-weight: 600;
+  border: 0;
+}
+
+#faq__questions .ant-collapse {
+  border: 0;
+  background: 0;
+}
+
+#faq__questions .ant-collapse-arrow {
+  font-size: 2rem;
+  position: static;
+  display: block;
+  margin-right: 1rem;
+  margin-top: 1.8rem;
+}
+
+#faq__questions .sub-title .ant-collapse-arrow {
+  font-size: 1.4rem;
+}
