@@ -13,12 +13,12 @@
   justify-content: space-around;
 }
 
-.magical__keyword__img {
+.magical__keyword__img-container {
   padding: 0.2rem;
   height: 85%;
 }
 
-.magical__keyword__img img {
+.magical__keyword__img-img {
   height: 100%;
 }
 
@@ -37,9 +37,6 @@
 .magical__review {
   margin-left: 5%;
   width: 65%;
-}
-
-.magical__review p {
   overflow-wrap: break-word;
   font-size: 1.2rem;
 }

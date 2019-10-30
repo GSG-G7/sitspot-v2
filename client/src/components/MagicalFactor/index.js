@@ -8,8 +8,12 @@ import './style.css';
 const MagicalFactor = ({ value: { text, imgSrc }, reviewText }) => (
   <div className="magical">
     <div className="magical__keyword">
-      <div className="magical__keyword__img">
-        <img src={Keywords[imgSrc]} alt={text} />
+      <div className="magical__keyword__img-container">
+        <img
+          src={Keywords[imgSrc]}
+          alt={text}
+          className="magical__keyword__img-img"
+        />
       </div>
       <p
         className={`magical__keyword-label${
@@ -19,9 +23,7 @@ const MagicalFactor = ({ value: { text, imgSrc }, reviewText }) => (
         {text}
       </p>
     </div>
-    <div className="magical__review">
-      <p>{reviewText}</p>
-    </div>
+    <p className="magical__review">{reviewText}</p>
   </div>
 );
 
