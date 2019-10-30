@@ -45,24 +45,24 @@
   border-radius: 0;
 }
 
-.search-btn {
-  background-color: var(--main-color) !important;
-  color: #fff !important;
-  font-size: 1.25rem !important;
+#search-btn {
+  background-color: var(--main-color);
+  color: #fff;
+  font-size: 1.25rem;
   border: none;
   width: 33%;
   border-radius: 0;
 }
 
-.search-btn:hover {
+#search-btn:hover {
   background-color: var(--main-color);
   color: #fff;
   border: none;
 }
 
-.recommendation-btn {
-  background-color: var(--main-color) !important;
-  color:#fff !important;
+#recommendation-btn {
+  background-color: var(--main-color);
+  color:#fff;
   border: none;
   width: 62%;
   opacity: var(--opacity-search-button);

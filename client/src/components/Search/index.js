@@ -113,10 +113,10 @@ class Search extends Component {
           </div>
         </div>
         <div className="form-action">
-          <Button className="search-btn" onClick={this.onSubmit}>
+          <Button id="search-btn" onClick={this.onSubmit}>
             Search
           </Button>
-          <Button className="recommendation-btn" onClick={() => {}}>
+          <Button id="recommendation-btn" onClick={() => {}}>
             + Add your recommendation
           </Button>
         </div>
