@@ -1,13 +1,21 @@
 import React from 'react';
-import propTypes, { node } from 'prop-types';
+import PropTypes from 'prop-types';
 import { Carousel } from 'antd';
 
 const ImageCarousel = ({ slides }) => {
-  return <Carousel autoplay>{slides}</Carousel>;
+  return (
+    <Carousel autoplay>
+      {slides.map(({ src, alt }) => (
+        <div key={src}>
+          <img src={src} alt={alt} />
+        </div>
+      ))}
+    </Carousel>
+  );
 };
 
 ImageCarousel.propTypes = {
-  slides: propTypes.arrayOf(node).isRequired,
+  slides: PropTypes.arrayOf(PropTypes.object).isRequired,
 };
 
 export default ImageCarousel;
