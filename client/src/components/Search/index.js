@@ -18,6 +18,12 @@ class Search extends Component {
     viewKeywords: false,
   };
 
+  lookingFor = {
+    STAY: 'stay',
+    EAT: 'eat',
+    SHOP: 'shop',
+  };
+
   renderOptions = list =>
     list.map(item => (
       <Option key={item} value={item}>
@@ -85,22 +91,23 @@ class Search extends Component {
             <p className="button-label">What Are You Looking For</p>
             <Radio.Button
               className="radio-button"
-              value="stay"
-              onClick={() => this.setState({ lookingFor: 'stay' })}
+              onClick={() =>
+                this.setState({ lookingFor: this.lookingFor.STAY })
+              }
             >
               Stay
             </Radio.Button>
             <Radio.Button
               className="radio-button"
-              value="eat"
-              onClick={() => this.setState({ lookingFor: 'eat' })}
+              onClick={() => this.setState({ lookingFor: this.lookingFor.EAT })}
             >
               Eat & drink
             </Radio.Button>
             <Radio.Button
               className="radio-button"
-              value="shop"
-              onClick={() => this.setState({ lookingFor: 'shop' })}
+              onClick={() =>
+                this.setState({ lookingFor: this.lookingFor.SHOP })
+              }
             >
               Shop
             </Radio.Button>
