@@ -41,27 +41,6 @@
   margin-right: 1rem;
 }
 
-.radio-group .ant-radio-button-wrapper {
-  margin-right: 0.5rem !important;
-}
-
-.ant-radio-button-wrapper:hover {
-  background-color: var(--main-color);
-  opacity: 0.9;
-  color: #fff;
-}
-
-.ant-radio-button-wrapper:last-child {
-  border-radius: 0 !important;
-}
-
-.ant-radio-group > .ant-radio-button-wrapper-checked {
-  border: none !important;
-  background-color: var(--main-color) !important;
-  color: #fff !important;
-  font-weight: bold !important;
-}
-
 .keywords-btn {
   border-radius: 0;
 }
@@ -71,8 +50,8 @@
   color: #fff !important;
   font-size: 1.25rem !important;
   border: none;
-  width: 34%;
-  border-radius: 0;;
+  width: 33%;
+  border-radius: 0;
 }
 
 .search-btn:hover {
@@ -83,6 +62,7 @@
 
 .recommendation-btn {
   background-color: var(--main-color) !important;
+  color:#fff !important;
   border: none;
   width: 62%;
   opacity: var(--opacity-search-button);

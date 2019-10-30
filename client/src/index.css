@@ -19,3 +19,24 @@ html {
 .ant-select-arrow-icon {
   color: var(--main-color) !important;
 }
+
+.radio-group .ant-radio-button-wrapper {
+  margin-right: 0.5rem !important;
+}
+
+.ant-radio-button-wrapper:hover {
+  background-color: var(--main-color);
+  opacity: 0.9;
+  color: #fff;
+}
+
+.ant-radio-button-wrapper:last-child {
+  border-radius: 0 !important;
+}
+
+.ant-radio-group > .ant-radio-button-wrapper-checked {
+  border: none !important;
+  background-color: var(--main-color) !important;
+  color: #fff !important;
+  font-weight: bold !important;
+}
