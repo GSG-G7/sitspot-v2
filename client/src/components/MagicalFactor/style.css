@@ -1,0 +1,42 @@
+.magical {
+  display: flex;
+  align-items: center;
+  color: var(--eco-color);
+}
+
+.magical__keyword {
+  width: 30%;
+  align-items: center;
+  display: flex;
+  height: 4rem;
+  align-self: flex-start;
+  justify-content: space-around;
+}
+
+.magical__keyword__img-container {
+  padding: 0.2rem;
+  height: 85%;
+}
+
+.magical__keyword__img-img {
+  height: 100%;
+}
+
+.magical__keyword-label {
+  display: flex;
+  margin-left: 0.2rem;
+  font-size: 1.3rem;
+}
+
+.magical__keyword-label--smaller {
+  display: flex;
+  margin-left: 0.2rem;
+  font-size: 1.2rem;
+}
+
+.magical__review {
+  margin-left: 5%;
+  width: 65%;
+  overflow-wrap: break-word;
+  font-size: 1.2rem;
+}
