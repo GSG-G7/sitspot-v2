@@ -11,13 +11,13 @@ const MagicalFactor = ({ value: { text, imgSrc }, reviewText }) => (
       <div className="magical__keyword__img">
         <img src={Keywords[imgSrc]} alt={text} />
       </div>
-      <div
+      <p
         className={`magical__keyword-label${
           text.length > 18 ? '--smaller' : ''
         }`}
       >
-        <p>{text}</p>
-      </div>
+        {text}
+      </p>
     </div>
     <div className="magical__review">
       <p>{reviewText}</p>
