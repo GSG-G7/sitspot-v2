@@ -6,17 +6,6 @@
   margin: auto;
 }
 
-.place-name {
-  text-align: left;
-  width: 100%;
-  margin: auto;
-  margin-bottom: 1rem;
-}
-
-.place-name--label {
-  margin: 0;
-}
-
 .country-city-container {
   display: flex;
   justify-content: space-between;
@@ -45,7 +34,7 @@
 
 .form-action {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
 }
 
 .country-dropdown {
@@ -94,17 +83,12 @@
 
 .recommendation-btn {
   background-color: var(--main-color) !important;
-  color: #fff !important;
   border: none;
-  width: 65%;
+  width: 62%;
   opacity: var(--opacity-search-button);
   border-radius: 0;
 }
 
 .type-filter__container__filter {
   text-align: left;
-}
-
-.ant-select-arrow-icon {
-  color: var(--main-color) !important;
 }

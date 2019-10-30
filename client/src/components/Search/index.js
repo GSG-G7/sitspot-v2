@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Select, Radio, Button } from 'antd';
 import world from 'full-countries-cities';
-import 'antd/dist/antd.css';
 
 import Keywords from '../Keywords';
 
@@ -18,11 +17,7 @@ class Search extends Component {
     viewKeywords: false,
   };
 
-  lookingFor = {
-    STAY: 'stay',
-    EAT: 'eat',
-    SHOP: 'shop',
-  };
+  lookingFor = { STAY: 'stay', EAT: 'eat', SHOP: 'shop' };
 
   renderOptions = list =>
     list.map(item => (
@@ -37,8 +32,8 @@ class Search extends Component {
     this.setState({ keyword: value, viewKeywords: false });
   };
 
-  hideKeyword = () => {
-    this.setState(({ viewKeywords }) => ({ viewKeywords: !viewKeywords }));
+  toggleKeywordList = () => {
+    this.setState(state => ({ viewKeywords: !state.viewKeywords }));
   };
 
   dropdownFilter = (input, option) =>
@@ -46,6 +41,9 @@ class Search extends Component {
 
   render() {
     const { country, city, keyword, viewKeywords, lookingFor } = this.state;
+
+    const { EAT, SHOP, STAY } = this.lookingFor;
+    const cities = country ? world.getCities(country) : undefined;
 
     return (
       <form className="search__form">
@@ -56,8 +54,8 @@ class Search extends Component {
               showSearch
               placeholder="Select"
               optionFilterProp="children"
-              onChange={value => this.setState({ country: value, city: '' })}
               value={country}
+              onChange={value => this.setState({ country: value, city: '' })}
               filterOption={this.dropdownFilter}
             >
               {this.renderOptions(world.getCountryNames())}
@@ -69,15 +67,11 @@ class Search extends Component {
               showSearch
               placeholder="Select"
               optionFilterProp="children"
-              onChange={value => {
-                this.setState({ city: value });
-              }}
               value={city}
+              onChange={value => this.setState({ city: value })}
               filterOption={this.dropdownFilter}
             >
-              {country &&
-                world.getCities(country) !== undefined &&
-                this.renderOptions(world.getCities(country))}
+              {country && cities !== undefined && this.renderOptions(cities)}
             </Select>
           </div>
         </div>
@@ -91,57 +85,47 @@ class Search extends Component {
             <p className="button-label">What Are You Looking For</p>
             <Radio.Button
               className="radio-button"
-              onClick={() =>
-                this.setState({ lookingFor: this.lookingFor.STAY })
-              }
+              value={STAY}
+              onClick={() => this.setState({ lookingFor: STAY })}
             >
               Stay
             </Radio.Button>
             <Radio.Button
               className="radio-button"
-              onClick={() => this.setState({ lookingFor: this.lookingFor.EAT })}
+              value={EAT}
+              onClick={() => this.setState({ lookingFor: EAT })}
             >
               Eat & drink
             </Radio.Button>
             <Radio.Button
               className="radio-button"
-              onClick={() =>
-                this.setState({ lookingFor: this.lookingFor.SHOP })
-              }
+              value={SHOP}
+              onClick={() => this.setState({ lookingFor: SHOP })}
             >
               Shop
             </Radio.Button>
           </Radio.Group>
           <div className="type-filter__container__filter">
             <p className="button-label">Filter</p>
-            <Button
-              className="keywords-btn"
-              onClick={() => {
-                this.setState(state => ({
-                  viewKeywords: !state.viewKeywords,
-                }));
-              }}
-            >
+            <Button className="keywords-btn" onClick={this.toggleKeywordList}>
               KeyWords
             </Button>
           </div>
         </div>
         <div className="form-action">
-          <Button className="search-btn" onClick={() => this.onSubmit()}>
+          <Button className="search-btn" onClick={this.onSubmit}>
             Search
           </Button>
           <Button className="recommendation-btn" onClick={() => {}}>
             + Add your recommendation
           </Button>
         </div>
-        {viewKeywords ? (
+        {viewKeywords && (
           <Keywords
             keyword={keyword}
             setKeyword={this.setKeyword}
-            hideKeyword={this.hideKeyword}
+            toggleKeywordList={this.toggleKeywordList}
           />
-        ) : (
-          ''
         )}
       </form>
     );

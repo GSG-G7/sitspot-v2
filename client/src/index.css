@@ -15,3 +15,7 @@ html {
   --placeholder-color: #5d686e;
   --opacity-search-button: .70;
 }
+
+.ant-select-arrow-icon {
+  color: var(--main-color) !important;
+}
