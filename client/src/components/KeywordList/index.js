@@ -7,7 +7,7 @@ import Button from '../Button';
 
 import './index.css';
 
-const Keywords = ({ keyword, setKeyword }) => (
+const KeywordList = ({ keyword, setKeyword }) => (
   <div className="keywords">
     <div className="keywords__close">
       <Icon type="close" />
@@ -33,9 +33,9 @@ const Keywords = ({ keyword, setKeyword }) => (
   </div>
 );
 
-Keywords.propTypes = {
+KeywordList.propTypes = {
   keyword: propTypes.string.isRequired,
   setKeyword: propTypes.func.isRequired,
 };
 
-export default Keywords;
+export default KeywordList;
