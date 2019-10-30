@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import { AutoComplete, Select, Radio, Button } from 'antd';
+import { Select, Radio, Button } from 'antd';
 import world from 'full-countries-cities';
 import 'antd/dist/antd.css';
 
@@ -12,9 +11,8 @@ const { Option } = Select;
 
 class Search extends Component {
   state = {
-    sitspot: '',
-    country: '',
-    city: '',
+    country: undefined,
+    city: undefined,
     lookingFor: '',
     keyword: '',
     viewKeywords: false,
@@ -37,56 +35,30 @@ class Search extends Component {
     this.setState(({ viewKeywords }) => ({ viewKeywords: !viewKeywords }));
   };
 
+  dropdownFilter = (input, option) =>
+    option.props.children.toLowerCase().indexOf(input.toLowerCase()) >= 0;
+
   render() {
-    const {
-      sitspot,
-      country,
-      city,
-      keyword,
-      viewKeywords,
-      lookingFor,
-    } = this.state;
-    const { sitspots } = this.props;
+    const { country, city, keyword, viewKeywords, lookingFor } = this.state;
 
     return (
       <form className="search__form">
-        <div className="place-name">
-          <p>Place Name</p>
-          <AutoComplete
-            onChange={value => this.setState({ sitspot: value })}
-            value={sitspot}
-            dataSource={sitspots}
-            placeholder="Place Name"
-            filterOption={(inputValue, option) => {
-              return (
-                option.props.children
-                  .toUpperCase()
-                  .indexOf(inputValue.toUpperCase()) !== -1
-              );
-            }}
-          />
-        </div>
-
         <div className="country-city-container">
           <div className="autocomplete-box">
-            <div>Which Country?</div>
+            <div>WHICH COUNTRY?</div>
             <Select
               showSearch
               placeholder="Select"
               optionFilterProp="children"
               onChange={value => this.setState({ country: value, city: '' })}
               value={country}
-              filterOption={(input, option) =>
-                option.props.children
-                  .toLowerCase()
-                  .indexOf(input.toLowerCase()) >= 0
-              }
+              filterOption={this.dropdownFilter}
             >
               {this.renderOptions(world.getCountryNames())}
             </Select>
           </div>
           <div className="autocomplete-box">
-            <div>WHICH City?</div>
+            <div>WHICH CITY?</div>
             <Select
               showSearch
               placeholder="Select"
@@ -95,11 +67,7 @@ class Search extends Component {
                 this.setState({ city: value });
               }}
               value={city}
-              filterOption={(input, option) =>
-                option.props.children
-                  .toLowerCase()
-                  .indexOf(input.toLowerCase()) >= 0
-              }
+              filterOption={this.dropdownFilter}
             >
               {country &&
                 world.getCities(country) !== undefined &&
@@ -140,6 +108,7 @@ class Search extends Component {
           <div className="type-filter__container__filter">
             <p className="button-label">Filter</p>
             <Button
+              className="keywords-btn"
               onClick={() => {
                 this.setState(state => ({
                   viewKeywords: !state.viewKeywords,
@@ -171,9 +140,5 @@ class Search extends Component {
     );
   }
 }
-
-Search.propTypes = {
-  sitspots: PropTypes.arrayOf(PropTypes.string).isRequired,
-};
 
 export default Search;

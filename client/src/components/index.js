@@ -5,4 +5,4 @@ import Fab from './Fab';
 import Search from './Search';
 import Footer from './Footer';
 
-export = { Button, Menu, Keywords, Fab, Search, Footer };
+export { Button, Menu, Keywords, Fab, Search, Footer };

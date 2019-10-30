@@ -73,12 +73,17 @@
   font-weight: bold !important;
 }
 
+.keywords-btn {
+  border-radius: 0;
+}
+
 .search-btn {
   background-color: var(--main-color) !important;
   color: #fff !important;
   font-size: 1.25rem !important;
   border: none;
   width: 34%;
+  border-radius: 0;;
 }
 
 .search-btn:hover {
@@ -92,7 +97,8 @@
   color: #fff !important;
   border: none;
   width: 65%;
-  opacity: var(--opacity);
+  opacity: var(--opacity-search-button);
+  border-radius: 0;
 }
 
 .type-filter__container__filter {
