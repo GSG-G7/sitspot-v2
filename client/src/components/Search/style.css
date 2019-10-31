@@ -1,9 +1,6 @@
 .search__form {
-  /* display: flex; */
   flex-direction: column;
-  /* max-width: 98%; */
   padding: 1rem;
-  /* margin: auto; */
 }
 
 .country-city-container {
