@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Select, Radio, Button } from 'antd';
-import world from 'full-countries-cities';
+import { getCountryNames, getCities } from 'full-countries-cities';
 
 import Keywords from '../Keywords';
 
@@ -44,7 +44,7 @@ class Search extends Component {
     const { fontColor } = this.props;
 
     const { EAT, SHOP, STAY } = this.LookingFor;
-    const cities = country ? world.getCities(country) : [];
+    const cities = country ? getCities(country) : [];
 
     return (
       <form className="search__form" style={{ color: fontColor }}>
@@ -60,7 +60,7 @@ class Search extends Component {
               onChange={value => this.setState({ country: value, city: '' })}
               filterOption={this.dropDownFilter}
             >
-              {this.renderOptions(world.getCountryNames())}
+              {this.renderOptions(getCountryNames())}
             </Select>
           </div>
           <div className="autocomplete-box">
