@@ -4,23 +4,21 @@ import { Carousel } from 'antd';
 
 import './style.css';
 
-const ImageCarousel = ({ slides, isAuto, haveDots, dotPosition }) => {
-  return (
-    <Carousel
-      className="slider"
-      autoplay={isAuto}
-      dots={haveDots}
-      dotPosition={dotPosition}
-    >
-      {slides.map(({ id, src, alt, title }) => (
-        <div key={id} className="slider__slide">
-          <img className="slider__slide__picture" src={src} alt={alt} />
-          {title && <p>{title}</p>}
-        </div>
-      ))}
-    </Carousel>
-  );
-};
+const ImageCarousel = ({ slides, isAuto, haveDots, dotPosition }) => (
+  <Carousel
+    className="slider"
+    autoplay={isAuto}
+    dots={haveDots}
+    dotPosition={dotPosition}
+  >
+    {slides.map(({ id, src, alt, title }) => (
+      <div key={id} className="slider__slide">
+        <img className="slider__slide__picture" src={src} alt={alt} />
+        {title && <p>{title}</p>}
+      </div>
+    ))}
+  </Carousel>
+);
 
 ImageCarousel.propTypes = {
   slides: PropTypes.arrayOf(PropTypes.object).isRequired,
@@ -31,7 +29,7 @@ ImageCarousel.propTypes = {
 ImageCarousel.defaultProps = {
   isAuto: true,
   haveDots: true,
-  dotPosition: 'top',
+  dotPosition: 'bottom',
 };
 
 export default ImageCarousel;
