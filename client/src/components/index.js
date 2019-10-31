@@ -7,4 +7,13 @@ import Header from './Header';
 import Footer from './Footer';
 import MagicalFactor from './MagicalFactor';
 
-export { Button, Menu, KeywordList, Fab, Search, Header, Footer, MagicalFactor };
+export {
+  Button,
+  Menu,
+  KeywordList,
+  Fab,
+  Search,
+  Header,
+  Footer,
+  MagicalFactor,
+};

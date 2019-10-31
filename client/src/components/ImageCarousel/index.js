@@ -1,13 +1,27 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Carousel } from 'antd';
+import 'antd/dist/antd.css';
 
-const ImageCarousel = ({ slides }) => {
+import './style.css';
+
+const ImageCarousel = ({ slides, isAuto, haveDots, dotPosition }) => {
   return (
-    <Carousel autoplay>
-      {slides.map(({ src, alt }) => (
-        <div key={src}>
-          <img src={src} alt={alt} />
+    <Carousel
+      className="slider"
+      autoplay={isAuto}
+      dots={haveDots}
+      dotPosition={dotPosition}
+    >
+      {slides.map(({ src, alt, title }) => (
+        <div className="slider__slide">
+          <img
+            className="slider__slide__picture"
+            key={alt}
+            src={src}
+            alt={alt}
+          />
+          {title && <p>{title}</p>}
         </div>
       ))}
     </Carousel>
@@ -16,6 +30,15 @@ const ImageCarousel = ({ slides }) => {
 
 ImageCarousel.propTypes = {
   slides: PropTypes.arrayOf(PropTypes.object).isRequired,
+  haveDots: PropTypes.bool,
+  isAuto: PropTypes.bool,
+  dotPosition: PropTypes.string,
+};
+
+ImageCarousel.defaultProps = {
+  isAuto: true,
+  haveDots: true,
+  dotPosition: 'bottom',
 };
 
 export default ImageCarousel;
