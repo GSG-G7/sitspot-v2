@@ -1,0 +1,82 @@
+.search__form {
+  flex-direction: column;
+  padding: 1rem;
+  font-weight: 600;
+}
+
+.country-city-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.autocomplete-box {
+  text-align:left;
+  width:49%;
+}
+
+.type-filter__container {
+  display: flex;
+  justify-content: space-between;
+  margin: 1.8rem 0 4rem 0;
+}
+
+.radio-group {
+  max-width: 70%;
+  margin-left: 0.25rem;
+}
+
+.button-label {
+  text-align: left;
+  margin: 0;
+}
+
+.form-action {
+  display: flex;
+  justify-content: space-between;
+}
+
+.country-dropdown {
+  margin-right: 1rem;
+}
+
+#keywords-btn {
+  border-radius: 0;
+  font-weight: 600;;
+}
+
+#search-btn {
+  background-color: var(--main-color);
+  color: #fff;
+  font-size: 1.25rem;
+  border: none;
+  width: 33%;
+  border-radius: 0;
+  font-weight: 600;
+}
+
+#search-btn:hover {
+  background-color: var(--main-color);
+  color: #fff;
+  border: none;
+}
+
+#recommendation-btn {
+  background-color: var(--main-color);
+  color:#fff;
+  border: none;
+  width: 62%;
+  opacity: var(--opacity-search-button);
+  border-radius: 0;
+  font-weight: 600;
+}
+
+.type-filter__container__filter {
+  text-align: left;
+}
+
+.ant-select-city {
+  border-radius: 0 !important;
+}
+.ant-select-country {
+  border-radius: 0 !important;
+}

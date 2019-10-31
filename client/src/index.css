@@ -13,5 +13,35 @@ html {
   --main-color: #F65B1C;
   --eco-color: #2eac65;
   --placeholder-color: #5d686e;
-  --opacity-search-button: 63%;
+  --opacity-search-button: .70;
+}
+
+.ant-select-arrow-icon {
+  color: var(--main-color) !important;
+}
+
+.radio-group .ant-radio-button-wrapper {
+  margin-right: 0.5rem !important;
+}
+
+.ant-radio-button-wrapper:hover {
+  background-color: var(--main-color);
+  opacity: 0.9;
+  color: #fff;
+}
+
+.ant-radio-button-wrapper:last-child {
+  border-radius: 0 !important;
+}
+
+.ant-radio-group > .ant-radio-button-wrapper-checked {
+  border: none !important;
+  background-color: var(--main-color) !important;
+  color: #fff !important;
+  font-weight: bold !important;
+}
+
+#ant-radio-button-wrapper-checked:not(.ant-radio-button-wrapper-disabled)::before {
+  opacity: 0;
+  background: 0;
 }
