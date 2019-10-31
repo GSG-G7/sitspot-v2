@@ -6,6 +6,7 @@ import Search from './Search';
 import Header from './Header';
 import Footer from './Footer';
 import MagicalFactor from './MagicalFactor';
+import ImageCarousel from './ImageCarousel';
 
 export {
   Button,
@@ -16,4 +17,5 @@ export {
   Header,
   Footer,
   MagicalFactor,
+  ImageCarousel,
 };
