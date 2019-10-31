@@ -7,7 +7,7 @@ import Button from '../Button';
 
 import './index.css';
 
-const Keywords = ({ keyword, setKeyword, toggleKeywordList }) => (
+const KeywordList = ({ keyword, setKeyword, toggleKeywordList }) => (
   <div className="keywords">
     <div className="keywords__close">
       <Icon type="close" onClick={toggleKeywordList} />
@@ -33,10 +33,10 @@ const Keywords = ({ keyword, setKeyword, toggleKeywordList }) => (
   </div>
 );
 
-Keywords.propTypes = {
+KeywordList.propTypes = {
   keyword: propTypes.string.isRequired,
   setKeyword: propTypes.func.isRequired,
   toggleKeywordList: propTypes.func.isRequired,
 };
 
-export default Keywords;
+export default KeywordList;

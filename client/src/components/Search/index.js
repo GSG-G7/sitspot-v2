@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { Select, Radio, Button } from 'antd';
 import { getCountryNames, getCities } from 'full-countries-cities';
 
-import Keywords from '../Keywords';
+import KeywordList from '../KeywordList';
 
 import './style.css';
 
@@ -126,7 +126,7 @@ class Search extends Component {
           </Button>
         </div>
         {viewKeywords && (
-          <Keywords
+          <KeywordList
             keyword={keyword}
             setKeyword={this.setKeyword}
             toggleKeywordList={this.toggleKeywordList}
