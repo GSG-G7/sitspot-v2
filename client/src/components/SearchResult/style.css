@@ -1,28 +1,23 @@
-.list {
+.search-result-list {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
 }
 
-.list__item {
-  margin-right: 2%;
+.search-result__item {
   width: 31%;
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem;
   display: flex;
   flex-direction: column; 
   justify-content: space-between;
 }
 
-.list__item__last__row {
-  margin-right: 0;
-}
-
-.list__item__img {
+.search-result__item-img {
   width: 100%;
   height: auto;
 }
 
-.list__item__text {
+.search-result__item-text {
   color: var(--placeholder-color);
   font-size: 1.4rem;
   font-weight: 650;

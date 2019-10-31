@@ -1,38 +1,25 @@
 import React from 'react';
 import propTypes from 'prop-types';
 
-import sitspotImg from '../../assets/searchResult';
+import ImageRepository from '../../assets';
 import './style.css';
 
-const SearchResult = ({ resultArray }) => {
-  let counter = 1;
-  return (
-    <ul className="list">
-      {resultArray.map(item => {
-        // this class to avoid margin in the third img in every row
-        let classNames = '';
-        if (counter === 3) {
-          counter = 1;
-          classNames = 'list__item list__item__last__row';
-        } else {
-          classNames = 'list__item';
-          counter += 1;
-        }
-
-        return (
-          <li key={item.id} className={classNames}>
-            <img
-              className="list__item__img"
-              alt="one sitSpot"
-              src={sitspotImg[item.imgSrc]}
-            />
-            <p className="list__item__text">{item.address}</p>
-          </li>
-        );
-      })}
+const SearchResult = ({ resultArray }) => (
+  <div className="search-result">
+    <ul className="search-result-list">
+      {resultArray.map(item => (
+        <li key={item.id} className="search-result__item">
+          <img
+            className="search-result__item-img"
+            alt="one sitSpot"
+            src={ImageRepository[item.type]}
+          />
+          <p className="search-result__item-text">{item.address}</p>
+        </li>
+      ))}
     </ul>
-  );
-};
+  </div>
+);
 
 SearchResult.propTypes = {
   resultArray: propTypes.arrayOf(propTypes.object).isRequired,
