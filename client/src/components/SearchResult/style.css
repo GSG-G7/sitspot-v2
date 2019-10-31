@@ -1,17 +1,19 @@
 .list {
   display: flex;
   flex-wrap: wrap;
-  padding: 1rem;
   justify-content: space-between;
 }
 
 .list__item {
   margin-right: 2%;
   width: 31%;
-  margin-bottom: 1.5rem;
+  margin-bottom: 2rem;
+  display: flex;
+  flex-direction: column; 
+  justify-content: space-between;
 }
 
-.list__item .last-row {
+.list__item__last__row {
   margin-right: 0;
 }
 
@@ -21,10 +23,8 @@
 }
 
 .list__item__text {
-  color: rgb(48, 46, 46);
-  font-family: "Raleway", sans-serif;
+  color: var(--placeholder-color);
   font-size: 1.4rem;
   font-weight: 650;
-  padding: 1%;
-  /* text-align: start; */
+  margin-top: 1rem;
 }
