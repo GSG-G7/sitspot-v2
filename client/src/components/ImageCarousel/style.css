@@ -1,15 +1,15 @@
 .slider {
-  max-width:800px;
-  height:100%;
+  max-width: 800px;
+  height: 100%;
   overflow: hidden;
-  margin:auto;
+  margin: auto;
 }
 
 .slider__slide__picture {
-  width:100%;
+  width: 100%;
 }
 
 .slider__slide__caption {
   font-weight: 600;
-  font-size:1.rem;
+  font-size:1.2rem;
 }
