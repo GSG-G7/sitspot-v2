@@ -18,7 +18,11 @@ class Search extends Component {
     viewKeywords: false,
   };
 
-  LookingFor = Object.freeze({ STAY: 'stay', EAT: 'eat', SHOP: 'shop' });
+  LookingFor = Object.freeze({
+    STAY: 'Stay',
+    EAT: 'Eat & Drink',
+    SHOP: 'Shop',
+  });
 
   renderOptions = list =>
     list.map(item => (
@@ -42,8 +46,6 @@ class Search extends Component {
   render() {
     const { country, city, keyword, viewKeywords, lookingFor } = this.state;
     const { fontColor } = this.props;
-
-    const { EAT, SHOP, STAY } = this.LookingFor;
     const cities = country ? getCities(country) : [];
 
     return (
@@ -88,27 +90,16 @@ class Search extends Component {
             <p style={{ color: fontColor }} className="button-label">
               What Are You Looking For
             </p>
-            <Radio.Button
-              className="radio-button"
-              value={STAY}
-              onClick={this.handleRadioButton}
-            >
-              Stay
-            </Radio.Button>
-            <Radio.Button
-              className="radio-button"
-              value={EAT}
-              onClick={this.handleRadioButton}
-            >
-              Eat & drink
-            </Radio.Button>
-            <Radio.Button
-              className="radio-button"
-              value={SHOP}
-              onClick={this.handleRadioButton}
-            >
-              Shop
-            </Radio.Button>
+            {Object.entries(this.LookingFor).map(([key, value]) => (
+              <Radio.Button
+                className="radio-button"
+                key={key}
+                value={value}
+                onClick={this.handleRadioButton}
+              >
+                {value}
+              </Radio.Button>
+            ))}
           </Radio.Group>
           <div className="type-filter__container__filter">
             <p className="button-label">Filter</p>
