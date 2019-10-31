@@ -1,11 +1,3 @@
-const text = [
-  {
-    tag: 'p',
-    value:
-      'A sitspot is a business (a place to stay, to eat or drink, or to shop) which combines 2 charactristics:',
-  },
-];
-
 const sitspotMessage = [
   {
     tag: 'p',
@@ -131,11 +123,44 @@ const questions = [
   },
   {
     title: 'Meet the founder',
-    content: text,
+    content: [
+      {
+        tag: 'img',
+        value: 'src image',
+      },
+      {
+        tag: 'p',
+        value:
+          'A year ago, I was enjoying the perks of a comfortable job in a big international media company. But despite the generous pension scheme, the epic Christmas parties and the friendliest team that bake you cakes on your birthday, … I knew',
+      },
+      {
+        tag: 'p',
+        value:
+          'If you had told me a year ago that I’d be running my own start-up, I would have burst out laughing.',
+      },
+      {
+        tag: 'li',
+        parent: 'ul',
+        value: [
+          'I have been a passionate environmentalist for years, cleaning rivers etc….',
+          'For many years, I was trying to fit that in alongside my job at a big international media company.',
+          'And one day I took the plunge: I said goodbye to the perks of a comfortable and rewarding creative job, the generous pension scheme, the epic Christmas parties and the friendliest team that bake you cakes on your birthday.',
+          'And I attempted to set up my own company. I knew that the world of conscious travel was what boosted me the most, and was massively under exploited. But I wasn’t sure which form that would take, I had never built a business plan, the startip world sounded like some sort of foreign land, and',
+          'A couple of start-ups accelerators programmes later, I have interviewed hundreds of travellers and businesses sharing the same passion.',
+        ],
+      },
+    ],
   },
   {
     title: 'Contact',
-    content: text,
+    content: [
+      {
+        tag: 'p',
+        child: [{ tag: 'span', value: 'reviews@mysitspot.com' }],
+        value:
+          'Your feedback matters to us as we are building SitSpot. Contact us at',
+      },
+    ],
   },
 ];
 
