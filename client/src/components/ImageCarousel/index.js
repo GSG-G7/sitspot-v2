@@ -14,7 +14,7 @@ const ImageCarousel = ({ slides, isAuto, haveDots, dotPosition }) => (
     {slides.map(({ id, src, alt, title }) => (
       <div key={id} className="slider__slide">
         <img className="slider__slide__picture" src={src} alt={alt} />
-        {title && <p>{title}</p>}
+        {title && <p className="slider__slide__caption">{title}</p>}
       </div>
     ))}
   </Carousel>
