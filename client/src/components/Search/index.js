@@ -127,9 +127,12 @@ class Search extends Component {
     );
   }
 }
+Search.defaultProps = {
+  fontColor: '#333',
+};
 
 Search.propTypes = {
-  fontColor: PropTypes.string.isRequired,
+  fontColor: PropTypes.string,
 };
 
 export default Search;

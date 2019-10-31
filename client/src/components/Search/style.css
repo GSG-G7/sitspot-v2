@@ -1,6 +1,7 @@
 .search__form {
   flex-direction: column;
   padding: 1rem;
+  font-weight: 600;
 }
 
 .country-city-container {
@@ -40,6 +41,7 @@
 
 #keywords-btn {
   border-radius: 0;
+  font-weight: 600;;
 }
 
 #search-btn {
