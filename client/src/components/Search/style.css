@@ -1,9 +1,9 @@
 .search__form {
-  display: flex;
+  /* display: flex; */
   flex-direction: column;
-  max-width: 98%;
+  /* max-width: 98%; */
   padding: 1rem;
-  margin: auto;
+  /* margin: auto; */
 }
 
 .country-city-container {
@@ -19,7 +19,7 @@
 .type-filter__container {
   display: flex;
   justify-content: space-between;
-  margin: 1rem 0;
+  margin: 1.8rem 0 4rem 0;
 }
 
 .radio-group {
