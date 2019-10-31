@@ -1,0 +1,30 @@
+.list {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 1rem;
+  justify-content: space-between;
+}
+
+.list__item {
+  margin-right: 2%;
+  width: 31%;
+  margin-bottom: 1.5rem;
+}
+
+.list__item .last-row {
+  margin-right: 0;
+}
+
+.list__item__img {
+  width: 100%;
+  height: auto;
+}
+
+.list__item__text {
+  color: rgb(48, 46, 46);
+  font-family: "Raleway", sans-serif;
+  font-size: 1.4rem;
+  font-weight: 650;
+  padding: 1%;
+  /* text-align: start; */
+}
