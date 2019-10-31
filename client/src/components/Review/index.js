@@ -1,6 +1,8 @@
 import React from 'react';
 import propTypes from 'prop-types';
+
 import MagicalFactor from '../MagicalFactor';
+import ProfileDetails from './subcomponent/ProfileDetails';
 
 import './style.css';
 
@@ -22,7 +24,7 @@ class Review extends React.Component {
 
   render() {
     const {
-      reviewee: { name },
+      reviewee,
       title,
       magicalFactors,
       tripDetails,
@@ -35,14 +37,18 @@ class Review extends React.Component {
       <div className="review">
         <div className="review__reviewee">
           <p>
-            By {`${name} `} |
+            By {`${reviewee.name} `} |
             <span tabIndex="-1" role="button" onClick={this.toggleProfile}>
-              {' '}
               {isProfileShown ? 'Hide' : 'View'} Profile
             </span>
           </p>
         </div>
-        {isProfileShown && <div className="review__reviewee-full-info"> </div>}
+        {isProfileShown && (
+          <ProfileDetails
+            className="review__reviewee-full-info"
+            profile={reviewee}
+          />
+        )}
         <div className="review__heading">
           <h3>{title}</h3>
         </div>
