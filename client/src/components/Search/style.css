@@ -51,6 +51,7 @@
   border: none;
   width: 33%;
   border-radius: 0;
+  font-weight: 600;
 }
 
 #search-btn:hover {
@@ -66,6 +67,7 @@
   width: 62%;
   opacity: var(--opacity-search-button);
   border-radius: 0;
+  font-weight: 600;
 }
 
 .type-filter__container__filter {
