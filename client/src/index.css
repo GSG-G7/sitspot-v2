@@ -40,3 +40,8 @@ html {
   color: #fff !important;
   font-weight: bold !important;
 }
+
+#ant-radio-button-wrapper-checked:not(.ant-radio-button-wrapper-disabled)::before {
+  opacity: 0;
+  background: 0;
+}

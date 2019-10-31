@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { Select, Radio, Button } from 'antd';
 import world from 'full-countries-cities';
 
@@ -17,7 +18,7 @@ class Search extends Component {
     viewKeywords: false,
   };
 
-  lookingFor = { STAY: 'stay', EAT: 'eat', SHOP: 'shop' };
+  LookingFor = Object.freeze({ STAY: 'stay', EAT: 'eat', SHOP: 'shop' });
 
   renderOptions = list =>
     list.map(item => (
@@ -28,35 +29,36 @@ class Search extends Component {
 
   onSubmit = () => {};
 
-  setKeyword = value => {
-    this.setState({ keyword: value, viewKeywords: false });
-  };
+  setKeyword = value => this.setState({ keyword: value, viewKeywords: false });
 
-  toggleKeywordList = () => {
+  toggleKeywordList = () =>
     this.setState(state => ({ viewKeywords: !state.viewKeywords }));
-  };
 
-  dropdownFilter = (input, option) =>
+  dropDownFilter = (input, option) =>
     option.props.children.toLowerCase().indexOf(input.toLowerCase()) >= 0;
+
+  handleRadioButton = e => this.setState({ lookingFor: e.target.value });
 
   render() {
     const { country, city, keyword, viewKeywords, lookingFor } = this.state;
+    const { fontColor } = this.props;
 
-    const { EAT, SHOP, STAY } = this.lookingFor;
-    const cities = country ? world.getCities(country) : undefined;
+    const { EAT, SHOP, STAY } = this.LookingFor;
+    const cities = country ? world.getCities(country) : [];
 
     return (
-      <form className="search__form">
+      <form className="search__form" style={{ color: fontColor }}>
         <div className="country-city-container">
           <div className="autocomplete-box">
             <div>WHICH COUNTRY?</div>
             <Select
+              className="ant-select-country"
               showSearch
               placeholder="Select"
               optionFilterProp="children"
               value={country}
               onChange={value => this.setState({ country: value, city: '' })}
-              filterOption={this.dropdownFilter}
+              filterOption={this.dropDownFilter}
             >
               {this.renderOptions(world.getCountryNames())}
             </Select>
@@ -64,14 +66,15 @@ class Search extends Component {
           <div className="autocomplete-box">
             <div>WHICH CITY?</div>
             <Select
+              id="ant-select-city"
               showSearch
               placeholder="Select"
               optionFilterProp="children"
               value={city}
               onChange={value => this.setState({ city: value })}
-              filterOption={this.dropdownFilter}
+              filterOption={this.dropDownFilter}
             >
-              {country && cities !== undefined && this.renderOptions(cities)}
+              {cities && this.renderOptions(cities)}
             </Select>
           </div>
         </div>
@@ -82,32 +85,34 @@ class Search extends Component {
             value={lookingFor}
             buttonStyle="solid"
           >
-            <p className="button-label">What Are You Looking For</p>
+            <p style={{ color: fontColor }} className="button-label">
+              What Are You Looking For
+            </p>
             <Radio.Button
               className="radio-button"
               value={STAY}
-              onClick={() => this.setState({ lookingFor: STAY })}
+              onClick={this.handleRadioButton}
             >
               Stay
             </Radio.Button>
             <Radio.Button
               className="radio-button"
               value={EAT}
-              onClick={() => this.setState({ lookingFor: EAT })}
+              onClick={this.handleRadioButton}
             >
               Eat & drink
             </Radio.Button>
             <Radio.Button
               className="radio-button"
               value={SHOP}
-              onClick={() => this.setState({ lookingFor: SHOP })}
+              onClick={this.handleRadioButton}
             >
               Shop
             </Radio.Button>
           </Radio.Group>
           <div className="type-filter__container__filter">
             <p className="button-label">Filter</p>
-            <Button className="keywords-btn" onClick={this.toggleKeywordList}>
+            <Button id="keywords-btn" onClick={this.toggleKeywordList}>
               KeyWords
             </Button>
           </div>
@@ -131,5 +136,9 @@ class Search extends Component {
     );
   }
 }
+
+Search.propTypes = {
+  fontColor: PropTypes.string.isRequired,
+};
 
 export default Search;
