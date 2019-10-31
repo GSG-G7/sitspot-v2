@@ -1,0 +1,8 @@
+.review__text {
+  width: 100%;
+  overflow-wrap: break-word;
+}
+
+.review__body {
+  width: 100%;
+}
