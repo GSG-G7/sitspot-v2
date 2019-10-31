@@ -1,0 +1,35 @@
+.nav__header {
+  height: 10vh;
+  background-color: transparent;
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem 1rem;
+  text-align: center;
+}
+
+.header__button {
+  background-color: transparent;
+  border: none;
+  text-align: center;
+}
+
+.header__button__div {
+  width: 3rem;
+  height: 0.25rem;
+  background-color: white;
+}
+
+.header__button__div--middle {
+  margin: 0.7rem 0;
+}
+
+.header__div__img-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.header__div__img-container__logo {
+  width: 50%;
+  height: auto;
+}
