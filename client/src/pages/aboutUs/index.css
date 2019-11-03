@@ -1,5 +1,5 @@
 .about__header {
-  background-image: url('../../assets/header-1.png');
+  background-image: url('../../assets/FAQ-header.png');
   background-repeat: no-repeat;
   background-size: cover;
   height: 19rem;
@@ -22,4 +22,35 @@
   font-size: 1.9rem;
   line-height: 1.5em;
   color: var(--placeholder-color);
+}
+
+.about__main-title-4 .about--img,
+.about__main-title-5 .about--img {
+  width: 100%;
+  margin-bottom: 2rem;
+}
+
+.about--ul {
+  margin-left: 1.5rem;
+  list-style: none;
+}
+
+.about--li {
+  margin-bottom: 1rem;
+}
+
+.about--li:before {
+  content: '. ';
+  color: red;
+  display: inline-block;
+  width: 1rem;
+  font-size: 3rem;
+  line-height: 0;
+  margin-left: -1.6rem;
+  margin-bottom: -5rem;
+}
+
+.about__contact--email {
+  color: var(--main-color);
+  margin-left: 0.5rem;
 }
