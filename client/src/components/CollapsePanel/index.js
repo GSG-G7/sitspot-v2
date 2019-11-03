@@ -80,7 +80,7 @@ const renderSubQuestions = (question, objStyle, index) => {
       className={`${objStyle.mainTitle}-${index + 1}`}
       header={question.title}
     >
-      <Collapse defaultActiveKey="whats sitspot?" accordion>
+      <Collapse accordion>
         {question.content.map(subQuestion => {
           return (
             <Panel
