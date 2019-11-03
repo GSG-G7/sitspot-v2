@@ -73,41 +73,33 @@ const renderQuestion = (question, objStyle) =>
     return renderTag(content, classTag);
   });
 
-const renderSubQuestions = (question, objStyle, index) => (
-  <Panel
-    key={question.title}
-    className={`${objStyle.mainTitle}-${index + 1}`}
-    header={question.title}
-  >
-    <Collapse accordion>
-      {question.content.map(subQuestion => (
-        <Panel
-          className="sub-header"
-          header={subQuestion.title}
-          key={subQuestion.title}
-        >
-          {renderQuestion(subQuestion, objStyle)}
-        </Panel>
-      ))}
-    </Collapse>
-  </Panel>
+const renderSubQuestions = (question, objStyle) => (
+  <Collapse accordion>
+    {question.content.map(subQuestion => (
+      <Panel
+        className="sub-header"
+        header={subQuestion.title}
+        key={subQuestion.title}
+      >
+        {renderQuestion(subQuestion, objStyle)}
+      </Panel>
+    ))}
+  </Collapse>
 );
 
 const CollapsePanel = ({ questions, subCollapse, style }) => (
   <Collapse accordion>
-    {questions.map((question, index) => {
-      if (subCollapse && subCollapse[index + 1])
-        return renderSubQuestions(question, style, index);
-      return (
-        <Panel
-          className={`${style.mainTitle}-${index + 1}`}
-          header={question.title}
-          key={question.title}
-        >
-          {renderQuestion(question, style)}
-        </Panel>
-      );
-    })}
+    {questions.map((question, index) => (
+      <Panel
+        className={`${style.mainTitle}-${index + 1}`}
+        header={question.title}
+        key={question.title}
+      >
+        {subCollapse && subCollapse[index + 1]
+          ? renderSubQuestions(question, style)
+          : renderQuestion(question, style)}
+      </Panel>
+    ))}
   </Collapse>
 );
 
