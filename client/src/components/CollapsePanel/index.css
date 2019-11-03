@@ -14,7 +14,11 @@
   align-items: center;
 }
 
-#faq__questions .sub-title .ant-collapse-header {
+#faq__questions .ant-collapse-content-box {
+  padding-top: 0;
+}
+
+#faq__questions .sub-header .ant-collapse-header {
   font-size: 1.7rem;
   color: var(--main-color);
   opacity: 0.9;
@@ -33,8 +37,4 @@
   display: block;
   margin-right: 1rem;
   margin-top: 1.8rem;
-}
-
-#faq__questions .sub-title .ant-collapse-arrow {
-  font-size: 1.4rem;
 }
