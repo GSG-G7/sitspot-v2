@@ -24,58 +24,79 @@ class Review extends React.Component {
 
   render() {
     const {
-      reviewee,
-      title,
-      magicalFactors,
-      tripDetails,
-      reviewText,
-      preservation,
+      review: {
+        reviewee,
+        reviewDate,
+        title,
+        magicalFactors,
+        tripDetails,
+        reviewText,
+        preservation,
+      },
     } = this.props;
     const { isProfileShown, expand } = this.state;
 
     return (
       <div className="review">
-        <div className="review__reviewee">
-          <p>
-            By {`${reviewee.name} `} |
-            <span tabIndex="-1" role="button" onClick={this.toggleProfile}>
-              {isProfileShown ? 'Hide' : 'View'} Profile
-            </span>
-          </p>
-        </div>
+        <p className="review__reviewee">
+          By {`${reviewee.Name} `}
+          <span
+            className="review__reviewee__view-profile"
+            tabIndex="-1"
+            role="button"
+            onClick={this.toggleProfile}
+          >
+            | {isProfileShown ? ' Hide' : ' View'} Profile
+          </span>
+        </p>
         {isProfileShown && (
-          <ProfileDetails
-            className="review__reviewee-full-info"
-            profile={reviewee}
-          />
+          <>
+            <ProfileDetails
+              className="review__reviewee-full-info"
+              profile={reviewee}
+            />
+            <span
+              tabIndex="-1"
+              role="button"
+              onClick={this.toggleProfile}
+              className="review__reviewee__view-profile hide-profile"
+            >
+              Hide Profile
+            </span>
+          </>
         )}
-        <div className="review__heading">
-          <h3>{title}</h3>
+        <div className="review__heading green-dotted-border">
+          <p className="review__heading__title">{title} </p>
+          <p className="review__heading__date">{reviewDate}</p>
         </div>
         <div className="review__magical-factors">
           {magicalFactors.map(({ value, reviewText: magicalFactorReview }) => (
-            <MagicalFactor
-              value={value}
-              reviewText={magicalFactorReview}
-              key={value.text}
-            />
+            <div className="green-dotted-border" key={value.text}>
+              <MagicalFactor value={value} reviewText={magicalFactorReview} />
+            </div>
           ))}
         </div>
-        <div className="review__details">
+        <div className="review__details green-dotted-border">
           {Object.entries(tripDetails).map((
             [key, value] // extremely debatable way to do this
           ) => (
             <div className="review__details__field" key={key}>
-              <p>{key}</p>
-              <p>{value}</p>
+              <p className="review__details__field__type">{key}</p>
+              <p className="review__details__field__value">{value}</p>
             </div>
           ))}
         </div>
         <div className="review__body">
           <p className="review__text">
-            {expand ? reviewText : reviewText.slice(10)}
+            {expand ? reviewText : reviewText.slice(0, 200)}
             {!expand && (
-              <span tabIndex="-1" role="button" onClick={this.toggleExpand}>
+              <span
+                className="expand-button"
+                tabIndex="-1"
+                role="button"
+                onClick={this.toggleExpand}
+              >
+                <br />
                 More
               </span>
             )}
@@ -94,7 +115,12 @@ class Review extends React.Component {
                   </ul>
                 </div>
               ))}
-              <span tabIndex="-1" role="button" onClick={this.toggleExpand}>
+              <span
+                className="expand-button"
+                tabIndex="-1"
+                role="button"
+                onClick={this.toggleExpand}
+              >
                 Less
               </span>
             </div>
@@ -106,61 +132,70 @@ class Review extends React.Component {
 }
 
 Review.defaultProps = {
-  reviewee: { name: 'Hanaa' },
-  title: 'hi',
-  magicalFactors: [
-    {
-      value: { text: 'Family', imgSrc: 'family' },
-      reviewText: 'haidslkashdlkahgskjashgkjahskj',
+  review: {
+    reviewee: { Name: 'Hanaa', Country: 'UK', Age: '49-51' },
+    reviewDate: new Date().toLocaleDateString(),
+    title: 'OK THAT WAS Coool as  sa asfas dasdsad',
+    magicalFactors: [
+      {
+        value: { text: 'Solo Traveller Friendly', imgSrc: 'family' },
+        reviewText:
+          'kasjlksajdlkjkasjlksajdlkjkasjlksajdlkjkasjlksajdlkjkasjlksajdlkjkasjlksajdlkjkasjlksajdlkjkasjlksajdlkjkasjlksajdlkjkasjlksajdlkjkasjlksajdlkjkasjlksajdlkjkasjlksajdlkjkasjlksajdlkjkasjlksajdlkj',
+      },
+      {
+        value: { text: 'Wildlife', imgSrc: 'wild' },
+        reviewText:
+          'kasjlksajdlkjkasjlksajdlkjkasjlksajdlkjkasjlksajdlkjkasjlksajdlkj',
+      },
+    ],
+    tripDetails: {
+      Type: 'accomdation',
+      'Sub Type': 'private ensuite',
+      'Type of trip': 'Backpacking',
+      Date: '13/9/2018',
+      'Price Range': 'luxury',
     },
-    {
-      value: { text: 'Wild', imgSrc: 'wild' },
-      reviewText: 'haidslkashdlkahgskjashgkjahskj',
-    },
-  ],
-  tripDetails: {
-    type: 'accomdation',
-    subtype: 'private ensuite',
-    typeOfTrip: 'Backpacking',
-    date: '13/9/2018',
-    priceRange: 'luxury',
+    reviewText:
+      'ahsdhaksjfhkdsjghlkhdalkhdfkahsdhaksjfhkdsjghlkhdalkhdfkahsdhaksjfhkdsjghlkhdalkhdfkahsdhaksjfhkdsjghlkhdalkhdfkahsdhaksjfhkdsjghlkhdalkhdfkahsdhaksjfhkdsjghlkhdalkhdfkahsdhaksjfhkdsjghlkhdalkhdfkahsdhaksjfhkdsjghlkhdalkhdfkahsdhaksjfhkdsjghlkhdalkhdfkahsdhaksjfhkdsjghlkhdalkhdfkahsdhaksjfhkdsjghlkhdalkhdfkahsdhaksjfhkdsjghlkhdalkhdfkahsdhaksjfhkdsjghlkhdalkhdfkahsdhaksjfhkdsjghlkhdalkhdfkahsdhaksjfhkdsjghlkhdalkhdfkahsdhaksjfhkdsjghlkhdalkhdfkahsdhaksjfhkdsjghlkhdalkhdfkahsdhaksjfhkdsjghlkhdalkhdfkahsdhaksjfhkdsjghlkhdalkhdfkahsdhaksjfhkdsjghlkhdalkhdfkahsdhaksjfhkdsjghlkhdalkhdfkahsdhaksjfhkdsjghlkhdalkhdfkahsdhaksjfhkdsjghlkhdalkhdfkahsdhaksjfhkdsjghlkhdalkhdfkahsdhaksjfhkdsjghlkhdalkhdfkahsdhaksjfhkdsjghlkhdalkhdfkahsdhaksjfhkdsjghlkhdalkhdfkahsdhaksjfhkdsjghlkhdalkhdfkahsdhaksjfhkdsjghlkhdalkhdfkahsdhaksjfhkdsjghlkhdalkhdfkahsdhaksjfhkdsjghlkhdalkhdfkahsdhaksjfhkdsjghlkhdalkhdfkahsdhaksjfhkdsjghlkhdalkhdfkahsdhaksjfhkdsjghlkhdalkhdfkahsdhaksjfhkdsjghlkhdalkhdfkahsdhaksjfhkdsjghlkhdalkhdfkahsdhaksjfhkdsjghlkhdalkhdfkahsdhaksjfhkdsjghlkhdalkhdfkahsdhaksjfhkdsjghlkhdalkhdfkahsdhaksjfhkdsjghlkhdalkhdfkahsdhaksjfhkdsjghlkhdalkhdfkahsdhaksjfhkdsjghlkhdalkhdfkahsdhaksjfhkdsjghlkhdalkhdfkahsdhaksjfhkdsjghlkhdalkhdfkahsdhaksjfhkdsjghlkhdalkhdfkahsdhaksjfhkdsjghlkhdalkhdfkahsdhaksjfhkdsjghlkhdalkhdfkahsdhaksjfhkdsjghlkhdalkhdfkahsdhaksjfhkdsjghlkhdalkhdfkahsdhaksjfhkdsjghlkhdalkhdfkahsdhaksjfhkdsjghlkhdalkhdfkahsdhaksjfhkdsjghlkhdalkhdfkahsdhaksjfhkdsjghlkhdalkhdfkahsdhaksjfhkdsjghlkhdalkhdfkahsdhaksjfhkdsjghlkhdalkhdfkahsdhaksjfhkdsjghlkhdalkhdfkahsdhaksjfhkdsjghlkhdalkhdfkahsdhaksjfhkdsjghlkhdalkhdfkahsdhaksjfhkdsjghlkhdalkhdfkahsdhaksjfhkdsjghlkhdalkhdfkahsdhaksjfhkdsjghlkhdalkhdfkahsdhaksjfhkdsjghlkhdalkhdfkahsdhaksjfhkdsjghlkhdalkhdfkahsdhaksjfhkdsjghlkhdalkhdfkahsdhaksjfhkdsjghlkhdalkhdfkahsdhaksjfhkdsjghlkhdalkhdfkahsdhaksjfhkdsjghlkhdalkhdfkahsdhaksjfhkdsjghlkhdalkhdfk',
+    preservation: [
+      {
+        title: 'hi',
+        badges: ['asdjlakfsjlksaj', 'sadsadasd'],
+      },
+    ],
   },
-  reviewText:
-    'ahsdhaksjfhkdsjghlkhdalkhdfkahsdhaksjfhkdsjghlkhdalkhdfkahsdhaksjfhkdsjghlkhdalkhdfkahsdhaksjfhkdsjghlkhdalkhdfkahsdhaksjfhkdsjghlkhdalkhdfkahsdhaksjfhkdsjghlkhdalkhdfkahsdhaksjfhkdsjghlkhdalkhdfkahsdhaksjfhkdsjghlkhdalkhdfkahsdhaksjfhkdsjghlkhdalkhdfkahsdhaksjfhkdsjghlkhdalkhdfkahsdhaksjfhkdsjghlkhdalkhdfkahsdhaksjfhkdsjghlkhdalkhdfkahsdhaksjfhkdsjghlkhdalkhdfkahsdhaksjfhkdsjghlkhdalkhdfkahsdhaksjfhkdsjghlkhdalkhdfkahsdhaksjfhkdsjghlkhdalkhdfkahsdhaksjfhkdsjghlkhdalkhdfk',
-  preservation: [
-    {
-      title: 'hi',
-      badges: ['asdjlakfsjlksaj', 'sadsadasd'],
-    },
-  ],
 };
 
 const { shape, string, arrayOf } = propTypes;
 Review.propTypes = {
-  reviewee: shape({
-    name: string,
+  review: shape({
+    reviewee: shape({
+      Name: string,
+      Country: string,
+      Age: string,
+    }),
+    title: string,
+    magicalFactors: arrayOf(
+      shape({
+        value: shape({ text: string, imgSrc: string }),
+        reviewText: string,
+      })
+    ),
+    tripDetails: shape({
+      Type: string,
+      'Sub Type': string,
+      'Type of trip': string,
+      Date: string,
+      priceRange: string,
+    }),
+    reviewText: string,
+    preservation: arrayOf(
+      shape({
+        title: string,
+        badges: arrayOf(string),
+      })
+    ),
   }),
-  title: string,
-  magicalFactors: arrayOf(
-    shape({
-      value: shape({ text: string, imgSrc: string }),
-      reviewText: string,
-    })
-  ),
-  tripDetails: shape({
-    type: string,
-    subtype: string,
-    typeOfTrip: string,
-    date: string,
-    priceRange: string,
-  }),
-  reviewText: string,
-  preservation: arrayOf(
-    shape({
-      title: string,
-      badges: arrayOf(string),
-    })
-  ),
 };
 
 export default Review;
