@@ -20,7 +20,16 @@ const FAQ = () => {
           </span>{' '}
           for a chat.
         </p>
-        <CollapsePanel questions={questions} />
+        <div id="faq__questions">
+          <CollapsePanel
+            questions={questions}
+            subCollapse={{ 1: true }}
+            style={{
+              mainTitle: 'faq__main-title',
+              pClass: 'faq__paragraph',
+            }}
+          />
+        </div>
       </div>
     </div>
   );
