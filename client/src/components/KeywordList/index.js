@@ -2,30 +2,30 @@ import React from 'react';
 import { Icon } from 'antd';
 import propTypes from 'prop-types';
 
-import keywords from '../../staticDataSet/keywords';
+import data from '../../staticDataSet/keywords';
 import Button from '../Button';
 
 import './index.css';
 
-const KeywordList = ({ keyword, setKeyword, toggleKeywordList }) => (
+const KeywordList = ({ keywords, toogleKeyword, toggleKeywordList }) => (
   <div className="keywords">
     <div className="keywords__close">
       <Icon type="close" onClick={toggleKeywordList} />
     </div>
     <h2 className="keywords__title">Keywords</h2>
     <div className="keywords__list">
-      {Object.keys(keywords).map(key => {
+      {Object.keys(data).map(key => {
         return (
           <Button
             key={key}
-            onClick={() => setKeyword(key)}
+            onClick={() => toogleKeyword(key)}
             className={
-              key === keyword
+              keywords.indexOf(key) !== -1
                 ? 'keywords__list--item active-btn'
                 : 'keywords__list--item'
             }
           >
-            {keywords[key].text}
+            {data[key].text}
           </Button>
         );
       })}
@@ -34,8 +34,8 @@ const KeywordList = ({ keyword, setKeyword, toggleKeywordList }) => (
 );
 
 KeywordList.propTypes = {
-  keyword: propTypes.string.isRequired,
-  setKeyword: propTypes.func.isRequired,
+  keywords: propTypes.arrayOf(propTypes.string).isRequired,
+  toogleKeyword: propTypes.func.isRequired,
   toggleKeywordList: propTypes.func.isRequired,
 };
 

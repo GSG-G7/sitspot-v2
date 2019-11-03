@@ -14,7 +14,7 @@ class Search extends Component {
     country: undefined,
     city: undefined,
     lookingFor: '',
-    keyword: '',
+    keywords: [],
     viewKeywords: false,
   };
 
@@ -33,10 +33,24 @@ class Search extends Component {
 
   onSubmit = () => {};
 
-  setKeyword = value => this.setState({ keyword: value, viewKeywords: false });
-
   toggleKeywordList = () =>
     this.setState(state => ({ viewKeywords: !state.viewKeywords }));
+
+  toogleKeyword = keyword => {
+    const {
+      keywords: [...keywords],
+    } = this.state;
+
+    const index = keywords.indexOf(keyword);
+
+    if (index < 0) {
+      keywords.push(keyword);
+      this.setState({ keywords });
+    } else {
+      keywords.splice(index, index + 1);
+      this.setState({ keywords });
+    }
+  };
 
   dropDownFilter = (input, option) =>
     option.props.children.toLowerCase().indexOf(input.toLowerCase()) >= 0;
@@ -44,7 +58,7 @@ class Search extends Component {
   handleRadioButton = e => this.setState({ lookingFor: e.target.value });
 
   render() {
-    const { country, city, keyword, viewKeywords, lookingFor } = this.state;
+    const { country, city, keywords, viewKeywords, lookingFor } = this.state;
     const { fontColor } = this.props;
     const cities = country ? getCities(country) : [];
 
@@ -118,8 +132,8 @@ class Search extends Component {
         </div>
         {viewKeywords && (
           <KeywordList
-            keyword={keyword}
-            setKeyword={this.setKeyword}
+            keywords={keywords}
+            toogleKeyword={this.toogleKeyword}
             toggleKeywordList={this.toggleKeywordList}
           />
         )}
