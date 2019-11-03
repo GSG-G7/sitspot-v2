@@ -1,0 +1,25 @@
+.search-result-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.search-result__item {
+  width: 31%;
+  margin-bottom: 1.5rem;
+  display: flex;
+  flex-direction: column; 
+  justify-content: space-between;
+}
+
+.search-result__item-img {
+  width: 100%;
+  height: auto;
+}
+
+.search-result__item-text {
+  color: var(--placeholder-color);
+  font-size: 1.4rem;
+  font-weight: 650;
+  margin-top: 1rem;
+}
