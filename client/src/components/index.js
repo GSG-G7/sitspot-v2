@@ -1,9 +1,23 @@
 import Button from './Button';
 import Menu from './Menu';
-import Keywords from './Keywords';
+import KeywordList from './KeywordList';
 import Fab from './Fab';
+import SearchResult from './SearchResult';
+import Search from './Search';
 import Header from './Header';
 import Footer from './Footer';
 import MagicalFactor from './MagicalFactor';
+import ImageCarousel from './ImageCarousel';
 
-export { Button, Menu, Keywords, Fab, Header, Footer, MagicalFactor };
+export {
+  Button,
+  Menu,
+  KeywordList,
+  Fab,
+  Search,
+  Header,
+  Footer,
+  MagicalFactor,
+  SearchResult,
+  ImageCarousel,
+};
