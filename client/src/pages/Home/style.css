@@ -1,0 +1,59 @@
+.top-container {
+  background: url('../../assets/images/home-background.jpg') no-repeat center center;
+  align-content: center;
+  padding-bottom: 5%;
+}
+
+.top-container__slagon {
+  padding-bottom: 20%;
+  padding-top: 50%;
+  margin-left: 10%;
+  margin-right: 10%;
+  text-align: center;
+  font-size: 2.2rem;
+  font-weight: 600;
+  font-family: "Raleway", sans-serif;
+  color: whitesmoke;
+}
+
+.second-container {
+  margin: 5%;
+}
+
+.welcome-container {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  padding-top: 5%;
+  padding-bottom: 2%;
+}
+
+.welcome-container__text {
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: var(--main-color);
+  font-family: "Raleway", sans-serif;
+  text-align: center;
+  margin-top: 7%;
+}
+
+.value-paragragh {
+  font-family: "Raleway", sans-serif;
+  color: gray;
+}
+
+.aboutus-link {
+  font-family: "Raleway", sans-serif;
+  color: var(--main-color);
+  padding-bottom: 7%;
+  margin-top: 2%;
+  font-style: oblique;
+}
+
+.slider-title {
+  font-size: 1.5rem;
+  font-weight: 800;
+  font-family: "Raleway", sans-serif;
+  color: var(--main-color);
+  text-align: center;
+}
