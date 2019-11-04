@@ -10,7 +10,7 @@
   display: flex;
   height: 4rem;
   align-self: flex-start;
-  justify-content: space-around;
+  padding-left: 0.5rem;
 }
 
 .magical__keyword__img-container {
