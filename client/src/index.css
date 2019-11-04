@@ -8,7 +8,7 @@
 
 html {
   font-size: 10px;
-  font-family: "Raleway", sans-serif;
+  font-family: 'Raleway', sans-serif;
 }
 
 :root {
@@ -20,7 +20,9 @@ html {
 
 /* ant.d animations overrides */
 
-ol, ul, dl {
+ol,
+ul,
+dl {
   margin: 0;
 }
 
