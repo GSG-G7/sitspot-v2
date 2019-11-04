@@ -9,6 +9,7 @@ import Footer from './Footer';
 import MagicalFactor from './MagicalFactor';
 import Review from './Review';
 import ImageCarousel from './ImageCarousel';
+import Layout from './Layout';
 
 export {
   Button,
@@ -22,4 +23,5 @@ export {
   Review,
   SearchResult,
   ImageCarousel,
+  Layout,
 };
