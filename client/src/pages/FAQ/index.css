@@ -1,0 +1,32 @@
+.faq__header {
+  background-image: url('../../assets/FAQ-header.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 19rem;
+  position: relative;
+}
+
+.faq__header__title {
+  position: absolute;
+  color: #fff;
+  margin-bottom: 0;
+  left: 1.5rem;
+  bottom: 1rem;
+  font-weight: 600;
+}
+
+.faq__content {
+  margin: 6rem 0;
+  padding: 0 1rem;
+  font-size: 1.9rem;
+  line-height: 1.5em;
+  color: var(--placeholder-color);
+}
+
+.faq__content__desc {
+  margin-bottom: 5rem;
+}
+
+.faq__content--email {
+  color: var(--main-color);
+}

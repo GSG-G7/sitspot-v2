@@ -2,6 +2,7 @@ import Button from './Button';
 import Menu from './Menu';
 import KeywordList from './KeywordList';
 import Fab from './Fab';
+import CollapsePanel from './CollapsePanel';
 import SearchResult from './SearchResult';
 import Search from './Search';
 import Header from './Header';
@@ -14,13 +15,14 @@ import Layout from './Layout';
 export {
   Button,
   Menu,
-  KeywordList,
   Fab,
-  Search,
   Header,
   Footer,
   MagicalFactor,
   Review,
+  CollapsePanel,
+  KeywordList,
+  Search,
   SearchResult,
   ImageCarousel,
   Layout,
