@@ -8,22 +8,17 @@ import urls from './urls';
 import './style.css';
 
 const AddReview = ({ type, sitspotId }) => (
-  <div>
-    <div
-      className="header-img"
-      style={{
-        'background-image': '',
-      }}
-    />
+  <>
+    <div className="header-img" />
     <ReactTypeformEmbed
       url={urls[type](sitspotId)}
       style={{
         position: 'relative',
         width: '100%',
-        height: '90vh',
+        height: '85vh',
       }}
     />
-  </div>
+  </>
 );
 AddReview.propTypes = {
   type: propTypes.oneOf(['STAY', 'EAT', 'SHOP']).isRequired,
