@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
-import Header from '../../components/Header';
-import Footer from '../../components/Footer';
-import Search from '../../components/Search';
-import SearchResult from '../../components/SearchResult';
+import { Search, SearchResult } from '../../components/index';
+import fakeData from '../../components/SearchResult/fakeData';
 
 import './style.css';
 
@@ -14,7 +13,7 @@ class SearchPage extends Component {
 
   componentDidMount() {
     // fetch sitspots
-    // this.setState({ sitspots });
+    this.setState({ sitspots: fakeData });
   }
 
   render() {
@@ -23,23 +22,21 @@ class SearchPage extends Component {
     } = this.state;
     return (
       <>
-        <div className="show-case">
-          <Header />
-        </div>
-        <div className="search-wrapper">
-          <Search fontColor="#333" />
-          <p className="search-wrapper__results-label">
-            {sitspots.length} Search Results
-          </p>
-          <SearchResult
-            className="search-wrapper__search-results__wrapper"
-            resultArray={sitspots}
-          />
-        </div>
-        <Footer />
+        <div className="show-case" />
+        <Search fontColor="#333" />
+        <p className="results-label">{sitspots.length} Search Results</p>
+        <SearchResult className="search-page__results" resultArray={sitspots} />
       </>
     );
   }
 }
+
+SearchPage.propTypes = {
+  country: PropTypes.string.isRequired,
+  city: PropTypes.string.isRequired,
+  lookingFor: PropTypes.string.isRequired,
+  keywords: PropTypes.arrayOf(PropTypes.string).isRequired,
+  viewKeywords: PropTypes.bool.isRequired,
+};
 
 export default SearchPage;

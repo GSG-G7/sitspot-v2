@@ -8,10 +8,6 @@
   padding: 1rem;
 }
 
-.search-wrapper__results-label {
+.results-label {
   margin-left: 1rem;
-}
-
-.search-wrapper {
-  min-height: calc(100vh - (35vh));
 }
