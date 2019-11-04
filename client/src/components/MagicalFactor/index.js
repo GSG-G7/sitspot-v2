@@ -15,11 +15,7 @@ const MagicalFactor = ({ value: { text, imgSrc }, reviewText }) => (
           className="magical__keyword__img-img"
         />
       </div>
-      <p
-        className={`magical__keyword-label${
-          text.length > 10 ? '--smaller' : ''
-        }`}
-      >
+      <p className={`magical__keyword-label${text.length > 10 && '--smaller'}`}>
         {text}
       </p>
     </div>
