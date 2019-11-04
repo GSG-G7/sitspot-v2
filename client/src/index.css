@@ -1,3 +1,5 @@
+@import '~antd/dist/antd.css';
+
 * {
   margin: 0;
   padding: 0;
@@ -10,10 +12,16 @@ html {
 }
 
 :root {
-  --main-color: #F65B1C;
+  --main-color: #f65b1c;
   --eco-color: #2eac65;
   --placeholder-color: #5d686e;
-  --opacity-search-button: .70;
+  --opacity-search-button: 0.7;
+}
+
+/* ant.d animations overrides */
+
+ol, ul, dl {
+  margin: 0;
 }
 
 .ant-select-arrow-icon {
