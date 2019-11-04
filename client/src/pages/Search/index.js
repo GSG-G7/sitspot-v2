@@ -11,10 +11,10 @@ class SearchPage extends Component {
     sitspots: [],
   };
 
-  componentDidMount() {
-    // fetch sitspots
+  getSitSpots = () => {
+    // fetch data
     this.setState({ sitspots: fakeData });
-  }
+  };
 
   render() {
     const { searchState } = this.props;
@@ -24,7 +24,11 @@ class SearchPage extends Component {
     return (
       <>
         <div className="show-case" />
-        <Search searchState={searchState} fontColor="#333" />
+        <Search
+          getSitSpots={this.getSitSpots}
+          searchState={searchState}
+          fontColor="#333"
+        />
         <p className="results-label">{sitspots.length} Search Results</p>
         <SearchResult className="search-page__results" resultArray={sitspots} />
       </>

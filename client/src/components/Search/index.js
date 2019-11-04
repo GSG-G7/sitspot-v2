@@ -26,7 +26,7 @@ class Search extends Component {
 
   componentDidMount() {
     const { searchState } = this.props;
-    if (!searchState) return;
+    if (Object.keys(searchState).length === 0) return;
     const {
       searchState: { country, city, lookingFor, keywords, viewKeywords },
     } = this.props;
@@ -47,7 +47,11 @@ class Search extends Component {
       </Option>
     ));
 
-  onSubmit = () => {};
+  onSubmit = () => {
+    const { getSitSpots } = this.props;
+    if (getSitSpots) getSitSpots();
+    // else route the page and fetch data
+  };
 
   toggleKeywordList = () =>
     this.setState(state => ({ viewKeywords: !state.viewKeywords }));
@@ -165,6 +169,7 @@ Search.defaultProps = {
 Search.propTypes = {
   fontColor: PropTypes.string,
   searchState: PropTypes.objectOf(PropTypes.object),
+  getSitSpots: PropTypes.func.isRequired,
 };
 
 export default Search;
