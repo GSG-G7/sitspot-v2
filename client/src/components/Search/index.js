@@ -56,7 +56,7 @@ class Search extends Component {
   toggleKeywordList = () =>
     this.setState(state => ({ viewKeywords: !state.viewKeywords }));
 
-  toogleKeyword = keyword => {
+  toggleKeyword = keyword => {
     const {
       keywords: [...keywords],
     } = this.state;
