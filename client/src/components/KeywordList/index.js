@@ -7,7 +7,7 @@ import Button from '../Button';
 
 import './index.css';
 
-const KeywordList = ({ keywords, toogleKeyword, toggleKeywordList }) => (
+const KeywordList = ({ keywords, toggleKeyword, toggleKeywordList }) => (
   <div className="keywords">
     <div className="keywords__close">
       <Icon type="close" onClick={toggleKeywordList} />
@@ -18,7 +18,7 @@ const KeywordList = ({ keywords, toogleKeyword, toggleKeywordList }) => (
         return (
           <Button
             key={key}
-            onClick={() => toogleKeyword(key)}
+            onClick={() => toggleKeyword(key)}
             className={
               keywords.indexOf(key) !== -1
                 ? 'keywords__list--item active-btn'
@@ -35,7 +35,7 @@ const KeywordList = ({ keywords, toogleKeyword, toggleKeywordList }) => (
 
 KeywordList.propTypes = {
   keywords: propTypes.arrayOf(propTypes.string).isRequired,
-  toogleKeyword: propTypes.func.isRequired,
+  toggleKeyword: propTypes.func.isRequired,
   toggleKeywordList: propTypes.func.isRequired,
 };
 

@@ -153,7 +153,7 @@ class Search extends Component {
         {viewKeywords && (
           <KeywordList
             keywords={keywords}
-            toogleKeyword={this.toogleKeyword}
+            toggleKeyword={this.toggleKeyword}
             toggleKeywordList={this.toggleKeywordList}
           />
         )}
