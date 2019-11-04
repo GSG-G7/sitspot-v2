@@ -1,12 +1,12 @@
 import React from 'react';
 
-import { Home } from '../pages';
+import { Layout } from '../components';
 
 import './style.css';
 
 const App = () => (
   <div className="App">
-    <Home />
+    <Layout>{/* some page component here */}</Layout>
   </div>
 );
 
