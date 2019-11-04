@@ -5,10 +5,6 @@
   flex-direction: column;
 }
 
-.review p {
-  margin: 0;
-}
-
 .review__reviewee {
   color: var(--main-color);
   font-size: 1.6rem;
@@ -63,12 +59,12 @@
 }
 
 .review__details__field__type {
-  width: 50%;
+  width: 30%;
   color: var(--eco-color);
 }
 
 .review__details__field__value {
-  width: 50%;
+  width: 65%;
 }
 
 .expand-button {
