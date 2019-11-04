@@ -164,7 +164,7 @@ Search.defaultProps = {
 
 Search.propTypes = {
   fontColor: PropTypes.string,
-  searchState: PropTypes.objectOf(PropTypes.object()),
+  searchState: PropTypes.objectOf(PropTypes.object),
 };
 
 export default Search;
