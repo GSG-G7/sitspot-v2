@@ -16,6 +16,7 @@ html {
   --opacity-search-button: .70;
 }
 
+/* ant.d animations overrides */ 
 .ant-select-arrow-icon {
   color: var(--main-color) !important;
 }
