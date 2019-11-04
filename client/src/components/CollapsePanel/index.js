@@ -87,17 +87,17 @@ const renderSubQuestions = (question, objStyle) => (
   </Collapse>
 );
 
-const CollapsePanel = ({ questions, subCollapse, style }) => (
+const CollapsePanel = ({ questions, subCollapse, classes }) => (
   <Collapse accordion>
     {questions.map((question, index) => (
       <Panel
-        className={`${style.mainTitle}-${index + 1}`}
+        className={`${classes.mainTitle}-${index + 1}`}
         header={question.title}
         key={question.title}
       >
         {subCollapse && subCollapse[index + 1]
-          ? renderSubQuestions(question, style)
-          : renderQuestion(question, style)}
+          ? renderSubQuestions(question, classes)
+          : renderQuestion(question, classes)}
       </Panel>
     ))}
   </Collapse>
@@ -106,12 +106,12 @@ const CollapsePanel = ({ questions, subCollapse, style }) => (
 CollapsePanel.propTypes = {
   questions: propTypes.arrayOf(propTypes.any).isRequired,
   subCollapse: propTypes.objectOf(propTypes.any),
-  style: propTypes.objectOf(propTypes.any),
+  classes: propTypes.objectOf(propTypes.any),
 };
 
 CollapsePanel.defaultProps = {
   subCollapse: null,
-  style: null,
+  classes: null,
 };
 
 export default CollapsePanel;

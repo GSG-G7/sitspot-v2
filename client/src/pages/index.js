@@ -1,6 +1,5 @@
 import FAQ from './FAQ';
 import Search from './Search';
+import AboutUs from './aboutUs';
 
-// please delete the comment after import another page :)
-// eslint-disable-next-line import/prefer-default-export
-export { FAQ, Search };
+export { FAQ, AboutUs, Search };
