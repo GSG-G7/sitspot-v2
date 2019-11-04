@@ -10,13 +10,13 @@ html {
 }
 
 :root {
-  --main-color: #F65B1C;
+  --main-color: #f65b1c;
   --eco-color: #2eac65;
   --placeholder-color: #5d686e;
-  --opacity-search-button: .70;
+  --opacity-search-button: 0.7;
 }
 
-/* ant.d animations overrides */ 
+/* ant.d animations overrides */
 .ant-select-arrow-icon {
   color: var(--main-color) !important;
 }
