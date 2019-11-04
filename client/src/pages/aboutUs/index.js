@@ -1,6 +1,6 @@
 import React from 'react';
-// import questions from './fakeData';
-// import { CollapsePanel } from '../../components';
+import questions from './fakeData';
+import { CollapsePanel } from '../../components';
 
 import './index.css';
 
@@ -11,7 +11,7 @@ const AboutUs = () => {
         <h3 className="about__header__title">About us</h3>
       </div>
       <div id="faq__questions" className="about__content">
-        {/* <CollapsePanel
+        <CollapsePanel
           questions={questions}
           style={{
             mainTitle: 'about__main-title',
@@ -21,7 +21,7 @@ const AboutUs = () => {
             imgClass: 'about--img',
             spanClass: 'about__contact--email',
           }}
-        /> */}
+        />
       </div>
     </div>
   );
