@@ -17,13 +17,14 @@ class SearchPage extends Component {
   }
 
   render() {
+    const { searchState } = this.props;
     const {
       sitspots: [...sitspots],
     } = this.state;
     return (
       <>
         <div className="show-case" />
-        <Search fontColor="#333" />
+        <Search searchState={searchState} fontColor="#333" />
         <p className="results-label">{sitspots.length} Search Results</p>
         <SearchResult className="search-page__results" resultArray={sitspots} />
       </>
@@ -32,11 +33,11 @@ class SearchPage extends Component {
 }
 
 SearchPage.propTypes = {
-  country: PropTypes.string.isRequired,
-  city: PropTypes.string.isRequired,
-  lookingFor: PropTypes.string.isRequired,
-  keywords: PropTypes.arrayOf(PropTypes.string).isRequired,
-  viewKeywords: PropTypes.bool.isRequired,
+  searchState: PropTypes.objectOf(PropTypes.object),
+};
+
+SearchPage.defaultProps = {
+  searchState: undefined,
 };
 
 export default SearchPage;
