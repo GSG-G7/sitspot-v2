@@ -38,5 +38,6 @@
   margin-left: 5%;
   width: 65%;
   overflow-wrap: break-word;
+  letter-spacing: 0.5px;
   font-size: 1.4rem;
 }
