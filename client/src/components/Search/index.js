@@ -24,6 +24,22 @@ class Search extends Component {
     SHOP: 'Shop',
   });
 
+  componentDidMount() {
+    const { searchState } = this.props;
+    if (!searchState) return;
+    const {
+      searchState: { country, city, lookingFor, keywords, viewKeywords },
+    } = this.props;
+
+    this.setState({
+      country,
+      city,
+      lookingFor,
+      keywords,
+      viewKeywords,
+    });
+  }
+
   renderOptions = list =>
     list.map(item => (
       <Option key={item} value={item}>
@@ -143,10 +159,12 @@ class Search extends Component {
 }
 Search.defaultProps = {
   fontColor: '#fff',
+  searchState: {},
 };
 
 Search.propTypes = {
   fontColor: PropTypes.string,
+  searchState: PropTypes.objectOf(PropTypes.object()),
 };
 
 export default Search;
