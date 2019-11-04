@@ -4,6 +4,11 @@ import { CollapsePanel } from '../../components';
 
 import './index.css';
 
+const Classes = Object.freeze({
+  mainTitle: 'faq__main-title',
+  pClass: 'faq__paragraph',
+});
+
 const FAQ = () => (
   <div className="faq">
     <div className="faq__header">
@@ -20,10 +25,7 @@ const FAQ = () => (
         <CollapsePanel
           questions={questions}
           subCollapse={{ 1: true }}
-          style={{
-            mainTitle: 'faq__main-title',
-            pClass: 'faq__paragraph',
-          }}
+          classes={Classes}
         />
       </div>
     </div>
