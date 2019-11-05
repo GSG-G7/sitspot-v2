@@ -9,7 +9,7 @@ const SearchResult = ({ resultArray }) => (
       {resultArray.map(({ id, image: { src, alt }, description, country }) => (
         <li key={`searchRes:${id}`} className="search-result__item">
           <img className="search-result__item-img" alt={alt} src={src} />
-          <p className="search-result__item-text">{`${description} ${country}`}</p>
+          <p className="search-result__item-text">{`${description}, ${country}`}</p>
         </li>
       ))}
     </ul>
