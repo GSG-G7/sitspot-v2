@@ -3,6 +3,7 @@ import propTypes from 'prop-types';
 // https://www.npmjs.com/package/react-typeform-embed
 import { ReactTypeformEmbed } from 'react-typeform-embed';
 
+import { Button } from '../../components';
 import urls from './urls';
 
 import './style.css';
@@ -36,14 +37,14 @@ const AddReview = ({ type, sitspotId }) => (
         question, scroll up or click on the green arrows bottom right of your
         screen. Sharing is caring so warm thanks in advance!
       </p>
-      <button
+      <Button
         type="button"
         className="add-new-review__btn"
         onClick={openForm}
         style={{ cursor: 'pointer' }}
       >
-        Click to open the popup!
-      </button>
+        Click to start the review!
+      </Button>
     </div>
     <ReactTypeformEmbed
       ref={tf => {

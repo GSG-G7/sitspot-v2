@@ -11,10 +11,11 @@
 }
 
 .add-new-review__btn {
+  margin: 1rem auto ;
   font-weight: 700;
-
+  background-color: var(--main-color);
   height: 15vh;
-  width: 100%;
+  width: 90%;
   align-self: flex-end;
 }
 
