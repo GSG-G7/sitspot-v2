@@ -11,8 +11,9 @@ class SearchPage extends Component {
     sitspots: [],
   };
 
-  getSitSpots = () => {
-    // fetch data
+  // eslint-disable-next-line no-unused-vars
+  getSitSpots = data => {
+    // fetch data depending on the data paramter
     this.setState({ sitspots: fakeData });
   };
 
@@ -30,7 +31,12 @@ class SearchPage extends Component {
           fontColor="#333"
         />
         <p className="results-label">{sitspots.length} Search Results</p>
-        <SearchResult className="search-page__results" resultArray={sitspots} />
+        {sitspots && (
+          <SearchResult
+            className="search-page__results"
+            resultArray={sitspots}
+          />
+        )}
       </>
     );
   }
