@@ -24,13 +24,16 @@ class SearchPage extends Component {
     } = this.state;
     return (
       <>
-        <div className="show-case" />
+        <div className="show-case">
+          {sitspots.length !== 0 && (
+            <p className="results-label">{sitspots.length} Search Results</p>
+          )}
+        </div>
         <Search
           getSitSpots={this.getSitSpots}
           searchState={searchState}
           fontColor="#333"
         />
-        <p className="results-label">{sitspots.length} Search Results</p>
         {sitspots && (
           <SearchResult
             className="search-page__results"
