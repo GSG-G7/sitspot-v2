@@ -20,13 +20,11 @@ const renderParentTag = (content, classParent, classChild, keyParent) => {
   const TagName = content.tag;
   return (
     <ParentName key={keyParent} className={classParent}>
-      {content.values.map((element, index1) => {
-        return (
-          <TagName key={`${TagName}${index1 + 1}`} className={classChild}>
-            {element}
-          </TagName>
-        );
-      })}
+      {content.values.map((element, index1) => (
+        <TagName key={`${TagName}${index1 + 1}`} className={classChild}>
+          {element}
+        </TagName>
+      ))}
     </ParentName>
   );
 };
