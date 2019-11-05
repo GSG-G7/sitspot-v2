@@ -1,4 +1,4 @@
-@import '~antd/dist/antd.css';
+@import "~antd/dist/antd.css";
 
 * {
   margin: 0;
@@ -11,17 +11,27 @@ html {
   font-family: "Raleway", sans-serif;
 }
 
+body {
+  font-family: "Raleway", sans-serif;
+}
+p {
+  margin: 0;
+}
 :root {
   --main-color: #f65b1c;
   --eco-color: #2eac65;
+  --text-blackish-color: rgba(0, 0, 0, 0.65);
   --placeholder-color: #5d686e;
   --opacity-search-button: 0.7;
 }
 
 /* ant.d animations overrides */
 
-ol, ul, dl {
+ol,
+ul,
+dl {
   margin: 0;
+  list-style-type: none;
 }
 
 .ant-select-arrow-icon {

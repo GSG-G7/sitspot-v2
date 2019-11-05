@@ -21,6 +21,7 @@ module.exports = {
   'rules': {
     "arrow-body-style": ["error", "as-needed"],
     'react/state-in-constructor': 0,
+    'jsx-a11y/click-events-have-key-events': 0,
     // disables the windows/unix linebreak checks.
     'linebreak-style': 0,
     'linebreak-style': [0, 'error', 'windows'],
