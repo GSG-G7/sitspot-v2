@@ -1,0 +1,18 @@
+.header-div {
+  background-image: url("../../assets/images/placeimg.png") no-repeat cover;
+
+}
+
+.buttons-container__add {
+  background: var(--main-color) url("../../assets//images//plus.svg") no-repeat 2% center;
+  text-align: left;
+  padding-left: 3%;
+}
+ .heading-span {
+   display: inline-block;
+   width:20%;
+   height:5%;
+   vertical-align: top;
+ }
+
+ 
