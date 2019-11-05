@@ -13,17 +13,15 @@ const Classes = Object.freeze({
   spanClass: 'about__contact--email',
 });
 
-const AboutUs = () => {
-  return (
-    <div className="about">
-      <div className="about__header">
-        <h3 className="about__header__title">About us</h3>
-      </div>
-      <div id="faq__questions" className="about__content">
-        <CollapsePanel questions={questions} classes={Classes} />
-      </div>
+const AboutUs = () => (
+  <div className="about">
+    <div className="about__header">
+      <h3 className="about__header__title">About us</h3>
     </div>
-  );
-};
+    <div id="faq__questions" className="about__content">
+      <CollapsePanel questions={questions} classes={Classes} />
+    </div>
+  </div>
+);
 
 export default AboutUs;
