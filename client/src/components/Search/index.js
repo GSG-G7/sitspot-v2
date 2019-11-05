@@ -24,22 +24,6 @@ class Search extends Component {
     SHOP: 'Shop',
   });
 
-  componentDidMount() {
-    const { searchState } = this.props;
-    if (Object.keys(searchState).length === 0) return;
-    const {
-      searchState: { country, city, lookingFor, keywords, viewKeywords },
-    } = this.props;
-
-    this.setState({
-      country,
-      city,
-      lookingFor,
-      keywords,
-      viewKeywords,
-    });
-  }
-
   renderOptions = list =>
     list.map(item => (
       <Option key={item} value={item}>
@@ -49,14 +33,13 @@ class Search extends Component {
 
   onSubmit = () => {
     const { getSitSpots } = this.props;
-    if (getSitSpots) getSitSpots();
-    // else route the page and fetch data
+    if (getSitSpots) getSitSpots({ ...this.state });
   };
 
   toggleKeywordList = () =>
     this.setState(state => ({ viewKeywords: !state.viewKeywords }));
 
-  toggleKeyword = keyword => {
+  toggleSelectKeyword = keyword => {
     const {
       keywords: [...keywords],
     } = this.state;
@@ -153,7 +136,7 @@ class Search extends Component {
         {viewKeywords && (
           <KeywordList
             keywords={keywords}
-            toggleKeyword={this.toggleKeyword}
+            toggleSelectKeyword={this.toggleSelectKeyword}
             toggleKeywordList={this.toggleKeywordList}
           />
         )}
@@ -163,12 +146,10 @@ class Search extends Component {
 }
 Search.defaultProps = {
   fontColor: '#fff',
-  searchState: {},
 };
 
 Search.propTypes = {
   fontColor: PropTypes.string,
-  searchState: PropTypes.objectOf(PropTypes.object),
   getSitSpots: PropTypes.func.isRequired,
 };
 
