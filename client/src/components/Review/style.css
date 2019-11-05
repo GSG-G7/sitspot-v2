@@ -35,12 +35,13 @@
 }
 
 .review__body {
-  letter-spacing: 0.5px;
   width: 100%;
 }
 
 .review__text {
+  padding: 1rem 1.5rem;
   width: 100%;
+  letter-spacing: 0.5px;
   overflow-wrap: break-word;
 }
 
@@ -78,6 +79,24 @@
   margin-left: 30%;
   font-weight: 500;
 }
+/* badges style */
+.review__badges__item {
+  padding: 0.5rem 3rem;
+}
+.review__badges__title {
+  font-size: 1.6rem;
+}
+.review__badges__list {
+  list-style: disc;
+  padding-left: 1rem;
+}
+.review__badges__item__li {
+  color: var(--main-color);
+}
+.review__badges__item__li span {
+  color: rgba(0, 0, 0, 0.65);
+}
+
 /* profile details style: */
 
 .profile-details {

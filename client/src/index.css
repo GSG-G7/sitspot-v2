@@ -30,6 +30,7 @@ ol,
 ul,
 dl {
   margin: 0;
+  list-style-type: none;
 }
 
 .ant-select-arrow-icon {

@@ -105,25 +105,27 @@ class Review extends React.Component {
             <div className="review__badges">
               {preservation.map(({ title: preservationTitle, badges }) => (
                 <div className="review__badges__item" key={title}>
-                  <h4>{preservationTitle}</h4>
-                  <ul className="review__badges__item__ul">
+                  <h4 className="review__badges__title">{preservationTitle}</h4>
+                  <ul className="review__badges__list">
                     {badges.map(badge => (
                       <li className="review__badges__item__li" key={badge}>
-                        {badge}
+                        <span>{badge}</span>
                       </li>
                     ))}
                   </ul>
                 </div>
               ))}
-              <span
-                className="expand-button"
-                tabIndex="-1"
-                role="button"
-                onClick={this.toggleExpand}
-              >
-                Less
-              </span>
             </div>
+          )}
+          {expand && (
+            <span
+              className="expand-button"
+              tabIndex="-1"
+              role="button"
+              onClick={this.toggleExpand}
+            >
+              Less
+            </span>
           )}
         </div>
       </div>
