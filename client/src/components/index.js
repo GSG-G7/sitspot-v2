@@ -8,6 +8,7 @@ import Search from './Search';
 import Header from './Header';
 import Footer from './Footer';
 import MagicalFactor from './MagicalFactor';
+import Review from './Review';
 import ImageCarousel from './ImageCarousel';
 import Layout from './Layout';
 
@@ -18,6 +19,7 @@ export {
   Header,
   Footer,
   MagicalFactor,
+  Review,
   CollapsePanel,
   KeywordList,
   Search,
