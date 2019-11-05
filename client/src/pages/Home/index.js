@@ -39,7 +39,7 @@ const Home = () => (
         </Link>
       </p>
       <p className="slider-title">Suggested sitspots</p>
-      <ImageCarousel slides={fakeImages} haveDots={false} />
+      <ImageCarousel slides={fakeImages} haveDots={false} className="slider" />
     </div>
   </>
 );
