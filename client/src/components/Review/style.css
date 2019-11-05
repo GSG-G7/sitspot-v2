@@ -94,7 +94,7 @@
   color: var(--main-color);
 }
 .review__badges__item__li span {
-  color: rgba(0, 0, 0, 0.65);
+  color:var(--text-blackish-color);
 }
 
 /* profile details style: */
