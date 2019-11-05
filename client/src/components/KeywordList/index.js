@@ -14,21 +14,19 @@ const KeywordList = ({ keyword, setKeyword, toggleKeywordList }) => (
     </div>
     <h2 className="keywords__title">Keywords</h2>
     <div className="keywords__list">
-      {Object.keys(keywords).map(key => {
-        return (
-          <Button
-            key={key}
-            onClick={() => setKeyword(key)}
-            className={
-              key === keyword
-                ? 'keywords__list--item active-btn'
-                : 'keywords__list--item'
-            }
-          >
-            {keywords[key].text}
-          </Button>
-        );
-      })}
+      {Object.keys(keywords).map(key => (
+        <Button
+          key={key}
+          onClick={() => setKeyword(key)}
+          className={
+            key === keyword
+              ? 'keywords__list--item active-btn'
+              : 'keywords__list--item'
+          }
+        >
+          {keywords[key].text}
+        </Button>
+      ))}
     </div>
   </div>
 );
