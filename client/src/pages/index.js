@@ -1,5 +1,6 @@
+import AddReview from './AddReview';
 import FAQ from './FAQ';
 import Search from './Search';
-import AboutUs from './aboutUs';
+import AboutUs from './AboutUs';
 
-export { FAQ, AboutUs, Search };
+export { AddReview, FAQ, AboutUs, Search };
