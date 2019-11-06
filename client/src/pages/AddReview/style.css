@@ -14,10 +14,11 @@
   margin: 1rem auto ;
   font-weight: 700;
   background-color: var(--main-color);
-  height: 15vh;
+  height: 12vh;
   width: 90%;
   align-self: flex-end;
 }
 
-.add-new-review__p {
+.add-new-review__title {
+  font-size: 3rem;
 }

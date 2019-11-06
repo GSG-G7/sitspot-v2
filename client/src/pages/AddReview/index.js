@@ -15,7 +15,7 @@ const AddReview = ({ type, sitspotId }) => (
   <>
     <div className="header-img header-container" />
     <div className="add-new-review-container">
-      <h1>
+      <h1 className="add-new-review__title">
         We will now ask you to follow these steps to complete your
         recommendation:
       </h1>
