@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 
 import { Search, ImageCarousel } from '../../components/index';
 import fakeImages from '../../components/ImageCarousel/fakeData';
@@ -9,11 +8,13 @@ import './style.css';
 
 const Home = () => (
   <>
-    <div className="top-container">
+    <div className="top-container header-container">
       <p className="top-container__slagon ">
         Where conscious travellers find their feel good
       </p>
-      <Search />
+      <div className="top-container__search">
+        <Search />
+      </div>
     </div>
     <div className="second-container">
       <div className="welcome-container ">
@@ -22,9 +23,8 @@ const Home = () => (
         <img alt="plant icon" src={plantIcon} />
       </div>
       <p className="value-paragragh">
-        We believe that we can change the world together.
-        <br />
-        Join our community of like-minded conscious travellers.
+        We believe that we can change the world together. Join our community of
+        like-minded conscious travellers.
         <br />
         <br />
         find and recommend sustainable businesses which deserve kudos.
@@ -33,10 +33,6 @@ const Home = () => (
         <br />
         Your feedback is essential in shaping the future of SitSpot. We
         can&apos;t wait to hear from you.
-        <br />
-        <Link className="aboutus-link" to="/about-us">
-          About SitSpot
-        </Link>
       </p>
       <p className="slider-title">Suggested sitspots</p>
       <ImageCarousel slides={fakeImages} haveDots={false} className="slider" />
