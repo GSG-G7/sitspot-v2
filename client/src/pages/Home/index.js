@@ -34,13 +34,13 @@ class Home extends Component {
           <p className="home__value-paragragh">
             We believe that we can change the world together. Join our community
             of like-minded conscious travellers.
-            <br />
-            <br />
+          </p>
+          <p className="home__value-paragragh">
             find and recommend sustainable businesses which deserve kudos.
             We&apos;ll even plant a tree each time we publish a new
             recommendation!
-            <br />
-            <br />
+          </p>
+          <p className="home__value-paragragh">
             Your feedback is essential in shaping the future of SitSpot. We
             can&apos;t wait to hear from you.
           </p>
