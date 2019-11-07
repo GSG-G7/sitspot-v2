@@ -3,7 +3,9 @@ import propTypes from 'prop-types';
 
 import { Button, Fab, ImageCarousel } from '../../components/index';
 import backIcon from '../../assets/images/left-arrow.svg';
+import fakeImages from '../../components/ImageCarousel/fakeData';
 // import plusIcon from '../../assets/images/plus.svg';
+import backgroundImage from '../../assets/images/background-single-page.jpg';
 
 import './style.css';
 
@@ -17,10 +19,13 @@ class SinglePlace extends Component {
     const { reviews } = this.state;
     return (
       <>
-        <div className="Header-div" />
+        <img
+          src={backgroundImage}
+          alt="background"
+          className="singlePlace-header-img"
+        />
         <div className="buttons-container">
           <span className="buttons-container__back">
-            <img syle="flaot: left" alt="back arrow" src={backIcon} />
             <small>Back to results</small>
           </span>
           <Button onClick={() => {}} className="buttons-container__add">
@@ -29,7 +34,7 @@ class SinglePlace extends Component {
         </div>
         <span className="heading-span">{`${name}, ${country}, ${city}`}</span>
         <span>{website}</span>
-        <ImageCarousel slides={images} />
+        <ImageCarousel slides={fakeImages} />
         <span>Recommended by {reviews.length}</span>
         <Fab />
         <hr />
