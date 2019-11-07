@@ -1,4 +1,4 @@
-const base = require('../config');
+const { typeformBase } = require('../config');
 
 const formulaMaker = ({ country, city, type }) => {
   const formula = [];
@@ -11,7 +11,7 @@ const formulaMaker = ({ country, city, type }) => {
 };
 
 module.exports = ({ country = null, city = null, type = null }) =>
-  base('places')
+  typeformBase('places')
     .select({
       view: 'Grid view',
       filterByFormula: formulaMaker({ country, city, type }),
