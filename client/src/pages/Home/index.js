@@ -14,22 +14,24 @@ class Home extends Component {
 
   render() {
     return (
-      <>
-        <div className="top-container header-container">
-          <p className="top-container__slagon ">
+      <div className="home">
+        <div className="home__top-container header-container">
+          <p className="home__top-container__slagon ">
             Where conscious travellers find their feel good
           </p>
-          <div className="top-container__search">
+          <div className="home__top-container__search">
             <Search getSitSpots={this.getSitSpots} />
           </div>
         </div>
-        <div className="second-container">
-          <div className="welcome-container ">
+        <div className="home__second-container">
+          <div className="home__welcome-container ">
             <img alt="plant icon" src={plantIcon} />
-            <p className="welcome-container__text">Welcome to our beta site</p>
+            <p className="home__welcome-container__text">
+              Welcome to our beta site
+            </p>
             <img alt="plant icon" src={plantIcon} />
           </div>
-          <p className="value-paragragh">
+          <p className="home__value-paragragh">
             We believe that we can change the world together. Join our community
             of like-minded conscious travellers.
             <br />
@@ -42,14 +44,14 @@ class Home extends Component {
             Your feedback is essential in shaping the future of SitSpot. We
             can&apos;t wait to hear from you.
           </p>
-          <p className="slider-title">Suggested sitspots</p>
+          <p className="home__slider-title">Suggested sitspots</p>
           <ImageCarousel
             slides={fakeImages}
             haveDots={false}
-            className="slider"
+            className="home__slider"
           />
         </div>
-      </>
+      </div>
     );
   }
 }
