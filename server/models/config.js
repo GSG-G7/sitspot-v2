@@ -9,4 +9,7 @@ Airtable.configure({
   apiKey: process.env.AIRTABLE_KEY,
 });
 
-module.exports = Airtable.base;
+module.exports = {
+  typeformBase: Airtable.base(process.env.TYPEFORM_BASE),
+  staticsBase: Airtable.base(process.env.STATICS_BASE),
+};
