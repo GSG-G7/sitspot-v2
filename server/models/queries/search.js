@@ -17,5 +17,3 @@ module.exports = ({ country = null, city = null, type = null }) =>
       filterByFormula: formulaMaker({ country, city, type }),
     })
     .firstPage();
-
-// IF({country} = {country})
