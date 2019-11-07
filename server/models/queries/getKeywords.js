@@ -1,6 +1,6 @@
-const base = require('../config');
+const { staticsBase } = require('../config');
 
 module.exports = () =>
-  base('Keywords')
+  staticsBase('Keywords')
     .select({ view: 'Grid view' })
     .firstPage();
