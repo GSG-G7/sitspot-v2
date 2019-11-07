@@ -4,4 +4,4 @@ import Search from './Search';
 import AboutUs from './AboutUs';
 import Home from './Home';
 
-export { AddReview, FAQ, AboutUs, Search, Home };
+export { AddReview, FAQ, Search, AboutUs, Home };

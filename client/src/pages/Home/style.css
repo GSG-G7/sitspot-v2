@@ -22,7 +22,7 @@
 
 .welcome-container {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: center;
   align-items: center;
   margin-bottom: 4rem;
   margin-top: 1rem;
@@ -34,14 +34,14 @@
   color: var(--main-color);
   font-family: "Raleway", sans-serif;
   text-align: center;
+  margin: 0 5%;
 }
 
 .value-paragragh {
   font-family: "Raleway", sans-serif;
-  color: gray;
   margin-bottom: 5rem;
   font-size: 1.7rem;
-  font-weight: 600;
+  font-weight: 500;
 }
 
 .slider-title {
@@ -58,22 +58,25 @@
 }
 
 @media (min-width: 1024px) {
+
   .top-container {
     background: url('../../assets/images/home-background.jpg') no-repeat center bottom/cover;
     padding-bottom: 2.5rem;
   }
+
   .top-container__search {
     margin: 0 25rem;
   }
+
   .welcome-container__text {
     font-size: 2.5rem;
-    margin-right: -40rem;
-    margin-left: -40rem;
   }
+
   .value-paragragh {
     font-size: 2.2rem;
     align-content: center;
   }
+
   .slider-title {
     font-size: 2.2rem;
   }
