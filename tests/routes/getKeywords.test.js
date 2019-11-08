@@ -14,6 +14,11 @@ tape('get Keywords route', t => {
       } else {
         const { data } = res.body;
         t.equal(Array.isArray(data), true, 'data should be an array');
+        t.equal(
+          Object.keys(data[0]).length,
+          2,
+          'each keyword should have name and image url'
+        );
         t.end();
       }
     });
