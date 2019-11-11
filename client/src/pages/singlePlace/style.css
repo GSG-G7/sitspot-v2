@@ -1,51 +1,88 @@
 .singlePlace-header-img {
-  max-height: 600px;
-  height: 15%;
+  height:30vh;
+  clip-path:(10% 0 0 0);
   width: 100%;
-  clip-path: inset(20% 0 0 0);
-  margin-top: -20%;
+
 }
 
 .buttons-container {
   display: flex;
-  justify-content: space-between;
+  justify-content:space-between;
   align-items: center;
   align-content: center;
-  margin: 5% 2.5%;
+  margin: 3% 2.5%;
 }
 
 .buttons-container__add {
-  background: var(--main-color) url("../../assets//images//plus.svg") no-repeat 2% center;
-  background-size: 2rem 2rem;
+  background: var(--main-color);
+  padding:0.5rem;
+}
+
+.buttons-container__add__text {
+  padding: 0.5rem;
+  align-content: center;
   text-align: start;
-  padding-left: 3rem;
-  padding-right: 0.5rem;
-  padding-top: 0.5rem;
-  padding-bottom: 0.5rem;
+  color: white;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 500;
+  font-size: 1.2rem;
 }
 
 .buttons-container__back {
-  background: url("../../assets//images/left-arrow.svg") no-repeat 2% center;
-  background-size: 2rem 2rem;
-  text-align: left;
-  padding-left: 3rem;
+  text-align: center;
+  color: var(--main-color);
+  align-content: center;
 }
 
-.heading-span {
-  display: inline-block;
-  width: 20%;
-  height: 5%;
-  vertical-align: top;
+.buttons-container__back__text{
+  padding: 0.25rem;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 500;
+  font-size: 1.2rem; 
+}
+
+.heading-name-location {
+  font-size: 1.7rem;
+  color:gray;
+  font-weight: 670;
+  font-family: "Raleway", sans-serif;
+  margin: 0 2.5%;
+}
+
+.heading-website {
+   font-size: 1.2rem;
+  color: var(--main-color);
+  font-weight: 670;
+  font-family: "Raleway", sans-serif;
+  margin: 0 2.5%;
+  margin-bottom: 2%;
+}
+
+.singlePlace-slider {
+  margin: 3% 0;
+}
+
+.recommended-by-text {
+  font-size: 1.2rem;
+  font-family: "Raleway", sans-serif;
+  color: gray;
+  margin: 0 2.5%;
+  font-weight: 500;
+}
+
+.reviews-container {
+  margin: 3% 2.5%;
+  border-top: 1px solid grey
 }
 
 @media (min-height:760px) {
  
-  /* .singlePlace-header-img {
+  .singlePlace-header-img {
     height: 300px;
     width: 100%;
     clip-path: inset(20rem 0 0 0);
     margin-top: -20rem;
-  } */
+  }
 
 }
 

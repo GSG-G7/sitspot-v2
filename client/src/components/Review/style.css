@@ -14,11 +14,11 @@
 
 .review__reviewee__view-profile {
   font-size: 1.3rem;
-  font-weight: 300;
+  font-weight: 450;
 }
 
 .review__heading {
-  padding: 0.5rem 0;
+  padding:0.5rem 0rem;
 }
 
 .green-dotted-border {
@@ -26,12 +26,17 @@
 }
 
 .review__heading__title {
-  font-size: 1.8rem;
+  font-size: 2rem;
+  font-weight: 1000;
+  color: gray;
+  display: inline;
 }
 
 .review__heading__date {
   font-size: 1.4rem;
   text-align: right;
+  float: right;
+  display: inline;
 }
 
 .review__body {
@@ -39,7 +44,7 @@
 }
 
 .review__text {
-  padding: 1rem 1.5rem;
+  padding: 1.5rem 0rem;
   width: 100%;
   letter-spacing: 0.5px;
   overflow-wrap: break-word;

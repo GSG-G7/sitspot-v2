@@ -2,6 +2,7 @@
   display: flex;
   align-items: center;
   color: var(--eco-color);
+  margin: 3% 0;
 }
 
 .magical__keyword {
