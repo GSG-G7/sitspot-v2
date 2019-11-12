@@ -11,11 +11,7 @@ router.post('/place', upload.any(), place.post);
 
 router.get('/placereviews', placeAndReviews);
 router.get('/keywords', getKeywords);
+
 router.use(error);
 
-router.use((err, req, res, next) => {
-  // eslint-disable-next-line no-console
-  console.log(err);
-  res.status(500).send('sorry, Internal Server Error');
-});
 module.exports = router;
