@@ -15,7 +15,7 @@ module.exports = (req, res, next) => {
         const error = new Error("place doesn't exists");
         error.statusCode = 404;
         throw error;
-      } else placeData = { place: { ...places[0].fields }, reviews: [] };
+      } else placeData = { ...places[0].fields, reviews: [] };
     })
     .then(() => getPlaceReviews(type, id))
     .then(incomingReviews => {

@@ -1,4 +1,6 @@
+const middleware = require('./middleware');
 const routes = require('./routes');
+const utils = require('./utils');
 const error = require('./errors');
 
-module.exports = { routes, error };
+module.exports = { middleware, utils, routes, error };
