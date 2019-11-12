@@ -66,8 +66,8 @@ class Review extends React.Component {
           </>
         )}
         <div className="review__heading green-dotted-border">
-          <p className="review__heading__title">{title} </p>
-          <p className="review__heading__date">{reviewDate}</p>
+          <span className="review__heading__title">{title}</span>
+          <span className="review__heading__date">{reviewDate}</span>
         </div>
         <div className="review__magical-factors">
           {magicalFactors.map(({ value, reviewText: magicalFactorReview }) => (
