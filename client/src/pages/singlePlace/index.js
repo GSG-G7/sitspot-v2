@@ -14,7 +14,107 @@ import './style.css';
 
 class SinglePlace extends Component {
   state = {
-    reviews: [],
+    reviews: [
+      {
+        id: 1,
+        reviewee: { Name: 'Hanaa', Country: 'UK', Age: '49-51' },
+        reviewDate: new Date().toLocaleDateString(),
+        title: 'OK THAT WAS Coool as  sa asfas dasdsad',
+        magicalFactors: [
+          {
+            value: { text: 'Solo Traveller Friendly', imgSrc: 'family' },
+            reviewText:
+              'kasjlksajdlkjkasjlksajdlkjkasjlksajdlkjkasjlksajdlkjkasjlksajdlkjkasjlksajdlkjkasjlksajdlkjkasjlksajdlkjkasjlksajdlkjkasjlksajdlkjkasjlksajdlkjkasjlksajdlkjkasjlksajdlkjkasjlksajdlkjkasjlksajdlkj',
+          },
+          {
+            value: { text: 'Wildlife', imgSrc: 'wild' },
+            reviewText:
+              'kasjlksajdlkjkasjlksajdlkjkasjlksajdlkjkasjlksajdlkjkasjlksajdlkj',
+          },
+        ],
+        tripDetails: {
+          Type: 'accomdation',
+          'Sub Type': 'private ensuite',
+          'Type of trip': 'Backpacking',
+          Date: '13/9/2018',
+          'Price Range': 'luxury',
+        },
+        reviewText:
+          'ahsdhaksjfhkdsjghlkhdalkhdfkahsdhaksjfhkdsjghlkhdalkhdfkahsdhaksjfhkdsjghlkhdalkhdfkahsdhaksjfhkdsjghlkhdalkhdfkahsdhaksjfhkdsjghlkhdalkhdfkahsdhaksjfhkdsjghlkhdalkhdfkahsdhaksjfhkdsjghlkhdalkhdfkahsdhaksjfhkdsjghlkhdalkhdfkahsdhaksjfhkdsjghlkhdalkhdfkahsdhaksjfhkdsjghlkhdalkhdfkahsdhaksjfhkdsjghlkhdalkhdfkahsdhaksjfhkdsjghlkhdalkhdfkahsdhaksjfhkdsjghlkhdalkhdfkahsdhaksjfhkdsjghlkhdalkhdfkahsdhaksjfhkdsjghlkhdalkhdfkahsdhaksjfhkdsjghlkhdalkhdfkahsdhaksjfhkdsjghlkhdalkhdfkahsdhaksjfhkdsjghlkhdalkhdfkahsdhaksjfhkdsjghlkhdalkhdfkahsdhaksjfhkdsjghlkhdalkhdfkahsdhaksjfhkdsjghlkhdalkhdfkahsdhaksjfhkdsjghlkhdalkhdfkahsdhaksjfhkdsjghlkhdalkhdfkahsdhaksjfhkdsjghlkhdalkhdfkahsdhaksjfhkdsjghlkhdalkhdfkahsdhaksjfhkdsjghlkhdalkhdfkahsdhaksjfhkdsjghlkhdalkhdfkahsdhaksjfhkdsjghlkhdalkhdfkahsdhaksjfhkdsjghlkhdalkhdfkahsdhaksjfhkdsjghlkhdalkhdfkahsdhaksjfhkdsjghlkhdalkhdfkahsdhaksjfhkdsjghlkhdalkhdfkahsdhaksjfhkdsjghlkhdalkhdfkahsdhaksjfhkdsjghlkhdalkhdfkahsdhaksjfhkdsjghlkhdalkhdfkahsdhaksjfhkdsjghlkhdalkhdfkahsdhaksjfhkdsjghlkhdalkhdfkahsdhaksjfhkdsjghlkhdalkhdfkahsdhaksjfhkdsjghlkhdalkhdfkahsdhaksjfhkdsjghlkhdalkhdfkahsdhaksjfhkdsjghlkhdalkhdfkahsdhaksjfhkdsjghlkhdalkhdfkahsdhaksjfhkdsjghlkhdalkhdfkahsdhaksjfhkdsjghlkhdalkhdfkahsdhaksjfhkdsjghlkhdalkhdfkahsdhaksjfhkdsjghlkhdalkhdfkahsdhaksjfhkdsjghlkhdalkhdfkahsdhaksjfhkdsjghlkhdalkhdfkahsdhaksjfhkdsjghlkhdalkhdfkahsdhaksjfhkdsjghlkhdalkhdfkahsdhaksjfhkdsjghlkhdalkhdfkahsdhaksjfhkdsjghlkhdalkhdfkahsdhaksjfhkdsjghlkhdalkhdfkahsdhaksjfhkdsjghlkhdalkhdfkahsdhaksjfhkdsjghlkhdalkhdfkahsdhaksjfhkdsjghlkhdalkhdfkahsdhaksjfhkdsjghlkhdalkhdfkahsdhaksjfhkdsjghlkhdalkhdfkahsdhaksjfhkdsjghlkhdalkhdfkahsdhaksjfhkdsjghlkhdalkhdfkahsdhaksjfhkdsjghlkhdalkhdfkahsdhaksjfhkdsjghlkhdalkhdfkahsdhaksjfhkdsjghlkhdalkhdfkahsdhaksjfhkdsjghlkhdalkhdfkahsdhaksjfhkdsjghlkhdalkhdfkahsdhaksjfhkdsjghlkhdalkhdfkahsdhaksjfhkdsjghlkhdalkhdfkahsdhaksjfhkdsjghlkhdalkhdfk',
+        preservation: [
+          {
+            title: 'hi',
+            badges: ['asdjlakfsjlksaj', 'sadsadasd'],
+          },
+        ],
+      },
+      {
+        id: 2,
+        reviewee: { Name: 'Hanaa', Country: 'UK', Age: '49-51' },
+        reviewDate: new Date().toLocaleDateString(),
+        title: 'OK THAT WAS Coool as  sa asfas dasdsad',
+        magicalFactors: [
+          {
+            value: { text: 'Solo Traveller Friendly', imgSrc: 'family' },
+            reviewText:
+              'kasjlksajdlkjkasjlksajdlkjkasjlksajdlkjkasjlksajdlkjkasjlksajdlkjkasjlksajdlkjkasjlksajdlkjkasjlksajdlkjkasjlksajdlkjkasjlksajdlkjkasjlksajdlkjkasjlksajdlkjkasjlksajdlkjkasjlksajdlkjkasjlksajdlkj',
+          },
+          {
+            value: { text: 'Wildlife', imgSrc: 'wild' },
+            reviewText:
+              'kasjlksajdlkjkasjlksajdlkjkasjlksajdlkjkasjlksajdlkjkasjlksajdlkj',
+          },
+        ],
+        tripDetails: {
+          Type: 'accomdation',
+          'Sub Type': 'private ensuite',
+          'Type of trip': 'Backpacking',
+          Date: '13/9/2018',
+          'Price Range': 'luxury',
+        },
+        reviewText:
+          'ahsdhaksjfhkdsjghlkhdalkhdfkahsdhaksjfhkdsjghlkhdalkhdfkahsdhaksjfhkdsjghlkhdalkhdfkahsdhaksjfhkdsjghlkhdalkhdfkahsdhaksjfhkdsjghlkhdalkhdfkahsdhaksjfhkdsjghlkhdalkhdfkahsdhaksjfhkdsjghlkhdalkhdfkahsdhaksjfhkdsjghlkhdalkhdfkahsdhaksjfhkdsjghlkhdalkhdfkahsdhaksjfhkdsjghlkhdalkhdfkahsdhaksjfhkdsjghlkhdalkhdfkahsdhaksjfhkdsjghlkhdalkhdfkahsdhaksjfhkdsjghlkhdalkhdfkahsdhaksjfhkdsjghlkhdalkhdfkahsdhaksjfhkdsjghlkhdalkhdfkahsdhaksjfhkdsjghlkhdalkhdfkahsdhaksjfhkdsjghlkhdalkhdfkahsdhaksjfhkdsjghlkhdalkhdfkahsdhaksjfhkdsjghlkhdalkhdfkahsdhaksjfhkdsjghlkhdalkhdfkahsdhaksjfhkdsjghlkhdalkhdfkahsdhaksjfhkdsjghlkhdalkhdfkahsdhaksjfhkdsjghlkhdalkhdfkahsdhaksjfhkdsjghlkhdalkhdfkahsdhaksjfhkdsjghlkhdalkhdfkahsdhaksjfhkdsjghlkhdalkhdfkahsdhaksjfhkdsjghlkhdalkhdfkahsdhaksjfhkdsjghlkhdalkhdfkahsdhaksjfhkdsjghlkhdalkhdfkahsdhaksjfhkdsjghlkhdalkhdfkahsdhaksjfhkdsjghlkhdalkhdfkahsdhaksjfhkdsjghlkhdalkhdfkahsdhaksjfhkdsjghlkhdalkhdfkahsdhaksjfhkdsjghlkhdalkhdfkahsdhaksjfhkdsjghlkhdalkhdfkahsdhaksjfhkdsjghlkhdalkhdfkahsdhaksjfhkdsjghlkhdalkhdfkahsdhaksjfhkdsjghlkhdalkhdfkahsdhaksjfhkdsjghlkhdalkhdfkahsdhaksjfhkdsjghlkhdalkhdfkahsdhaksjfhkdsjghlkhdalkhdfkahsdhaksjfhkdsjghlkhdalkhdfkahsdhaksjfhkdsjghlkhdalkhdfkahsdhaksjfhkdsjghlkhdalkhdfkahsdhaksjfhkdsjghlkhdalkhdfkahsdhaksjfhkdsjghlkhdalkhdfkahsdhaksjfhkdsjghlkhdalkhdfkahsdhaksjfhkdsjghlkhdalkhdfkahsdhaksjfhkdsjghlkhdalkhdfkahsdhaksjfhkdsjghlkhdalkhdfkahsdhaksjfhkdsjghlkhdalkhdfkahsdhaksjfhkdsjghlkhdalkhdfkahsdhaksjfhkdsjghlkhdalkhdfkahsdhaksjfhkdsjghlkhdalkhdfkahsdhaksjfhkdsjghlkhdalkhdfkahsdhaksjfhkdsjghlkhdalkhdfkahsdhaksjfhkdsjghlkhdalkhdfkahsdhaksjfhkdsjghlkhdalkhdfkahsdhaksjfhkdsjghlkhdalkhdfkahsdhaksjfhkdsjghlkhdalkhdfkahsdhaksjfhkdsjghlkhdalkhdfkahsdhaksjfhkdsjghlkhdalkhdfkahsdhaksjfhkdsjghlkhdalkhdfkahsdhaksjfhkdsjghlkhdalkhdfkahsdhaksjfhkdsjghlkhdalkhdfkahsdhaksjfhkdsjghlkhdalkhdfkahsdhaksjfhkdsjghlkhdalkhdfkahsdhaksjfhkdsjghlkhdalkhdfk',
+        preservation: [
+          {
+            title: 'hi',
+            badges: ['asdjlakfsjlksaj', 'sadsadasd'],
+          },
+        ],
+      },
+      {
+        id: 3,
+        reviewee: { Name: 'Hanaa', Country: 'UK', Age: '49-51' },
+        reviewDate: new Date().toLocaleDateString(),
+        title: 'OK THAT WAS Coool as  sa asfas dasdsad',
+        magicalFactors: [
+          {
+            value: { text: 'Solo Traveller Friendly', imgSrc: 'family' },
+            reviewText:
+              'kasjlksajdlkjkasjlksajdlkjkasjlksajdlkjkasjlksajdlkjkasjlksajdlkjkasjlksajdlkjkasjlksajdlkjkasjlksajdlkjkasjlksajdlkjkasjlksajdlkjkasjlksajdlkjkasjlksajdlkjkasjlksajdlkjkasjlksajdlkjkasjlksajdlkj',
+          },
+          {
+            value: { text: 'Wildlife', imgSrc: 'wild' },
+            reviewText:
+              'kasjlksajdlkjkasjlksajdlkjkasjlksajdlkjkasjlksajdlkjkasjlksajdlkj',
+          },
+        ],
+        tripDetails: {
+          Type: 'accomdation',
+          'Sub Type': 'private ensuite',
+          'Type of trip': 'Backpacking',
+          Date: '13/9/2018',
+          'Price Range': 'luxury',
+        },
+        reviewText:
+          'ahsdhaksjfhkdsjghlkhdalkhdfkahsdhaksjfhkdsjghlkhdalkhdfkahsdhaksjfhkdsjghlkhdalkhdfkahsdhaksjfhkdsjghlkhdalkhdfkahsdhaksjfhkdsjghlkhdalkhdfkahsdhaksjfhkdsjghlkhdalkhdfkahsdhaksjfhkdsjghlkhdalkhdfkahsdhaksjfhkdsjghlkhdalkhdfkahsdhaksjfhkdsjghlkhdalkhdfkahsdhaksjfhkdsjghlkhdalkhdfkahsdhaksjfhkdsjghlkhdalkhdfkahsdhaksjfhkdsjghlkhdalkhdfkahsdhaksjfhkdsjghlkhdalkhdfkahsdhaksjfhkdsjghlkhdalkhdfkahsdhaksjfhkdsjghlkhdalkhdfkahsdhaksjfhkdsjghlkhdalkhdfkahsdhaksjfhkdsjghlkhdalkhdfkahsdhaksjfhkdsjghlkhdalkhdfkahsdhaksjfhkdsjghlkhdalkhdfkahsdhaksjfhkdsjghlkhdalkhdfkahsdhaksjfhkdsjghlkhdalkhdfkahsdhaksjfhkdsjghlkhdalkhdfkahsdhaksjfhkdsjghlkhdalkhdfkahsdhaksjfhkdsjghlkhdalkhdfkahsdhaksjfhkdsjghlkhdalkhdfkahsdhaksjfhkdsjghlkhdalkhdfkahsdhaksjfhkdsjghlkhdalkhdfkahsdhaksjfhkdsjghlkhdalkhdfkahsdhaksjfhkdsjghlkhdalkhdfkahsdhaksjfhkdsjghlkhdalkhdfkahsdhaksjfhkdsjghlkhdalkhdfkahsdhaksjfhkdsjghlkhdalkhdfkahsdhaksjfhkdsjghlkhdalkhdfkahsdhaksjfhkdsjghlkhdalkhdfkahsdhaksjfhkdsjghlkhdalkhdfkahsdhaksjfhkdsjghlkhdalkhdfkahsdhaksjfhkdsjghlkhdalkhdfkahsdhaksjfhkdsjghlkhdalkhdfkahsdhaksjfhkdsjghlkhdalkhdfkahsdhaksjfhkdsjghlkhdalkhdfkahsdhaksjfhkdsjghlkhdalkhdfkahsdhaksjfhkdsjghlkhdalkhdfkahsdhaksjfhkdsjghlkhdalkhdfkahsdhaksjfhkdsjghlkhdalkhdfkahsdhaksjfhkdsjghlkhdalkhdfkahsdhaksjfhkdsjghlkhdalkhdfkahsdhaksjfhkdsjghlkhdalkhdfkahsdhaksjfhkdsjghlkhdalkhdfkahsdhaksjfhkdsjghlkhdalkhdfkahsdhaksjfhkdsjghlkhdalkhdfkahsdhaksjfhkdsjghlkhdalkhdfkahsdhaksjfhkdsjghlkhdalkhdfkahsdhaksjfhkdsjghlkhdalkhdfkahsdhaksjfhkdsjghlkhdalkhdfkahsdhaksjfhkdsjghlkhdalkhdfkahsdhaksjfhkdsjghlkhdalkhdfkahsdhaksjfhkdsjghlkhdalkhdfkahsdhaksjfhkdsjghlkhdalkhdfkahsdhaksjfhkdsjghlkhdalkhdfkahsdhaksjfhkdsjghlkhdalkhdfkahsdhaksjfhkdsjghlkhdalkhdfkahsdhaksjfhkdsjghlkhdalkhdfkahsdhaksjfhkdsjghlkhdalkhdfkahsdhaksjfhkdsjghlkhdalkhdfkahsdhaksjfhkdsjghlkhdalkhdfkahsdhaksjfhkdsjghlkhdalkhdfkahsdhaksjfhkdsjghlkhdalkhdfkahsdhaksjfhkdsjghlkhdalkhdfk',
+        preservation: [
+          {
+            title: 'hi',
+            badges: ['asdjlakfsjlksaj', 'sadsadasd'],
+          },
+        ],
+      },
+    ],
   };
 
   render() {
@@ -58,11 +158,11 @@ class SinglePlace extends Component {
           Recommended by {reviews.length} contributors
         </span>
         <Link to="/review">
-          <Fab />
+          <Fab onClick={() => {}} />
         </Link>
         <div className="reviews-container">
           {reviews.map(reviewItem => (
-            <Review review={reviewItem} />
+            <Review key={reviewItem.id} review={reviewItem} />
           ))}
         </div>
       </>
@@ -75,7 +175,7 @@ SinglePlace.propTypes = {
   country: propTypes.string.isRequired,
   city: propTypes.string.isRequired,
   website: propTypes.string.isRequired,
-  images: propTypes.arrayOf(String).isRequired,
+  images: propTypes.arrayOf(propTypes.String).isRequired,
 };
 
 SinglePlace.defaultProps = {
