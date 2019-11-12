@@ -1,4 +1,9 @@
 const router = require('express').Router();
+const {
+  routes: { search },
+} = require('../controllers');
+
+router.get('/search', search);
 
 const {
   routes: { placeAndReviews, getKeywords },
