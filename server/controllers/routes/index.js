@@ -1,3 +1,5 @@
 const search = require('./search');
+const placeAndReviews = require('./placeAndReviews');
+const getKeywords = require('./getKeywords');
 
-module.exports = { search };
+module.exports = { placeAndReviews, search, getKeywords };
