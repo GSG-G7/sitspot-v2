@@ -2,7 +2,15 @@ import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 
 import { Layout } from '../components';
-import { AboutUs, AddReview, FAQ, Home, Search } from '../pages';
+import {
+  AboutUs,
+  AddReview,
+  FAQ,
+  Home,
+  SearchPage,
+  AddNewSitSpot,
+  SinglePlace,
+} from '../pages';
 import './style.css';
 
 // const pages = [
@@ -18,9 +26,11 @@ const App = () => (
   <div className="App">
     <Layout>
       <Switch>
-        <Route path="/" exact>
-          <Home />
-        </Route>
+        <Route
+          path="/"
+          exact
+          render={({ history }) => <Home history={history} />}
+        />
         <Route path="/home">
           <Home />
         </Route>
@@ -28,8 +38,8 @@ const App = () => (
         <Route path="/about-us" component={() => <AboutUs />} />
         <Route
           path="/search"
-          render={({ location: { state = {} } }) => (
-            <Search searchState={state} />
+          component={({ location: { state = {} } }) => (
+            <SearchPage searchState={state} />
           )}
         />
         <Route
@@ -40,17 +50,17 @@ const App = () => (
             },
           }) => <AddReview type={type} sitspotId={sitspotId} />}
         />
-        {/* <Route path="/add-place">
-          <AddNewPlace />
-        </Route> */}
-        {/* <Route
+        <Route path="/add-place">
+          <AddNewSitSpot />
+        </Route>
+        <Route
           path="/sitspot/:id"
           render={({
             match: {
               params: { id },
             },
-          }) => <SitSpotPage sitspotId={id} />}
-        /> */}
+          }) => <SinglePlace sitspotId={id} />}
+        />
       </Switch>
     </Layout>
   </div>
