@@ -14,8 +14,8 @@ tape('get placereviews without sending queryString', t => {
       } else {
         t.equals(
           res.body.message,
-          'place id and type required',
-          'type and id required'
+          'id and type required',
+          'id and type required'
         );
         t.end();
       }
@@ -24,7 +24,7 @@ tape('get placereviews without sending queryString', t => {
 
 tape('get placereviews with valid queryString', t => {
   supertest(app)
-    .get('/api/v1/placereviews?id=1&type=stay')
+    .get('/api/v1/placereviews?id=1&&type=stay')
     .expect(200)
     .expect('Content-Type', /json/)
     .end((err, res) => {
@@ -32,8 +32,7 @@ tape('get placereviews with valid queryString', t => {
         t.error(err);
         t.end();
       } else {
-        const { placeData } = res.body;
-        t.equals(placeData.length, 2, 'place should exists');
+        t.equals(Object.keys(res.body).length, 2, 'place should exists');
         t.end();
       }
     });
