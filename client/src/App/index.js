@@ -37,10 +37,13 @@ const App = () => (
         <Route
           path="/add-review/:type/:sitspotId"
           render={({
+            history,
             match: {
               params: { type, sitspotId },
             },
-          }) => <AddReview type={type} sitspotId={sitspotId} />}
+          }) => (
+            <AddReview history={history} type={type} sitspotId={sitspotId} />
+          )}
         />
         <Route path="/add-place">
           <AddNewSitSpot />
