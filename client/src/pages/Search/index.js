@@ -46,7 +46,7 @@ class SearchPage extends Component {
 }
 
 SearchPage.propTypes = {
-  searchState: PropTypes.objectOf(PropTypes.object),
+  searchState: PropTypes.shape(),
 };
 
 SearchPage.defaultProps = {

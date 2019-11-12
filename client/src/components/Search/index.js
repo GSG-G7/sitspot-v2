@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { Select, Radio, Button } from 'antd';
 import { getCountryNames, getCities } from 'full-countries-cities';
@@ -24,6 +25,11 @@ class Search extends Component {
     SHOP: 'Shop',
   });
 
+  componentDidMount() {
+    const { searchState } = this.props;
+    if (searchState) this.setState({ ...searchState });
+  }
+
   renderOptions = list =>
     list.map(item => (
       <Option key={item} value={item}>
@@ -31,10 +37,10 @@ class Search extends Component {
       </Option>
     ));
 
-  onSubmit = () => {
-    const { getSitSpots } = this.props;
-    if (getSitSpots) getSitSpots({ ...this.state });
-  };
+  // onSubmit = () => {
+  //   const { getSitSpots } = this.props;
+  //   if (getSitSpots) getSitSpots({ ...this.state });
+  // };
 
   toggleKeywordList = () =>
     this.setState(state => ({ viewKeywords: !state.viewKeywords }));
@@ -64,7 +70,6 @@ class Search extends Component {
     const { country, city, keywords, viewKeywords, lookingFor } = this.state;
     const { fontColor } = this.props;
     const cities = country ? getCities(country) : [];
-
     return (
       <form className="search__form" style={{ color: fontColor }}>
         <div className="country-city-container">
@@ -126,9 +131,9 @@ class Search extends Component {
           </div>
         </div>
         <div className="form-action">
-          <Button id="search-btn" onClick={this.onSubmit}>
-            Search
-          </Button>
+          <Link to={{ pathname: '/search', state: { ...this.state } }}>
+            <Button id="search-btn">Search</Button>
+          </Link>
           <Button id="recommendation-btn" onClick={() => {}}>
             + Add your recommendation
           </Button>
@@ -150,7 +155,7 @@ Search.defaultProps = {
 
 Search.propTypes = {
   fontColor: PropTypes.string,
-  getSitSpots: PropTypes.func.isRequired,
+  searchState: PropTypes.shape().isRequired,
 };
 
 export default Search;

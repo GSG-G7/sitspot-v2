@@ -6,7 +6,7 @@ import { Icon } from 'antd';
 import './index.css';
 
 const routes = [
-  { content: 'Add your recommendation', path: '/review' },
+  { content: 'Add your recommendation', path: '/add-review' },
   { content: 'FAQ', path: '/faq' },
   { content: 'About us', path: '/about-us' },
   { content: 'Contact', path: '/contact' },
