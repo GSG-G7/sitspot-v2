@@ -1,3 +1,4 @@
 const place = require('./place');
+const getKeywords = require('./getKeywords');
 
-module.exports = { place };
+module.exports = { getKeywords, place };
