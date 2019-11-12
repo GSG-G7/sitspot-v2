@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 import { search } from '../../services/api';
 import { Search, SearchResult } from '../../components/index';
 
@@ -9,8 +10,6 @@ class SearchPage extends Component {
   state = {
     sitspots: [],
   };
-
-  componentDidMount() {}
 
   onSubmit = state => {
     const qs = new URLSearchParams();
@@ -37,6 +36,14 @@ class SearchPage extends Component {
           searchState={searchState}
           fontColor="#333"
         />
+        <div style={{ textAlign: 'center' }}>
+          <Link
+            to="/add-place"
+            style={{ color: 'var(--main-color)', fontWeight: 700 }}
+          >
+            Or Do you wanna add a new SitSpot?
+          </Link>
+        </div>
         {sitspots && (
           <SearchResult
             className="search-page__results"
