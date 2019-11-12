@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { search } from '../../services';
+import { search } from '../../services/api';
 import { Search, SearchResult } from '../../components/index';
 
 import './style.css';
