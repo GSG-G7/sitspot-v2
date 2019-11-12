@@ -24,8 +24,8 @@ class AddNewSitSpot extends Component {
       country: '',
       city: '',
       businessType: '',
-      img1: null,
-      img2: null,
+      img1: undefined,
+      img2: undefined,
     },
     currentStep: 0,
   };
@@ -33,7 +33,9 @@ class AddNewSitSpot extends Component {
   onSubmit = () => {
     const { data } = this.state;
     const formData = new FormData();
-    Object.entries(data).forEach(([key, value]) => formData.append(key, value));
+    Object.entries(data).forEach(
+      ([key, value]) => !!value && formData.append(key, value)
+    );
 
     axios.post('/api/v1/place', formData, {
       headers: { 'content-type': 'multipart/formdata' },

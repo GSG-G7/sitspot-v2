@@ -11,6 +11,7 @@ const post = (req, res, next) => {
       const promises = [];
       if (img1) promises.push(upload(img1));
       if (img2) promises.push(upload(img2));
+      if (promises.length === 0) throw Error(401);
       return Promise.all(promises);
     })
     .then(arr => {
