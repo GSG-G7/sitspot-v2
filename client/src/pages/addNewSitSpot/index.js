@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
+import propTypes from 'prop-types';
+import { withRouter } from 'react-router-dom';
 import axios from 'axios';
-import { StepsQuestions } from '../../components';
 
+import { StepsQuestions } from '../../components';
 import Questions from './fakeData';
 
 import './index.css';
@@ -31,16 +33,23 @@ class AddNewSitSpot extends Component {
   };
 
   onSubmit = () => {
-    const { data } = this.state;
+    const {
+      data,
+      data: { businessType },
+    } = this.state;
+    const { history } = this.props;
     const formData = new FormData();
     Object.entries(data).forEach(
       ([key, value]) => !!value && formData.append(key, value)
     );
 
-    axios.post('/api/v1/place', formData, {
-      headers: { 'content-type': 'multipart/formdata' },
-    });
-    // .then(result => console.log(result));
+    axios
+      .post('/api/v1/place', formData, {
+        headers: { 'content-type': 'multipart/formdata' },
+      })
+      .then(({ data: id }) =>
+        history.push(`/add-review/${businessType}/${id}`)
+      );
   };
 
   handleChange = (value, dataKey) => {
@@ -84,4 +93,7 @@ class AddNewSitSpot extends Component {
   }
 }
 
-export default AddNewSitSpot;
+AddNewSitSpot.propTypes = {
+  history: propTypes.shape().isRequired,
+};
+export default withRouter(AddNewSitSpot);
