@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const multer = require('multer');
 
-const upload = multer({ limits: { fieldSize: 3 * 1024 * 1024 } });
+const upload = multer({ limits: { fieldSize: 4.5 * 1024 * 1024 } });
 const {
   routes: { place },
 } = require('../controllers/');
