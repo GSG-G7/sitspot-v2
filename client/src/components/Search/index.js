@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { Select, Radio, Button } from 'antd';
 import { getCountryNames, getCities } from 'full-countries-cities';
@@ -68,7 +67,7 @@ class Search extends Component {
 
   render() {
     const { country, city, keywords, viewKeywords, lookingFor } = this.state;
-    const { fontColor } = this.props;
+    const { fontColor, onSubmit } = this.props;
     const cities = country ? getCities(country) : [];
     return (
       <form className="search__form" style={{ color: fontColor }}>
@@ -131,9 +130,9 @@ class Search extends Component {
           </div>
         </div>
         <div className="form-action">
-          <Link to={{ pathname: '/search', state: { ...this.state } }}>
-            <Button id="search-btn">Search</Button>
-          </Link>
+          <Button id="search-btn" onClick={() => onSubmit(this.state)}>
+            Search
+          </Button>
           <Button id="recommendation-btn" onClick={() => {}}>
             + Add your recommendation
           </Button>
@@ -155,7 +154,14 @@ Search.defaultProps = {
 
 Search.propTypes = {
   fontColor: PropTypes.string,
-  searchState: PropTypes.shape().isRequired,
+  searchState: PropTypes.shape({
+    country: PropTypes.string,
+    city: PropTypes.string,
+    lookingFor: PropTypes.string,
+    keywords: PropTypes.arrayOf(PropTypes.string),
+    viewKeywords: PropTypes.bool,
+  }).isRequired,
+  onSubmit: PropTypes.func.isRequired,
 };
 
 export default Search;
