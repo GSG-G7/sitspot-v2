@@ -1,3 +1,4 @@
 const routes = require('./routes');
+const error = require('./errors');
 
-module.exports = { routes };
+module.exports = { routes, error };
