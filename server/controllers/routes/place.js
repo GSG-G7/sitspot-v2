@@ -4,9 +4,8 @@ const { place } = require('../validation');
 
 const post = (req, res, next) => {
   const body = { ...req.body };
-  // eslint-disable-next-line no-unused-vars
   const { name, linkSite, country, city, businessType, img1, img2 } = body;
-  place // some weird common bug in yup TypeError: field.resolve is not a function
+  place
     .validate({ name, linkSite, country, city, businessType })
     .then(() => {
       const promises = [];
