@@ -11,17 +11,9 @@ import {
   AddNewSitSpot,
   SinglePlace,
 } from '../pages';
+
 import './style.css';
 
-// const pages = [
-//   { page: Home, path: ['/home', '/'] },
-//   { page: FAQ, path: ['/FAQ'] },
-//   { page: AboutUs, path: ['/about-us'] },
-//   { page: Search, path: ['/search'] },
-//   { page: 'Place', path: ['/sitspot/:id'] },
-//   { page: 'AddNewPlace', path: ['/add-place'] },
-//   { page: AddReview, path: ['/add-review'] },
-// ];
 const App = () => (
   <div className="App">
     <Layout>
