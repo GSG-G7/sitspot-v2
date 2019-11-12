@@ -1,4 +1,4 @@
-.singlePlace-header-img {
+.single-place__header-img {
   height:30vh;
   clip-path:(10% 0 0 0);
   width: 100%;
@@ -58,7 +58,7 @@
   margin-bottom: 2%;
 }
 
-.singlePlace-slider {
+.single-place__slider {
   margin: 3% 0;
 }
 
@@ -77,7 +77,7 @@
 
 @media (min-height:760px) {
  
-  .singlePlace-header-img {
+  .single-place__header-img {
     height: 300px;
     width: 100%;
     clip-path: inset(20rem 0 0 0);
@@ -85,4 +85,3 @@
   }
 
 }
-
