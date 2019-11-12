@@ -62,7 +62,11 @@ class SinglePlace extends Component {
         </Link>
         <div className="reviews-container">
           {reviews.map(reviewItem => (
-            <Review review={reviewItem} />
+            <Review
+              className="reviews-container__review"
+              review={reviewItem}
+              key={reviewItem.id}
+            />
           ))}
         </div>
       </>
@@ -75,7 +79,7 @@ SinglePlace.propTypes = {
   country: propTypes.string.isRequired,
   city: propTypes.string.isRequired,
   website: propTypes.string.isRequired,
-  images: propTypes.arrayOf(String).isRequired,
+  images: propTypes.arrayOf(propTypes.string).isRequired,
 };
 
 SinglePlace.defaultProps = {

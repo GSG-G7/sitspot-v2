@@ -4,7 +4,13 @@ import { Carousel } from 'antd';
 
 import './style.css';
 
-const ImageCarousel = ({ slides, isAuto, haveDots, dotPosition, smallTitle }) => (
+const ImageCarousel = ({
+  slides,
+  isAuto,
+  haveDots,
+  dotPosition,
+  smallTitle,
+}) => (
   <Carousel
     className="slider"
     autoplay={isAuto}
@@ -13,12 +19,20 @@ const ImageCarousel = ({ slides, isAuto, haveDots, dotPosition, smallTitle }) =>
   >
     {slides.map(({ id, src, alt, title }) => (
       <div key={id} className="slider__slide">
-      {title && smallTitle &&  <div className="slider__slide__img-smallTitle-container">
-      <img className="slider__slide__picture" src={src} alt={alt}/>
-      <span className="slider__slide__img-smallTitle-container__tilte">{title}</span>
-      </div> }
-        {!smallTitle && <img className="slider__slide__picture" src={src} alt={alt} /> }
-        {!smallTitle && title && <p className="slider__slide__caption">{title}</p>}
+        {title && smallTitle && (
+          <div className="slider__slide__img-smallTitle-container">
+            <img className="slider__slide__picture" src={src} alt={alt} />
+            <span className="slider__slide__img-smallTitle-container__tilte">
+              {title}
+            </span>
+          </div>
+        )}
+        {!smallTitle && (
+          <img className="slider__slide__picture" src={src} alt={alt} />
+        )}
+        {!smallTitle && title && (
+          <p className="slider__slide__caption">{title}</p>
+        )}
       </div>
     ))}
   </Carousel>

@@ -50,7 +50,7 @@
 }
 
 .heading-website {
-   font-size: 1.2rem;
+  font-size: 1.2rem;
   color: var(--main-color);
   font-weight: 670;
   font-family: "Raleway", sans-serif;
@@ -72,11 +72,14 @@
 
 .reviews-container {
   margin: 3% 2.5%;
-  border-top: 1px solid grey
 }
 
+.reviews-container__review {
+  border-top: 1px solid grey
+
+}
 @media (min-height:760px) {
- 
+
   .single-place__header-img {
     height: 300px;
     width: 100%;
