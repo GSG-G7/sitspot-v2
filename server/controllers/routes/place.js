@@ -22,7 +22,7 @@ const post = (req, res, next) => {
       return body;
     })
     .then(addPlace)
-    .then(([{ id }]) => res.send(id))
+    .then(([{ fields: { id } }]) => res.send(`${id}`))
     .catch(next);
 };
 module.exports = { post };
