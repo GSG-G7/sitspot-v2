@@ -1,17 +1,47 @@
 .slider {
-  max-width: 800px;
-  height: 100%;
+  max-width:100rem;
   overflow: hidden;
   margin: auto;
 }
 
+.slider__slide {
+ width: 100%;
+ padding:0 0.2rem;
+}
+
 .slider__slide__picture {
   width: 100%;
-  margin-bottom: 3%;
+  height: 30vh;
 }
 
 .slider__slide__caption {
   font-weight: 720;
-  font-size: 1.7rem;
+  font-size: 1.5rem;
+  margin-top: 2%;
   font-family: "Raleway", sans-serif;
+}
+
+.slider__slide__img-smallTitle-container {
+  position: relative;
+  text-align: center;
+}
+
+.slider__slide__img-smallTitle-container__tilte {
+  position: absolute;
+  bottom: 0px;
+  right: 0px;
+  background-color:rgba(255,255,255,0.5);
+  color: gray;
+  padding: 0 2%;
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+
+@media (min-height: 600px) and  (min-width: 500px) {
+
+.slider__slide__picture {
+ height: 55vh;
+ width:100%;
+}
+
 }
