@@ -10,12 +10,7 @@ const formulaMaker = ({ country, city, type, keywords }) => {
   return `AND(${formula.join(',')})`;
 };
 
-module.exports = ({
-  country = null,
-  city = null,
-  type = null,
-  keywords = ['mf_management_interaction'],
-}) =>
+module.exports = ({ country = null, city = null, type = null, keywords }) =>
   typeformBase('place')
     .select({
       view: 'Grid view',
