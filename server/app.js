@@ -1,3 +1,7 @@
+if (process.env.NODE_ENV === 'development' || process.env.NODE_ENV === 'test')
+  // eslint-disable-next-line global-require, import/no-extraneous-dependencies
+  require('env2')('.env');
+
 const { join } = require('path');
 const express = require('express');
 
@@ -11,7 +15,6 @@ app.set('port', process.env.PORT || 5000);
 if (process.env.NODE_ENV === 'development') app.use(require('morgan')('dev'));
 
 app.use('/api/v1', router);
-
 app.use(express.static(join(__dirname, '..', 'client', 'build')));
 
 app.all('*', (req, res) => {
