@@ -1,6 +1,8 @@
 const router = require('express').Router();
 
-const getKeywords = require('./getKeywords');
+const {
+  routes: { getKeywords },
+} = require('../controllers');
 
 router.get('/keywords', getKeywords);
 
