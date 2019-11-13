@@ -2,10 +2,11 @@
 /* eslint-disable react/require-default-props */
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import propTypes from 'prop-types';
+// import propTypes from 'prop-types';
 import { Icon } from 'antd';
 import axios from 'axios';
 
+// eslint-disable-next-line no-unused-vars
 import { Button, Fab, ImageCarousel, Review } from '../../components/index';
 import fakeImages from '../../components/ImageCarousel/fakeData';
 import { singleSitSpot, review } from './FakeData';
@@ -15,10 +16,11 @@ import './style.css';
 
 class SinglePlace extends Component {
   state = {
-    // name: undefined,
-    // country: undefined,
-    // city: undefined,
-    // url: undefined,
+    name: '',
+    country: '',
+    city: '',
+    url: '',
+    images: [],
     reviews: [review],
   };
 
@@ -30,7 +32,7 @@ class SinglePlace extends Component {
   }
 
   render() {
-    const { name, country, city, website, images } = this.props;
+    const { name, country, city, url, images } = this.state;
     const { reviews } = this.state;
     return (
       <>
@@ -56,8 +58,8 @@ class SinglePlace extends Component {
           <p className="place-name-location">
             {`${name}, ${country}, ${city}`}{' '}
           </p>
-          <a href={website} className="website-link">
-            {website}
+          <a href={url} className="website-link">
+            {url}
           </a>
         </div>
         <div className="single-place__slider">
@@ -71,22 +73,22 @@ class SinglePlace extends Component {
           <Fab onClick={() => {}} />
         </Link>
         <div className="reviews-container">
-          {reviews.map(reviewItem => (
+          {/* {reviews.map(reviewItem => (
             <Review key={reviewItem.id} review={reviewItem} />
-          ))}
+          ))} */}
         </div>
       </>
     );
   }
 }
 
-SinglePlace.propTypes = {
-  name: propTypes.string.isRequired,
-  country: propTypes.string.isRequired,
-  city: propTypes.string.isRequired,
-  website: propTypes.string.isRequired,
-  images: propTypes.arrayOf(propTypes.String).isRequired,
-};
+// SinglePlace.propTypes = {
+//   name: propTypes.string.isRequired,
+//   country: propTypes.string.isRequired,
+//   city: propTypes.string.isRequired,
+//   website: propTypes.string.isRequired,
+//   images: propTypes.arrayOf(propTypes.String).isRequired,
+// };
 
 SinglePlace.defaultProps = {
   name: singleSitSpot.name,
