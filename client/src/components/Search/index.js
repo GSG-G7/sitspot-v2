@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 import { Select, Radio, Button } from 'antd';
 import { getCountryNames, getCities } from 'full-countries-cities';
 
@@ -24,6 +25,11 @@ class Search extends Component {
     SHOP: 'Shop',
   });
 
+  componentDidMount() {
+    const { searchState } = this.props;
+    if (searchState) this.setState({ ...searchState });
+  }
+
   renderOptions = list =>
     list.map(item => (
       <Option key={item} value={item}>
@@ -31,10 +37,10 @@ class Search extends Component {
       </Option>
     ));
 
-  onSubmit = () => {
-    const { getSitSpots } = this.props;
-    if (getSitSpots) getSitSpots({ ...this.state });
-  };
+  // onSubmit = () => {
+  //   const { getSitSpots } = this.props;
+  //   if (getSitSpots) getSitSpots({ ...this.state });
+  // };
 
   toggleKeywordList = () =>
     this.setState(state => ({ viewKeywords: !state.viewKeywords }));
@@ -62,9 +68,8 @@ class Search extends Component {
 
   render() {
     const { country, city, keywords, viewKeywords, lookingFor } = this.state;
-    const { fontColor } = this.props;
+    const { fontColor, onSubmit } = this.props;
     const cities = country ? getCities(country) : [];
-
     return (
       <form className="search__form" style={{ color: fontColor }}>
         <div className="country-city-container">
@@ -126,12 +131,14 @@ class Search extends Component {
           </div>
         </div>
         <div className="form-action">
-          <Button id="search-btn" onClick={this.onSubmit}>
+          <Button id="search-btn" onClick={() => onSubmit(this.state)}>
             Search
           </Button>
-          <Button id="recommendation-btn" onClick={() => {}}>
-            + Add your recommendation
-          </Button>
+          <Link to="/add-place">
+            <Button id="recommendation-btn" onClick={() => {}}>
+              + Add your recommendation
+            </Button>
+          </Link>
         </div>
         {viewKeywords && (
           <KeywordList
@@ -150,7 +157,14 @@ Search.defaultProps = {
 
 Search.propTypes = {
   fontColor: PropTypes.string,
-  getSitSpots: PropTypes.func.isRequired,
+  searchState: PropTypes.shape({
+    country: PropTypes.string,
+    city: PropTypes.string,
+    lookingFor: PropTypes.string,
+    keywords: PropTypes.arrayOf(PropTypes.string),
+    viewKeywords: PropTypes.bool,
+  }).isRequired,
+  onSubmit: PropTypes.func.isRequired,
 };
 
 export default Search;

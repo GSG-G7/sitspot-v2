@@ -72,7 +72,7 @@ const renderSelect = (values, currentStep, funcs) => {
 
 const renderRadio = (values, funcs) => (
   <Radio.Group value={values.businessType} buttonStyle="solid">
-    {Object.entries(BusinessTypes).map(([key, value]) => (
+    {Object.entries(BusinessTypes).map(([key, value], i) => (
       <Radio.Button
         key={key}
         value={key}
@@ -83,6 +83,7 @@ const renderRadio = (values, funcs) => (
             funcs.handleChange
           )
         }
+        disabled={i !== 0}
       >
         {value}
       </Radio.Button>

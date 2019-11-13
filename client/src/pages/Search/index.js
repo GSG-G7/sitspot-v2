@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-
+import { Link } from 'react-router-dom';
+import { search } from '../../services/api';
 import { Search, SearchResult } from '../../components/index';
-import fakeData from '../../components/SearchResult/fakeData';
 
 import './style.css';
 
@@ -11,10 +11,12 @@ class SearchPage extends Component {
     sitspots: [],
   };
 
-  // eslint-disable-next-line no-unused-vars
-  getSitSpots = data => {
-    // fetch data depending on the data paramter
-    this.setState({ sitspots: fakeData });
+  onSubmit = state => {
+    const qs = new URLSearchParams();
+    Object.entries(state).forEach(([key, value]) => qs.append(key, value));
+    search(qs.toString()).then(({ data }) => {
+      this.setState({ sitspots: data });
+    });
   };
 
   render() {
@@ -30,10 +32,18 @@ class SearchPage extends Component {
           )}
         </div>
         <Search
-          getSitSpots={this.getSitSpots}
+          onSubmit={this.onSubmit}
           searchState={searchState}
           fontColor="#333"
         />
+        <div style={{ textAlign: 'center' }}>
+          <Link
+            to="/add-place"
+            style={{ color: 'var(--main-color)', fontWeight: 700 }}
+          >
+            Or Do you wanna add a new SitSpot?
+          </Link>
+        </div>
         {sitspots && (
           <SearchResult
             className="search-page__results"
@@ -46,11 +56,23 @@ class SearchPage extends Component {
 }
 
 SearchPage.propTypes = {
-  searchState: PropTypes.objectOf(PropTypes.object),
+  searchState: PropTypes.shape({
+    country: PropTypes.string,
+    city: PropTypes.string,
+    lookingFor: PropTypes.string,
+    keywords: PropTypes.arrayOf(PropTypes.string),
+    viewKeywords: PropTypes.bool,
+  }),
 };
 
 SearchPage.defaultProps = {
-  searchState: undefined,
+  searchState: {
+    country: undefined,
+    city: undefined,
+    lookingFor: '',
+    keywords: [],
+    viewKeywords: false,
+  },
 };
 
 export default SearchPage;
