@@ -8,12 +8,12 @@ const SearchResult = ({ resultArray }) => (
   <div className="search-result">
     <ul className="search-result-list">
       {resultArray.map(({ id, image1, country, type }) => (
-        <Link to={`/sitspot/${type}/${id}`}>
-          <li key={`searchRes:${id}`} className="search-result__item">
+        <li key={`searchRes:${id}`} className="search-result__item">
+          <Link to={`/sitspot/${type}/${id}`}>
             <img className="search-result__item-img" alt="place" src={image1} />
             <p className="search-result__item-text">{`${type}, ${country}`}</p>
-          </li>
-        </Link>
+          </Link>
+        </li>
       ))}
     </ul>
   </div>
