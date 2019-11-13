@@ -55,7 +55,7 @@ const renderSelect = (values, currentStep, funcs) => {
   }
   return (
     <Select
-      className="ant-select-country"
+      className="ant-select-country country-w-city"
       showSearch
       placeholder="Select"
       optionFilterProp="children"
