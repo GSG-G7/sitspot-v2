@@ -1,4 +1,5 @@
 const { getPlace, getPlaceReviews } = require('../../models/queries');
+const { imgUrl } = require('../utils');
 
 module.exports = (req, res, next) => {
   const { id, type } = req.query;
@@ -20,13 +21,13 @@ module.exports = (req, res, next) => {
         const images = [
           {
             id: place.image1,
-            src: place.image1,
+            src: imgUrl(place.image1),
             alt: 'sitspot',
             title: place.name,
           },
           {
             id: place.image2,
-            src: place.image2,
+            src: imgUrl(place.image2),
             alt: 'sitspot',
             title: place.name,
           },

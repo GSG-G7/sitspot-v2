@@ -1,3 +1,4 @@
 const upload = require('./upload');
+const imgUrl = require('./imageUrl');
 
-module.exports = { upload };
+module.exports = { upload, imgUrl };

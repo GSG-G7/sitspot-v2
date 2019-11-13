@@ -1,7 +1,5 @@
 const { search } = require('../../models/queries');
-
-const imgUrl = publicId =>
-  `https://res.cloudinary.com/amoodaa/image/upload/v1573596346/${publicId}.png`;
+const { imgUrl } = require('../utils');
 
 module.exports = (req, res, next) =>
   search(req.query)
