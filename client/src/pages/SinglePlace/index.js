@@ -2,14 +2,14 @@
 /* eslint-disable react/require-default-props */
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-// import propTypes from 'prop-types';
+import propTypes from 'prop-types';
 import { Icon } from 'antd';
 import axios from 'axios';
 
 // eslint-disable-next-line no-unused-vars
 import { Button, Fab, ImageCarousel, Review } from '../../components/index';
-import fakeImages from '../../components/ImageCarousel/fakeData';
-import { singleSitSpot, review } from './FakeData';
+// import fakeImages from '../../components/ImageCarousel/fakeData';
+// import { singleSitSpot, review } from './FakeData';
 import backgroundImage from '../../assets/images/back-single.png';
 
 import './style.css';
@@ -21,11 +21,12 @@ class SinglePlace extends Component {
     city: '',
     url: '',
     images: [],
-    reviews: [review],
+    reviews: [],
   };
 
   componentDidMount() {
-    axios.get('/api/v1/place?id=17&type=stay').then(place => {
+    const { id, type } = this.props;
+    axios.get(`/api/v1/place?id=${id}&type=${type}`).then(place => {
       console.log(place.data); // object contains place data and array of reviews
       this.setState(place.data);
     });
@@ -82,20 +83,9 @@ class SinglePlace extends Component {
   }
 }
 
-// SinglePlace.propTypes = {
-//   name: propTypes.string.isRequired,
-//   country: propTypes.string.isRequired,
-//   city: propTypes.string.isRequired,
-//   website: propTypes.string.isRequired,
-//   images: propTypes.arrayOf(propTypes.String).isRequired,
-// };
-
-SinglePlace.defaultProps = {
-  name: singleSitSpot.name,
-  country: singleSitSpot.country,
-  city: singleSitSpot.city,
-  website: singleSitSpot.website,
-  images: fakeImages,
+SinglePlace.propTypes = {
+  id: propTypes.string.isRequired,
+  type: propTypes.string.isRequired,
 };
 
 export default SinglePlace;
