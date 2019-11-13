@@ -4,18 +4,30 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import propTypes from 'prop-types';
 import { Icon } from 'antd';
+import axios from 'axios';
 
 import { Button, Fab, ImageCarousel, Review } from '../../components/index';
 import fakeImages from '../../components/ImageCarousel/fakeData';
-import singleSitSpot from './FakeData';
+import { singleSitSpot, review } from './FakeData';
 import backgroundImage from '../../assets/images/back-single.png';
 
 import './style.css';
 
 class SinglePlace extends Component {
   state = {
-    reviews: [],
+    // name: undefined,
+    // country: undefined,
+    // city: undefined,
+    // url: undefined,
+    reviews: [review],
   };
+
+  componentDidMount() {
+    axios.get('/api/v1/place?id=17&type=stay').then(place => {
+      console.log(place.data); // object contains place data and array of reviews
+      this.setState(place.data);
+    });
+  }
 
   render() {
     const { name, country, city, website, images } = this.props;
@@ -27,36 +39,34 @@ class SinglePlace extends Component {
           alt="background"
           className="single-place__header-img"
         />
-        <div className="buttons-container">
-          <Link to="/search">
-            <span className="buttons-container__back">
-              <Icon type="arrow-left" />
-              <span className="buttons-container__back__text">
-                Back to results
-              </span>
-            </span>
-          </Link>
-          <Link to="/review">
-            <Button onClick={() => {}} className="buttons-container__add">
-              <Icon type="plus" style={{ color: '#fff' }} />
-              <span className="buttons-container__add__text">
-                Add your recommendation
-              </span>
-            </Button>
-          </Link>
+        <div className="placename-search-container">
+          <div className="buttons-container">
+            <Link to="/search">
+              <Button className="transparent primary-color">
+                <Icon type="arrow-left" /> <span>Back to results</span>
+              </Button>
+            </Link>
+            <Link to="/review">
+              <Button onClick={() => {}} className="button  primary-background">
+                <Icon type="plus" style={{ color: '#fff' }} />
+                <span className="button-text"> Add your recommendation</span>
+              </Button>
+            </Link>
+          </div>
+          <p className="place-name-location">
+            {`${name}, ${country}, ${city}`}{' '}
+          </p>
+          <a href={website} className="website-link">
+            {website}
+          </a>
         </div>
-        <p className="heading-name-location">
-          {`${name}, ${country}, ${city}`}{' '}
-        </p>
-        <a href={website} className="heading-website">
-          {website}
-        </a>
         <div className="single-place__slider">
           <ImageCarousel slides={images} smallTitle />
         </div>
         <span className="recommended-by-text">
           Recommended by {reviews.length} contributors
         </span>
+        <hr />
         <Link to="/review">
           <Fab onClick={() => {}} />
         </Link>
