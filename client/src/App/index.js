@@ -19,13 +19,10 @@ const App = () => (
     <Layout>
       <Switch>
         <Route
-          path="/"
+          path="(/|/home)"
           exact
           render={({ history }) => <Home history={history} />}
         />
-        <Route path="/home">
-          <Home />
-        </Route>
         <Route path="/faq" component={() => <FAQ />} />
         <Route path="/about-us" component={() => <AboutUs />} />
         <Route
