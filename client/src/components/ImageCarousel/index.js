@@ -23,7 +23,7 @@ const ImageCarousel = ({
           <div className="slider__slide__img-smallTitle-container">
             <img className="slider__slide__picture" src={src} alt={alt} />
             <span className="slider__slide__img-smallTitle-container__tilte">
-              {title}
+              Credit: {title}
             </span>
           </div>
         )}
