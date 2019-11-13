@@ -50,7 +50,7 @@ const AddReview = ({ type, sitspotId, history }) => {
         ref={tf => {
           typeformEmbed = tf;
         }}
-        url={urls[type.toUpperCase()](sitspotId)}
+        url={urls[type](sitspotId)}
         style={{
           position: 'relative',
           width: '100%',

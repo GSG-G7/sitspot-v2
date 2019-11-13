@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 import { Select, Radio, Button } from 'antd';
 import { getCountryNames, getCities } from 'full-countries-cities';
 
@@ -133,9 +134,11 @@ class Search extends Component {
           <Button id="search-btn" onClick={() => onSubmit(this.state)}>
             Search
           </Button>
-          <Button id="recommendation-btn" onClick={() => {}}>
-            + Add your recommendation
-          </Button>
+          <Link to="/add-place">
+            <Button id="recommendation-btn" onClick={() => {}}>
+              + Add your recommendation
+            </Button>
+          </Link>
         </div>
         {viewKeywords && (
           <KeywordList

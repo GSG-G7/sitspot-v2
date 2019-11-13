@@ -1,13 +1,9 @@
-/* eslint-disable react/default-props-match-prop-types */
-/* eslint-disable react/require-default-props */
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import propTypes from 'prop-types';
 import { Icon } from 'antd';
-
+import { place as getPlaceReviews } from '../../services/api';
 import { Button, Fab, ImageCarousel, Review } from '../../components/index';
-import fakeImages from '../../components/ImageCarousel/fakeData';
-import singleSitSpot from './FakeData';
 import backgroundImage from '../../assets/images/back-single.png';
 
 import './style.css';
@@ -17,8 +13,20 @@ class SinglePlace extends Component {
     reviews: [],
   };
 
+  componentDidMount() {
+    const { type, sitspotId } = this.props;
+    getPlaceReviews(type, sitspotId).then(({ data: { reviews, ...rest } }) => {
+      this.setState({ reviews, ...rest });
+    });
+  }
+
   render() {
-    const { name, country, city, website, images } = this.props;
+    const {
+      type,
+      sitspotId,
+      sitspot: { name, country, city, url, image1, image2 },
+      history,
+    } = this.props;
     const { reviews } = this.state;
     return (
       <>
@@ -28,31 +36,41 @@ class SinglePlace extends Component {
           className="single-place__header-img"
         />
         <div className="buttons-container">
-          <Link to="/search">
-            <span className="buttons-container__back">
-              <Icon type="arrow-left" />
-              <span className="buttons-container__back__text">
-                Back to results
-              </span>
+          <span
+            role="button"
+            tabIndex="-1"
+            className="buttons-container__back"
+            onClick={() => history.goBack()}
+          >
+            <Icon type="arrow-left" />
+            <span className="buttons-container__back__text">
+              Back to results
             </span>
-          </Link>
-          <Link to="/review">
-            <Button onClick={() => {}} className="buttons-container__add">
-              <Icon type="plus" style={{ color: '#fff' }} />
-              <span className="buttons-container__add__text">
-                Add your recommendation
-              </span>
-            </Button>
-          </Link>
+          </span>
+
+          <Button
+            onClick={() => {
+              history.push(`/add-review/${type}/${sitspotId}`);
+            }}
+            className="buttons-container__add"
+          >
+            <Icon type="plus" style={{ color: '#fff' }} />
+            <span className="buttons-container__add__text">
+              Add your recommendation
+            </span>
+          </Button>
         </div>
         <p className="heading-name-location">
           {`${name}, ${country}, ${city}`}{' '}
         </p>
-        <a href={website} className="heading-website">
-          {website}
+        <a href={url} className="heading-website">
+          {url}
         </a>
         <div className="single-place__slider">
-          <ImageCarousel slides={images} smallTitle />
+          <ImageCarousel
+            slides={[{ id: image1, src: image1 }, { id: image2, src: image2 }]}
+            smallTitle
+          />
         </div>
         <span className="recommended-by-text">
           Recommended by {reviews.length} contributors
@@ -71,19 +89,36 @@ class SinglePlace extends Component {
 }
 
 SinglePlace.propTypes = {
-  name: propTypes.string.isRequired,
-  country: propTypes.string.isRequired,
-  city: propTypes.string.isRequired,
-  website: propTypes.string.isRequired,
-  images: propTypes.arrayOf(propTypes.String).isRequired,
+  sitspotId: propTypes.string.isRequired,
+  type: propTypes.oneOf(['eat', 'stay', 'shop']).isRequired,
+  sitspot: propTypes.shape({
+    name: propTypes.string,
+    country: propTypes.string,
+    city: propTypes.string,
+    url: propTypes.string,
+    image1: propTypes.string,
+    image2: propTypes.string,
+  }),
+  history: propTypes.shape({
+    goBack: propTypes.func.isRequired,
+    push: propTypes.func.isRequired,
+  }).isRequired,
 };
 
 SinglePlace.defaultProps = {
-  name: singleSitSpot.name,
-  country: singleSitSpot.country,
-  city: singleSitSpot.city,
-  website: singleSitSpot.website,
-  images: fakeImages,
+  sitspot: {
+    name: 'you are probably seeing a placeholder',
+    country: 'SitSpot country',
+    city: 'SitSpot city',
+    website: 'SitSpot url',
+    images: [
+      {
+        id: 1,
+        src:
+          'https://res.cloudinary.com/amoodaa/image/upload/v1573596346/etiutpg8xqmt8lertkhb.png',
+      },
+    ],
+  },
 };
 
 export default SinglePlace;

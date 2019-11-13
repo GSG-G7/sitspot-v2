@@ -42,19 +42,24 @@ const App = () => (
               params: { type, sitspotId },
             },
           }) => (
-            <AddReview history={history} type={type} sitspotId={sitspotId} />
+            <AddReview
+              history={history}
+              type={type.toUpperCase()}
+              sitspotId={sitspotId}
+            />
           )}
         />
         <Route path="/add-place">
           <AddNewSitSpot />
         </Route>
         <Route
-          path="/sitspot/:id"
+          path="/sitspot/:type/:id"
           render={({
+            history,
             match: {
-              params: { id },
+              params: { type, id },
             },
-          }) => <SinglePlace sitspotId={id} />}
+          }) => <SinglePlace history={history} type={type} sitspotId={id} />}
         />
       </Switch>
     </Layout>
