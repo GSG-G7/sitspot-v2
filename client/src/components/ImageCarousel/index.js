@@ -17,7 +17,7 @@ const ImageCarousel = ({
     dots={haveDots}
     dotPosition={dotPosition}
   >
-    {slides.map(({ id, src, alt, title }) => (
+    {slides.map(({ id, src, alt = 'place', title = 'cool image' }) => (
       <div key={id} className="slider__slide">
         {title && smallTitle && (
           <div className="slider__slide__img-smallTitle-container">

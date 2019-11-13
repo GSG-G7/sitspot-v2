@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import propTypes from 'prop-types';
-import { withRouter } from 'react-router-dom';
 import axios from 'axios';
 
 import { StepsQuestions } from '../../components';
@@ -94,6 +93,6 @@ class AddNewSitSpot extends Component {
 }
 
 AddNewSitSpot.propTypes = {
-  history: propTypes.shape().isRequired,
+  history: propTypes.shape({ push: propTypes.func.isRequired }).isRequired,
 };
-export default withRouter(AddNewSitSpot);
+export default AddNewSitSpot;

@@ -8,7 +8,7 @@ import urls from './urls';
 
 import './style.css';
 
-const AddReview = ({ type, sitspotId }) => {
+const AddReview = ({ type, sitspotId, history }) => {
   let typeformEmbed = null;
   const openForm = () => typeformEmbed.typeform.open();
   return (
@@ -58,6 +58,7 @@ const AddReview = ({ type, sitspotId }) => {
           zIndex: '2',
         }}
         popup
+        onSubmit={() => history.push(`/sitspot/${sitspotId}`)}
       />
     </>
   );
@@ -65,6 +66,7 @@ const AddReview = ({ type, sitspotId }) => {
 AddReview.propTypes = {
   type: propTypes.oneOf(['STAY', 'EAT', 'SHOP']).isRequired,
   sitspotId: propTypes.string.isRequired,
+  history: propTypes.shape({ push: propTypes.func.isRequired }).isRequired,
 };
 
 export default AddReview;
