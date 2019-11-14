@@ -7,7 +7,7 @@ module.exports = (req, res, next) =>
       result.map(({ id, fields: { image1, image2, ...fields } }) => ({
         id,
         image1: imgUrl(image1),
-        image2: imgUrl(image2),
+        image2: image2 && imgUrl(image2),
         ...fields,
       }))
     )

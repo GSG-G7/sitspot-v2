@@ -25,13 +25,14 @@ module.exports = (req, res, next) => {
             alt: 'sitspot',
             title: place.name,
           },
-          {
+        ];
+        if (place.image2)
+          images.push({
             id: place.image2,
             src: imgUrl(place.image2),
             alt: 'sitspot',
             title: place.name,
-          },
-        ];
+          });
         delete place.image1;
         delete place.image2;
         place.images = images;
@@ -43,7 +44,7 @@ module.exports = (req, res, next) => {
       placeData.reviews = incomingReviews
         .map(({ fields }) => fields)
         .map(formatReviews);
-      res.json(placeData);
     })
+    .then(() => res.json(placeData))
     .catch(next);
 };
