@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
 import propTypes from 'prop-types';
 import { Icon } from 'antd';
 import { place as getPlaceReviews } from '../../services/api';
@@ -10,24 +9,36 @@ import './style.css';
 
 class SinglePlace extends Component {
   state = {
-    reviews: [],
+    sitspot: {
+      name: 'you are probably seeing a placeholder',
+      country: 'country',
+      city: 'city',
+      url: 'https://sitspot.herokuapp.com/',
+      images: [
+        {
+          id: 1,
+          src:
+            'https://res.cloudinary.com/amoodaa/image/upload/v1573735615/gfxscaodb75ah0uz8l8y.png',
+        },
+      ],
+      reviews: [],
+    },
   };
 
   componentDidMount() {
     const { type, sitspotId } = this.props;
-    getPlaceReviews(type, sitspotId).then(({ data: { reviews, ...rest } }) => {
-      this.setState({ reviews, ...rest });
+    const { sitspot } = this.state;
+    getPlaceReviews(type, sitspotId).then(({ data: newSitspot }) => {
+      console.log(newSitspot);
+      this.setState({ sitspot: { ...sitspot, ...newSitspot } });
     });
   }
 
   render() {
+    const { type, sitspotId, history } = this.props;
     const {
-      type,
-      sitspotId,
-      sitspot: { name, country, city, url, image1, image2 },
-      history,
-    } = this.props;
-    const { reviews } = this.state;
+      sitspot: { name, country, city, url, images, reviews },
+    } = this.state;
     return (
       <>
         <img
@@ -54,28 +65,27 @@ class SinglePlace extends Component {
             </Button>
           </div>
           <p className="place-name-location">
-            {`${name}, ${country}, ${city}`}{' '}
+            {`${name}, ${city}, ${country}`}{' '}
           </p>
           <a href={url} className="website-link">
             {url}
           </a>
         </div>
         <div className="single-place__slider">
-          <ImageCarousel
-            slides={[{ id: image1, src: image1 }, { id: image2, src: image2 }]}
-            smallTitle
-          />
+          <ImageCarousel slides={images} smallTitle />
         </div>
         <span className="recommended-by-text">
           Recommended by {reviews.length} contributors
         </span>
         <hr />
-        <Link to="/review">
-          <Fab onClick={() => {}} />
-        </Link>
+        <Fab
+          onClick={() => {
+            history.push(`/add-review/${type}/${sitspotId}`);
+          }}
+        />
         <div className="reviews-container">
           {reviews.map(review => (
-            <Review key={review.id} review={review} />
+            <Review key={review.reviewId} review={review} />
           ))}
         </div>
       </>
@@ -86,34 +96,10 @@ class SinglePlace extends Component {
 SinglePlace.propTypes = {
   sitspotId: propTypes.string.isRequired,
   type: propTypes.oneOf(['eat', 'stay', 'shop']).isRequired,
-  sitspot: propTypes.shape({
-    name: propTypes.string,
-    country: propTypes.string,
-    city: propTypes.string,
-    url: propTypes.string,
-    image1: propTypes.string,
-    image2: propTypes.string,
-  }),
   history: propTypes.shape({
     goBack: propTypes.func.isRequired,
     push: propTypes.func.isRequired,
   }).isRequired,
-};
-
-SinglePlace.defaultProps = {
-  sitspot: {
-    name: 'you are probably seeing a placeholder',
-    country: 'SitSpot country',
-    city: 'SitSpot city',
-    website: 'SitSpot url',
-    images: [
-      {
-        id: 1,
-        src:
-          'https://res.cloudinary.com/amoodaa/image/upload/v1573596346/etiutpg8xqmt8lertkhb.png',
-      },
-    ],
-  },
 };
 
 export default SinglePlace;

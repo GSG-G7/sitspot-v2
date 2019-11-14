@@ -4,6 +4,13 @@
 // temp1.reduce((accum, {...rest}) => ({...accum,...rest}), {});
 
 const { keywords } = require('../../models/cached');
+// tripDetails: {
+//   Type: 'accomdation',
+//   'Sub Type': 'private ensuite',
+//   'Type of trip': 'Backpacking',
+//   Date: '13/9/2018',
+//   'Price Range': 'luxury',
+// },
 
 const format = review => {
   const {
@@ -17,21 +24,19 @@ const format = review => {
     trip_type: tripType,
     price_range: priceRange,
     rating,
-    subtype: typeOfService,
+    subtype,
   } = review;
   // extras
   const copy = {
     reviewId: id,
     placeId,
-    typeOfService,
+    tripDetails: { subtype, tripType, priceRange, dateOfTrip },
     fullReview,
     reviewTitle,
-    tripType,
     experienceFields,
     ecoCertificates,
-    dateOfTrip,
-    priceRange,
   };
+
   const keys = Object.keys(review);
 
   // reviewer info
