@@ -1,5 +1,5 @@
 const { getPlace, getPlaceReviews } = require('../../models/queries');
-const { imgUrl } = require('../utils');
+const { imgUrl, formatReviews } = require('../utils');
 
 module.exports = (req, res, next) => {
   const { id, type } = req.query;
@@ -8,7 +8,7 @@ module.exports = (req, res, next) => {
     next({ statusCode: 400, message: 'id and type required' });
   }
 
-  let placeData;
+  let placeData = {};
 
   getPlace(id)
     .then(places => {
@@ -40,10 +40,9 @@ module.exports = (req, res, next) => {
     })
     .then(() => getPlaceReviews(type, id))
     .then(incomingReviews => {
-      const { reviews } = placeData;
-      incomingReviews.forEach(record => {
-        reviews.push(record.fields);
-      });
+      placeData.reviews = incomingReviews
+        .map(({ fields }) => fields)
+        .map(formatReviews);
       res.json(placeData);
     })
     .catch(next);
