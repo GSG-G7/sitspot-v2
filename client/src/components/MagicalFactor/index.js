@@ -1,6 +1,7 @@
 import React from 'react';
 import propTypes from 'prop-types';
 
+// eslint-disable-next-line import/no-unresolved
 import Keywords from '../../assets/Keywords';
 
 import './style.css';
