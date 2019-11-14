@@ -46,9 +46,10 @@ const App = () => (
             />
           )}
         />
-        <Route path="/add-place">
-          <AddNewSitSpot />
-        </Route>
+        <Route
+          path="/add-place"
+          component={({ history }) => <AddNewSitSpot history={history} />}
+        />
         <Route
           path="/sitspot/:type/:id"
           render={({
