@@ -43,7 +43,7 @@ class AddNewSitSpot extends Component {
     );
 
     axios
-      .post('/api/v1/place', formData, {
+      .post('/api/v1/sitspot', formData, {
         headers: { 'content-type': 'multipart/formdata' },
       })
       .then(({ data: id }) =>

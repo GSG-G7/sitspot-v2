@@ -11,7 +11,7 @@ router.get('/search', search);
 router.get('/keywords', getKeywords);
 
 router
-  .route('/place')
+  .route('/sitspot')
   .get(placeAndReviews)
   .post(upload.any(), place.post);
 
