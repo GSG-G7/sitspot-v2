@@ -11,7 +11,12 @@ const { keywords } = require('../../models/cached');
 //   Date: '13/9/2018',
 //   'Price Range': 'luxury',
 // },
-
+const splitAndTitleCase = (text, seperator) =>
+  text
+    .split(seperator)
+    .map(e => e.slice(0, 1).toUpperCase() + e.slice(1).toLowerCase())
+    .slice(1)
+    .join(' ');
 const format = review => {
   const {
     id,
@@ -23,14 +28,18 @@ const format = review => {
     date_of_trip: dateOfTrip,
     trip_type: tripType,
     price_range: priceRange,
-    rating,
     subtype,
   } = review;
   // extras
   const copy = {
     reviewId: id,
     placeId,
-    tripDetails: { subtype, tripType, priceRange, dateOfTrip },
+    tripDetails: {
+      'Type of service': subtype,
+      'Trip type': tripType,
+      'Price range': priceRange,
+      'Date of trip': dateOfTrip,
+    },
     fullReview,
     reviewTitle,
     experienceFields,
@@ -43,9 +52,10 @@ const format = review => {
   copy.reviewer = keys
     .filter(e => e.split('_')[0] === 'reviewer')
     .map(e => [e, review[e]])
-    .reduce((accum, [k, v]) => ({ ...accum, [k]: v }), {});
-  copy.reviewer.conciousTravellerRating = rating;
-  copy.reviewer.listCountries = review.list_countries;
+    .reduce(
+      (accum, [k, v]) => ({ ...accum, [splitAndTitleCase(k, '_')]: v }),
+      {}
+    );
 
   // images
   copy.images = keys

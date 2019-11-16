@@ -27,7 +27,7 @@ class Review extends React.Component {
       review: {
         reviewer,
         reviewDate,
-        title,
+        reviewTitle,
         magicalFactors,
         tripDetails,
         fullReview,
@@ -39,7 +39,7 @@ class Review extends React.Component {
     return (
       <div className="review">
         <p className="review__reviewee">
-          By {`${reviewer.Name} `}
+          By {`${reviewer.Alias} `}
           <span
             className="review__reviewee__view-profile"
             tabIndex="-1"
@@ -66,16 +66,20 @@ class Review extends React.Component {
           </>
         )}
         <div className="review__heading green-dotted-border">
-          <span className="review__heading__title">{title}</span>
+          <span className="review__heading__title">{reviewTitle}</span>
           <span className="review__heading__date">{reviewDate}</span>
         </div>
-        <div className="review__magical-factors">
-          {magicalFactors.map(({ name, src, followUp }) => (
-            <div className="green-dotted-border" key={src.slice(-20)}>
-              <MagicalFactor name={name} src={src} followUp={followUp} />
-            </div>
-          ))}
-        </div>
+        {magicalFactors.length === 0 ? (
+          <div className="review__magical-factors">
+            {magicalFactors.map(({ name, src, followUp }) => (
+              <div className="green-dotted-border" key={src.slice(-20)}>
+                <MagicalFactor name={name} src={src} followUp={followUp} />
+              </div>
+            ))}
+          </div>
+        ) : (
+          <></>
+        )}
         <div className="review__details green-dotted-border">
           {Object.entries(tripDetails).map((
             [key, value] // extremely debatable way to do this

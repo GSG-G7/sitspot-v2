@@ -9,15 +9,15 @@ const MagicalFactor = ({ name, src, followUp }) => (
       <div className="magical__keyword__img-container">
         <img src={src} alt={name} className="magical__keyword__img-img" />
       </div>
-      <p
+      {/* <p
         className={`magical__keyword-label${
           name.length > 10 ? '--smaller' : ''
         }`}
       >
         {name}
-      </p>
+      </p> */}
     </div>
-    <p className="magical__review">{followUp}</p>
+    <p className="magical__review text-bubble">{followUp}</p>
   </div>
 );
 

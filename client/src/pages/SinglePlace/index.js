@@ -77,7 +77,6 @@ class SinglePlace extends Component {
         <span className="recommended-by-text">
           Recommended by {reviews.length} contributors
         </span>
-        <hr />
         <Fab
           onClick={() => {
             history.push(`/add-review/${type}/${sitspotId}`);
