@@ -19,7 +19,7 @@
 }
 
 .review__heading {
-  padding:0.5rem 0rem;
+  padding: 0.5rem 0rem;
 }
 
 .green-dotted-border {
@@ -100,7 +100,7 @@
   color: var(--main-color);
 }
 .review__badges__item__li span {
-  color:var(--text-blackish-color);
+  color: var(--text-blackish-color);
 }
 
 /* profile details style: */

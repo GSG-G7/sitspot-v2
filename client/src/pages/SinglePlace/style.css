@@ -3,9 +3,9 @@
   width: 100%;
 }
 
-.placename-search-container{
-width:95%;
-  margin:auto;
+.placename-search-container {
+  width: 95%;
+  margin: auto;
 }
 
 .buttons-container {
@@ -26,7 +26,7 @@ width:95%;
   align-content: center;
   text-align: start;
   color: white;
-  font-family: 'Raleway', sans-serif;
+  font-family: "Raleway", sans-serif;
   font-weight: 500;
   font-size: 1.2rem;
 }
@@ -39,7 +39,7 @@ width:95%;
 
 .buttons-container__back__text {
   padding: 0.25rem;
-  font-family: 'Raleway', sans-serif;
+  font-family: "Raleway", sans-serif;
   font-weight: 500;
   font-size: 1.2rem;
 }
@@ -75,11 +75,10 @@ width:95%;
 }
 
 .reviews-container__review {
-  border-top: 1px solid grey
+  border-top: 1px solid grey;
 }
 
-@media (min-height:600px) and (min-width: 600px) {
-
+@media (min-height: 600px) and (min-width: 600px) {
   .single-place__header-img {
     height: 50vh;
     width: 100%;
@@ -113,5 +112,4 @@ width:95%;
   .recommended-by-text {
     font-size: 1.7rem;
   }
-  
 }
