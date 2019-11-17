@@ -18,26 +18,25 @@ class SinglePlace extends Component {
         {
           id: 1,
           src:
-            'https://res.cloudinary.com/amoodaa/image/upload/v1573735615/gfxscaodb75ah0uz8l8y.png',
-        },
+            'https://res.cloudinary.com/amoodaa/image/upload/v1573735615/gfxscaodb75ah0uz8l8y.png'
+        }
       ],
-      reviews: [],
-    },
+      reviews: []
+    }
   };
 
   componentDidMount() {
     const { type, sitspotId } = this.props;
     const { sitspot } = this.state;
-    getPlaceReviews(type, sitspotId).then(({ data: newSitspot }) => {
-      console.log(newSitspot);
-      this.setState({ sitspot: { ...sitspot, ...newSitspot } });
-    });
+    getPlaceReviews(type, sitspotId).then(({ data: newSitspot }) =>
+      this.setState({ sitspot: { ...sitspot, ...newSitspot } })
+    );
   }
 
   render() {
     const { type, sitspotId, history } = this.props;
     const {
-      sitspot: { name, country, city, url, images, reviews },
+      sitspot: { name, country, city, url, images, reviews }
     } = this.state;
     return (
       <>
@@ -97,8 +96,8 @@ SinglePlace.propTypes = {
   type: propTypes.oneOf(['eat', 'stay', 'shop']).isRequired,
   history: propTypes.shape({
     goBack: propTypes.func.isRequired,
-    push: propTypes.func.isRequired,
-  }).isRequired,
+    push: propTypes.func.isRequired
+  }).isRequired
 };
 
 export default SinglePlace;
