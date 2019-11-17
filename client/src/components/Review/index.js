@@ -69,7 +69,7 @@ class Review extends React.Component {
           <span className="review__heading__title">{reviewTitle}</span>
           <span className="review__heading__date">{reviewDate}</span>
         </div>
-        {magicalFactors.length === 0 ? (
+        {magicalFactors.length !== 0 ? (
           <div className="review__magical-factors">
             {magicalFactors.map(({ name, src, followUp }) => (
               <div className="green-dotted-border" key={src.slice(-20)}>
