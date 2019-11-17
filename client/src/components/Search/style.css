@@ -64,7 +64,6 @@
   background-color: var(--main-color);
   color:#fff;
   border: none;
-  width: 62%;
   opacity: var(--opacity-search-button);
   border-radius: 0;
   font-weight: 600;
