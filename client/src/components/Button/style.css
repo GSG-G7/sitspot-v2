@@ -2,3 +2,27 @@
   outline: none;
   border: none;
 }
+
+.transparent {
+  background: transparent;
+}
+
+.primary-color {
+  color: var(--main-color);
+  font-weight: 600;
+  font-size: 1.5rem;
+}
+
+.primary-background {
+  background:var(--main-color);
+  font-weight: 600;
+  font-size: 1.25rem;
+  padding:0.25rem 1rem;
+  display: flex;
+  align-items: center;
+
+}
+
+.primary-background > * {
+  color:#fff;
+}

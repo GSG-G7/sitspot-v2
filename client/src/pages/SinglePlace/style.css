@@ -3,12 +3,17 @@
   width: 100%;
 }
 
+.placename-search-container {
+  width: 95%;
+  margin: auto;
+}
+
 .buttons-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
   align-content: center;
-  margin: 3% 2.5%;
+  margin: 5% 0;
 }
 
 .buttons-container__add {
@@ -21,7 +26,7 @@
   align-content: center;
   text-align: start;
   color: white;
-  font-family: 'Raleway', sans-serif;
+  font-family: "Raleway", sans-serif;
   font-weight: 500;
   font-size: 1.2rem;
 }
@@ -34,26 +39,23 @@
 
 .buttons-container__back__text {
   padding: 0.25rem;
-  font-family: 'Raleway', sans-serif;
+  font-family: "Raleway", sans-serif;
   font-weight: 500;
   font-size: 1.2rem;
 }
 
-.heading-name-location {
-  font-size: 1.7rem;
-  color: gray;
-  font-weight: 670;
+.place-name-location {
+  font-size: 1.8rem;
+  color: #666;
+  font-weight: 800;
   font-family: "Raleway", sans-serif;
-  margin: 0 2.5%;
 }
 
-.heading-website {
-  font-size: 1.2rem;
+.website-link {
+  font-size: 1.3rem;
   color: var(--main-color);
-  font-weight: 670;
+  font-weight: 800;
   font-family: "Raleway", sans-serif;
-  margin: 0 2.5%;
-  margin-bottom: 2%;
 }
 
 .single-place__slider {
@@ -73,11 +75,10 @@
 }
 
 .reviews-container__review {
-  border-top: 1px solid grey
+  border-top: 1px solid grey;
 }
 
-@media (min-height:600px) and (min-width: 600px) {
-
+@media (min-height: 600px) and (min-width: 600px) {
   .single-place__header-img {
     height: 50vh;
     width: 100%;
@@ -111,5 +112,4 @@
   .recommended-by-text {
     font-size: 1.7rem;
   }
-  
 }

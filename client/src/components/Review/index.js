@@ -25,13 +25,13 @@ class Review extends React.Component {
   render() {
     const {
       review: {
-        reviewee,
+        reviewer,
         reviewDate,
-        title,
+        reviewTitle,
         magicalFactors,
         tripDetails,
-        reviewText,
-        preservation,
+        fullReview,
+        preservationFactors,
       },
     } = this.props;
     const { isProfileShown, expand } = this.state;
@@ -39,7 +39,7 @@ class Review extends React.Component {
     return (
       <div className="review">
         <p className="review__reviewee">
-          By {`${reviewee.Name} `}
+          By {`${reviewer.Alias} `}
           <span
             className="review__reviewee__view-profile"
             tabIndex="-1"
@@ -53,7 +53,7 @@ class Review extends React.Component {
           <>
             <ProfileDetails
               className="review__reviewee-full-info"
-              profile={reviewee}
+              profile={reviewer}
             />
             <span
               tabIndex="-1"
@@ -66,16 +66,20 @@ class Review extends React.Component {
           </>
         )}
         <div className="review__heading green-dotted-border">
-          <span className="review__heading__title">{title}</span>
+          <span className="review__heading__title">{reviewTitle}</span>
           <span className="review__heading__date">{reviewDate}</span>
         </div>
-        <div className="review__magical-factors">
-          {magicalFactors.map(({ value, reviewText: magicalFactorReview }) => (
-            <div className="green-dotted-border" key={value.text}>
-              <MagicalFactor value={value} reviewText={magicalFactorReview} />
-            </div>
-          ))}
-        </div>
+        {magicalFactors.length === 0 ? (
+          <div className="review__magical-factors">
+            {magicalFactors.map(({ name, src, followUp }) => (
+              <div className="green-dotted-border" key={src.slice(-20)}>
+                <MagicalFactor name={name} src={src} followUp={followUp} />
+              </div>
+            ))}
+          </div>
+        ) : (
+          <></>
+        )}
         <div className="review__details green-dotted-border">
           {Object.entries(tripDetails).map((
             [key, value] // extremely debatable way to do this
@@ -88,7 +92,7 @@ class Review extends React.Component {
         </div>
         <div className="review__body">
           <p className="review__text">
-            {expand ? reviewText : reviewText.slice(0, 200)}
+            {expand ? fullReview : fullReview.slice(0, 200)}
             {!expand && (
               <span
                 className="expand-button"
@@ -103,13 +107,13 @@ class Review extends React.Component {
           </p>
           {expand && (
             <div className="review__badges">
-              {preservation.map(({ title: preservationTitle, badges }) => (
-                <div className="review__badges__item" key={title}>
-                  <h4 className="review__badges__title">{preservationTitle}</h4>
+              {preservationFactors.map(({ name, followUp }) => (
+                <div className="review__badges__item" key={name}>
+                  <h4 className="review__badges__title">{name}</h4>
                   <ul className="review__badges__list">
-                    {badges.map(badge => (
-                      <li className="review__badges__item__li" key={badge}>
-                        <span>{badge}</span>
+                    {followUp.map(item => (
+                      <li className="review__badges__item__li" key={item}>
+                        <span>{item}</span>
                       </li>
                     ))}
                   </ul>
@@ -135,7 +139,7 @@ class Review extends React.Component {
 
 Review.defaultProps = {
   review: {
-    reviewee: { Name: 'Hanaa', Country: 'UK', Age: '49-51' },
+    reviewer: { Name: 'Hanaa', Country: 'UK', Age: '49-51' },
     reviewDate: new Date().toLocaleDateString(),
     title: 'OK THAT WAS Coool as  sa asfas dasdsad',
     magicalFactors: [
@@ -159,7 +163,7 @@ Review.defaultProps = {
     },
     reviewText:
       'ahsdhaksjfhkdsjghlkhdalkhdfkahsdhaksjfhkdsjghlkhdalkhdfkahsdhaksjfhkdsjghlkhd',
-    preservation: [
+    preservationFactors: [
       {
         title: 'hi',
         badges: ['asdjlakfsjlksaj', 'sadsadasd'],
@@ -171,7 +175,7 @@ Review.defaultProps = {
 const { shape, string, arrayOf } = propTypes;
 Review.propTypes = {
   review: shape({
-    reviewee: shape({
+    reviewer: shape({
       Name: string,
       Country: string,
       Age: string,
@@ -179,8 +183,9 @@ Review.propTypes = {
     title: string,
     magicalFactors: arrayOf(
       shape({
-        value: shape({ text: string, imgSrc: string }),
-        reviewText: string,
+        name: string,
+        src: string,
+        followUp: string,
       })
     ),
     tripDetails: shape({
@@ -190,11 +195,11 @@ Review.propTypes = {
       Date: string,
       priceRange: string,
     }),
-    reviewText: string,
-    preservation: arrayOf(
+    fullReview: string,
+    preservationFactors: arrayOf(
       shape({
-        title: string,
-        badges: arrayOf(string),
+        name: string,
+        followUp: arrayOf(string),
       })
     ),
   }),

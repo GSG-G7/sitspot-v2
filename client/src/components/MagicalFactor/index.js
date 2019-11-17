@@ -1,38 +1,30 @@
 import React from 'react';
 import propTypes from 'prop-types';
 
-import Keywords from '../../assets/Keywords';
-
 import './style.css';
 
-const MagicalFactor = ({ value: { text, imgSrc }, reviewText }) => (
+const MagicalFactor = ({ name, src, followUp }) => (
   <div className="magical">
     <div className="magical__keyword">
       <div className="magical__keyword__img-container">
-        <img
-          src={Keywords[imgSrc]}
-          alt={text}
-          className="magical__keyword__img-img"
-        />
+        <img src={src} alt={name} className="magical__keyword__img-img" />
       </div>
-      <p
+      {/* <p
         className={`magical__keyword-label${
-          text.length > 10 ? '--smaller' : ''
+          name.length > 10 ? '--smaller' : ''
         }`}
       >
-        {text}
-      </p>
+        {name}
+      </p> */}
     </div>
-    <p className="magical__review">{reviewText}</p>
+    <p className="magical__review text-bubble">{followUp}</p>
   </div>
 );
 
 MagicalFactor.propTypes = {
-  value: propTypes.shape({
-    text: propTypes.string.isRequired,
-    imgSrc: propTypes.string.isRequired,
-  }).isRequired,
-  reviewText: propTypes.string.isRequired,
+  name: propTypes.string.isRequired,
+  src: propTypes.string.isRequired,
+  followUp: propTypes.string.isRequired,
 };
 
 export default MagicalFactor;
