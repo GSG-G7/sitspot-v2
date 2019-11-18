@@ -8,6 +8,7 @@ import Questions from './fakeData';
 import './index.css';
 
 const Classes = [
+  'welcome',
   'name',
   'website',
   'country',

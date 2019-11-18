@@ -23,6 +23,7 @@
 /* ================= override on style antd STEPS */
 #add-place .ant-steps-horizontal {
   display: flex;
+  justify-content: center;
 
 }
 

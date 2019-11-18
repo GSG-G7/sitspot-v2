@@ -1,6 +1,12 @@
 import nameImg from '../../assets/question-1.png';
 
 const Questions = [
+  {
+    id: 0,
+    title: 'welcome',
+    message:
+      'Thank you for sharing your “sitspot”. You’re on your way to support a deserving tourism business and enlighten other conscious travelers like you. Our simple questionnaire will take 15 minutes at most to complete, and will prompt you to share the details that your fellow conscious travelers will find most helpful.',
+  },
   { id: 1, title: 'What is the name of the business? ', imgUrl: nameImg },
   {
     id: 2,

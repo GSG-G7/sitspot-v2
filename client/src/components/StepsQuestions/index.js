@@ -20,13 +20,13 @@ const handleChangeInput = (value, nameState, cb) => {
 };
 
 const renderInput = (values, currentStep, funcs) => {
-  const stateKey = currentStep === 0 ? 'name' : 'linkSite';
+  const stateKey = currentStep === 1 ? 'name' : 'linkSite';
   return (
     <input
       className="input "
       type="text"
-      placeholder={currentStep === 0 ? 'Type your answer here' : 'http://'}
-      value={currentStep === 0 ? values.name : values.linkSite}
+      placeholder={currentStep === 1 ? 'Type your answer here' : 'http://'}
+      value={currentStep === 1 ? values.name : values.linkSite}
       onChange={event =>
         handleChangeInput(event.target.value, stateKey, funcs.handleChange)
       }
@@ -48,9 +48,9 @@ const dropDownFilter = (input, option) =>
   option.props.children.toLowerCase().indexOf(input.toLowerCase()) >= 0;
 
 const renderSelect = (values, currentStep, funcs) => {
-  const stateKey = currentStep === 2 ? 'country' : 'city';
+  const stateKey = currentStep === 3 ? 'country' : 'city';
   let cities;
-  if (currentStep === 3) {
+  if (currentStep === 4) {
     cities = values.country ? getCities(values.country) : [];
   }
   return (
@@ -59,11 +59,11 @@ const renderSelect = (values, currentStep, funcs) => {
       showSearch
       placeholder="Select"
       optionFilterProp="children"
-      value={currentStep === 2 ? values.country : values.city}
+      value={currentStep === 3 ? values.country : values.city}
       onChange={value => handleChangeInput(value, stateKey, funcs.handleChange)}
       filterOption={dropDownFilter}
     >
-      {currentStep === 2
+      {currentStep === 3
         ? renderOptions(getCountryNames())
         : renderOptions(cities)}
     </Select>
@@ -92,9 +92,11 @@ const renderRadio = (values, funcs) => (
 
 const renderQuestion = (questions, values, currentStep, funcs, classes) => (
   <div className={classes[currentStep]}>
-    <h2 className={`title ${classes[currentStep]}__title`}>
-      {questions[currentStep].title}
-    </h2>
+    {currentStep > 0 && (
+      <h2 className={`title ${classes[currentStep]}__title`}>
+        {questions[currentStep].title}
+      </h2>
+    )}
     {questions[currentStep].imgUrl && (
       <div className="img__box">
         <img
@@ -104,13 +106,18 @@ const renderQuestion = (questions, values, currentStep, funcs, classes) => (
         />
       </div>
     )}
-    {currentStep < 2 && renderInput(values, currentStep, funcs)}
-    {currentStep >= 2 &&
-      currentStep < 4 &&
+    {currentStep === 0 && (
+      <p className="welcome__message">{questions[0].message}</p>
+    )}
+    {currentStep <= 2 &&
+      currentStep > 0 &&
+      renderInput(values, currentStep, funcs)}
+    {currentStep >= 3 &&
+      currentStep < 5 &&
       renderSelect(values, currentStep, funcs, classes)}
 
-    {currentStep === 4 && renderRadio(values, funcs)}
-    {currentStep >= 5 && currentStep <= 6 && (
+    {currentStep === 5 && renderRadio(values, funcs)}
+    {currentStep >= 6 && currentStep <= 7 && (
       <UploadImg
         values={values}
         currentStep={currentStep}
@@ -121,6 +128,7 @@ const renderQuestion = (questions, values, currentStep, funcs, classes) => (
 );
 
 const ButtonInfo = Object.freeze({
+  START: 'Start',
   NEXT: 'Next',
   PREVIOUS: 'Previous',
   DONE: 'Done',
@@ -150,12 +158,14 @@ const StepsQuestions = ({ questions, currentStep, values, funcs, classes }) => (
     </div>
     <div className="steps-action">
       {currentStep < questions.length - 1 &&
-        renderButton(ButtonInfo.NEXT, funcs.next, ButtonInfo.TYPE)}
+        renderButton(
+          currentStep === 0 ? ButtonInfo.START : ButtonInfo.NEXT,
+          funcs.next,
+          ButtonInfo.TYPE
+        )}
 
       {currentStep === questions.length - 1 &&
         renderButton(ButtonInfo.DONE, funcs.onSubmit, ButtonInfo.TYPE)}
-      {/* {currentStep === questions.length - 1 &&
-        renderButton(ButtonInfo.DONE, null, ButtonInfo.TYPE)} */}
 
       {currentStep > 0 &&
         renderButton(ButtonInfo.PREVIOUS, funcs.prev, null, true)}
