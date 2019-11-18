@@ -16,7 +16,7 @@ const Menu = ({ closeHandler }) => (
   <div className="menu">
     <ul className="menu__list">
       <li className="menu__list__item">
-        <NavLink className="menu__list__link" to="/Home">
+        <NavLink className="menu__list__link" to="/Home" onClick={closeHandler}>
           Home
         </NavLink>
         <Icon
@@ -27,7 +27,11 @@ const Menu = ({ closeHandler }) => (
       </li>
       {routes.map(({ content, path }) => (
         <li className="menu__list__item" key={path}>
-          <NavLink className="menu__list__link" to={path}>
+          <NavLink
+            className="menu__list__link"
+            to={path}
+            onClick={closeHandler}
+          >
             {content}
           </NavLink>
         </li>
