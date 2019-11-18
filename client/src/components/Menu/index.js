@@ -16,7 +16,12 @@ const Menu = ({ closeHandler }) => (
   <div className="menu">
     <ul className="menu__list">
       <li className="menu__list__item">
-        <NavLink className="menu__list__link" to="/Home">
+        <NavLink
+          className="menu__list__link"
+          to="/Home"
+          onClick={closeHandler}
+          style={{ width: '100%' }}
+        >
           Home
         </NavLink>
         <Icon
@@ -26,11 +31,14 @@ const Menu = ({ closeHandler }) => (
         />
       </li>
       {routes.map(({ content, path }) => (
-        <li className="menu__list__item" key={path}>
-          <NavLink className="menu__list__link" to={path}>
-            {content}
-          </NavLink>
-        </li>
+        <NavLink
+          className="menu__list__item"
+          to={path}
+          onClick={closeHandler}
+          key={path}
+        >
+          <li className="menu__list__link menu__list__item">{content}</li>
+        </NavLink>
       ))}
     </ul>
   </div>

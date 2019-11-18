@@ -1,6 +1,7 @@
 .button {
   outline: none;
   border: none;
+  cursor: pointer;
 }
 
 .transparent {
@@ -14,15 +15,14 @@
 }
 
 .primary-background {
-  background:var(--main-color);
+  background: var(--main-color);
   font-weight: 600;
   font-size: 1.25rem;
-  padding:0.25rem 1rem;
+  padding: 0.1rem 1rem;
   display: flex;
   align-items: center;
-
 }
 
 .primary-background > * {
-  color:#fff;
+  color: #fff;
 }

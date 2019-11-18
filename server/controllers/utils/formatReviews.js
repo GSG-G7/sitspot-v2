@@ -4,13 +4,7 @@
 // temp1.reduce((accum, {...rest}) => ({...accum,...rest}), {});
 
 const { keywords } = require('../../models/cached');
-// tripDetails: {
-//   Type: 'accomdation',
-//   'Sub Type': 'private ensuite',
-//   'Type of trip': 'Backpacking',
-//   Date: '13/9/2018',
-//   'Price Range': 'luxury',
-// },
+
 const splitAndTitleCase = (text, seperator) =>
   text
     .split(seperator)
@@ -64,9 +58,11 @@ const format = review => {
 
   // magical factors
   copy.magicalFactors = keys
-    .filter(e => e.split('_')[0] === 'mf')
+    .filter(e => {
+      const key = e.split('_')[0];
+      return key === 'mf' || key === 'bc';
+    })
     .map(e => ({ ...keywords[e], followUp: review[e] }));
-  delete copy.magical_factors;
 
   // preservation factors
   copy.preservationFactors = keys

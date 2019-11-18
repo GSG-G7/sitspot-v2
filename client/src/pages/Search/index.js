@@ -11,6 +11,18 @@ class SearchPage extends Component {
     sitspots: [],
   };
 
+  componentDidMount() {
+    const { searchState } = this.props;
+    if (
+      searchState &&
+      !(
+        Object.entries(searchState).length === 0 &&
+        searchState.constructor === Object
+      )
+    )
+      this.onSubmit(searchState);
+  }
+
   onSubmit = state => {
     const qs = new URLSearchParams();
     Object.entries(state).forEach(([key, value]) => qs.append(key, value));
@@ -41,7 +53,7 @@ class SearchPage extends Component {
             to="/add-place"
             style={{ color: 'var(--main-color)', fontWeight: 700 }}
           >
-            Or Do you wanna add a new SitSpot?
+            Would you like to add a new SitSpot?
           </Link>
         </div>
         {sitspots && (
@@ -66,13 +78,7 @@ SearchPage.propTypes = {
 };
 
 SearchPage.defaultProps = {
-  searchState: {
-    country: undefined,
-    city: undefined,
-    lookingFor: '',
-    keywords: [],
-    viewKeywords: false,
-  },
+  searchState: {},
 };
 
 export default SearchPage;

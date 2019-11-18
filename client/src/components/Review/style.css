@@ -16,6 +16,7 @@
 .review__reviewee__view-profile {
   font-size: 1.3rem;
   font-weight: 450;
+  cursor: pointer;
 }
 
 .review__heading {
@@ -36,7 +37,6 @@
 .review__heading__date {
   font-size: 1.4rem;
   text-align: right;
-  float: right;
   display: inline;
 }
 
@@ -77,6 +77,7 @@
 
 .expand-button {
   color: var(--main-color);
+  cursor: pointer;
 }
 
 .hide-profile {

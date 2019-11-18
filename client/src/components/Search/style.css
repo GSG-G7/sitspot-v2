@@ -9,6 +9,10 @@
   justify-content: space-between;
 }
 
+div > .ant-select-selection__placeholder {
+  color: var(--text-blackish-color);
+}
+
 .autocomplete-box {
   text-align:left;
   width:49%;
@@ -47,7 +51,7 @@
 #search-btn {
   background-color: var(--main-color);
   color: #fff;
-  font-size: 1.25rem;
+  font-size: 1.6rem;
   border: none;
   width: 33%;
   border-radius: 0;
@@ -64,7 +68,6 @@
   background-color: var(--main-color);
   color:#fff;
   border: none;
-  width: 62%;
   opacity: var(--opacity-search-button);
   border-radius: 0;
   font-weight: 600;
