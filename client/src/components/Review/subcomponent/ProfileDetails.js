@@ -13,9 +13,9 @@ const ProfileDetails = ({ profile }) => (
 );
 ProfileDetails.propTypes = {
   profile: propTypes.shape({
-    Name: propTypes.string.isRequired,
-    Country: propTypes.string.isRequired,
-    Age: propTypes.string.isRequired,
+    Name: propTypes.string,
+    Country: propTypes.string,
+    Age: propTypes.string,
   }).isRequired,
 };
 export default ProfileDetails;
