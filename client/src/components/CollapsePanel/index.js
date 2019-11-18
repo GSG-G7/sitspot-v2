@@ -46,7 +46,7 @@ const renderChild = (content, classParent, classChild, keyParent) => {
       {content.values ? content.values[0] : content.value}
 
       <ChildName className={classChild}>{content.child.value}</ChildName>
-      {content.values ? content.values[1] : content.value}
+      {content.values ? content.values[1] : ''}
     </TagName>
   );
 };
