@@ -126,7 +126,7 @@ class Search extends Component {
           <div className="type-filter__container__filter">
             <p className="button-label">Filter</p>
             <Button id="keywords-btn" onClick={this.toggleKeywordList}>
-              KeyWords
+              Keywords
             </Button>
           </div>
         </div>
