@@ -11,7 +11,7 @@ const Home = ({ history }) => (
   <div className="home">
     <div className="home__top-container header-container">
       <p className="home__top-container__slagon ">
-        Where conscious travellers find their feel good
+        Where conscious travellers Find their feel good
       </p>
       <div className="home__top-container__search">
         <Search onSubmit={state => history.push('/search', state)} />

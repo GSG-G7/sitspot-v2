@@ -36,7 +36,7 @@ module.exports = {
     src:
       'https://res.cloudinary.com/amoodaa/image/upload/v1573747931/keywords/Layer_4_mpb74f.png',
   },
-  mf_social_connection: {
+  bc_social_interaction: {
     name: 'Social connection',
     src:
       'https://res.cloudinary.com/amoodaa/image/upload/v1573747930/keywords/Layer_11_fttdts.png',

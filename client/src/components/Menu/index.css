@@ -21,6 +21,7 @@
 
 .menu__list__item {
   border-bottom: 1px solid #808080b9;
+  cursor: pointer;
 }
 
 .menu__list__link {
@@ -30,4 +31,8 @@
   padding: 1.5rem 0.8rem;
   font-weight: 600;
   display: block;
+}
+
+.menu__list__link:hover {
+  color: var(--main-color);
 }
