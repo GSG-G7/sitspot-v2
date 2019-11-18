@@ -1,6 +1,7 @@
 module.exports = (err, req, res, next) => {
   // eslint-disable-next-line no-console
-  if (process.env.NODE_ENV === 'development') console.log(err);
+  // if (process.env.NODE_ENV === 'development') 
+  console.log(err);
   switch (err.statusCode) {
     case 400:
       res.status(400).json({ code: err.statusCode, message: err.message });
