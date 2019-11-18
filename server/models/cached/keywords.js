@@ -81,4 +81,6 @@ module.exports = {
   pr_food_impact: { name: 'Food impact', src: '' },
   pr_transport_impact: { name: 'Transport impact', src: '' },
   pr_support_local: { name: 'Support local economy', src: '' },
+  mf_champoining_cause: { name: 'Champoining the Cause', src: '' },
+  mf_staff_knowledge: { name: 'Staff Knowledge', src: '' },
 };
