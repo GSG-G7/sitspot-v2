@@ -135,7 +135,7 @@ class Search extends Component {
               className="button  primary-background"
               style={{ opacity: '.80' }}
             >
-              <Icon type="plus" style={{ color: '#fff' }} />
+              <Icon id="plus-svg" type="plus" style={{ color: '#fff' }} />
               <span className="button-text"> Add your recommendation</span>
             </Button>
           </Link>
