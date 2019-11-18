@@ -41,7 +41,7 @@ class SearchPage extends Component {
             to="/add-place"
             style={{ color: 'var(--main-color)', fontWeight: 700 }}
           >
-            Or Do you wanna add a new SitSpot?
+            Would you like to add a new SitSpot?
           </Link>
         </div>
         {sitspots && (
