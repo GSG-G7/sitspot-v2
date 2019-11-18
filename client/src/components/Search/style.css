@@ -9,6 +9,10 @@
   justify-content: space-between;
 }
 
+div > .ant-select-selection__placeholder {
+  color: var(--text-blackish-color);
+}
+
 .autocomplete-box {
   text-align:left;
   width:49%;
