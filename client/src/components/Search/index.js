@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-import { Select, Radio, Button } from 'antd';
+import { Select, Radio, Button as AntButton, Icon } from 'antd';
 import { getCountryNames, getCities } from 'full-countries-cities';
+import Button from '../Button';
 
 import KeywordList from '../KeywordList';
 
@@ -36,11 +37,6 @@ class Search extends Component {
         {item}
       </Option>
     ));
-
-  // onSubmit = () => {
-  //   const { getSitSpots } = this.props;
-  //   if (getSitSpots) getSitSpots({ ...this.state });
-  // };
 
   toggleKeywordList = () =>
     this.setState(state => ({ viewKeywords: !state.viewKeywords }));
@@ -125,18 +121,22 @@ class Search extends Component {
           </Radio.Group>
           <div className="type-filter__container__filter">
             <p className="button-label">Filter</p>
-            <Button id="keywords-btn" onClick={this.toggleKeywordList}>
+            <AntButton id="keywords-btn" onClick={this.toggleKeywordList}>
               Keywords
-            </Button>
+            </AntButton>
           </div>
         </div>
         <div className="form-action">
-          <Button id="search-btn" onClick={() => onSubmit(this.state)}>
+          <AntButton id="search-btn" onClick={() => onSubmit(this.state)}>
             Search
-          </Button>
+          </AntButton>
           <Link to="/add-place">
-            <Button id="recommendation-btn" onClick={() => {}}>
-              + Add your recommendation
+            <Button
+              className="button  primary-background"
+              style={{ opacity: '.80' }}
+            >
+              <Icon type="plus" style={{ color: '#fff' }} />
+              <span className="button-text"> Add your recommendation</span>
             </Button>
           </Link>
         </div>
