@@ -1,6 +1,10 @@
-const { staticsBase } = require('../config');
+const { keywords } = require('../cached');
 
-module.exports = () =>
-  staticsBase('Keywords')
-    .select({ view: 'Grid view' })
-    .firstPage();
+module.exports = keywords;
+
+// const { staticsBase } = require('../config');
+
+// module.exports = () =>
+//   staticsBase('Keywords')
+//     .select({ view: 'Grid view' })
+//     .firstPage();
