@@ -153,6 +153,7 @@ class Search extends Component {
 }
 Search.defaultProps = {
   fontColor: '#fff',
+  searchState: {},
 };
 
 Search.propTypes = {
@@ -163,7 +164,7 @@ Search.propTypes = {
     lookingFor: PropTypes.string,
     keywords: PropTypes.arrayOf(PropTypes.string),
     viewKeywords: PropTypes.bool,
-  }).isRequired,
+  }),
   onSubmit: PropTypes.func.isRequired,
 };
 

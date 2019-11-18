@@ -14,6 +14,7 @@ class SearchPage extends Component {
   componentDidMount() {
     const { searchState } = this.props;
     if (
+      searchState &&
       !(
         Object.entries(searchState).length === 0 &&
         searchState.constructor === Object
@@ -77,13 +78,7 @@ SearchPage.propTypes = {
 };
 
 SearchPage.defaultProps = {
-  searchState: {
-    country: undefined,
-    city: undefined,
-    lookingFor: '',
-    keywords: [],
-    viewKeywords: false,
-  },
+  searchState: {},
 };
 
 export default SearchPage;
