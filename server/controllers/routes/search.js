@@ -6,9 +6,10 @@ module.exports = (req, res, next) => {
   const query = {
     country: country === 'undefined' ? null : country,
     city: city === 'undefined' ? null : city,
-    type: lookingFor === 'undefined' ? null : lookingFor,
-    keywords: keywords.split(','),
+    type: lookingFor === 'undefined' ? null : lookingFor.toLowerCase(),
+    keywords: keywords !== '' ? keywords.split(',') : [],
   };
+
   search(query)
     .then(result =>
       result.map(({ id, fields: { image1, image2, ...fields } }) => ({
