@@ -11,6 +11,17 @@ class SearchPage extends Component {
     sitspots: [],
   };
 
+  componentDidMount() {
+    const { searchState } = this.props;
+    if (
+      !(
+        Object.entries(searchState).length === 0 &&
+        searchState.constructor === Object
+      )
+    )
+      this.onSubmit(searchState);
+  }
+
   onSubmit = state => {
     const qs = new URLSearchParams();
     Object.entries(state).forEach(([key, value]) => qs.append(key, value));
