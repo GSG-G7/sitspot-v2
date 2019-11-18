@@ -15,7 +15,7 @@ module.exports = ({
   country = null,
   city = null,
   type = null,
-  keywords = '',
+  keywords = [],
 }) =>
   typeformBase('place')
     .select({
