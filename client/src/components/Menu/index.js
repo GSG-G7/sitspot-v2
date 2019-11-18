@@ -31,10 +31,13 @@ const Menu = ({ closeHandler }) => (
         />
       </li>
       {routes.map(({ content, path }) => (
-        <NavLink className="menu__list__item" to={path} onClick={closeHandler}>
-          <li className="menu__list__link menu__list__item" key={path}>
-            {content}
-          </li>
+        <NavLink
+          className="menu__list__item"
+          to={path}
+          onClick={closeHandler}
+          key={path}
+        >
+          <li className="menu__list__link menu__list__item">{content}</li>
         </NavLink>
       ))}
     </ul>
