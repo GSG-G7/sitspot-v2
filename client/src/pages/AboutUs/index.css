@@ -22,6 +22,10 @@
   color: var(--placeholder-color);
 }
 
+.about__paragraph {
+  margin-bottom: 1.5rem;
+}
+
 .about__main-title-4 .about--img,
 .about__main-title-5 .about--img {
   width: 100%;

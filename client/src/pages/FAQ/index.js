@@ -7,6 +7,10 @@ import './index.css';
 const Classes = Object.freeze({
   mainTitle: 'faq__main-title',
   pClass: 'faq__paragraph',
+  ulClass: 'faq--ul',
+  liClass: 'faq--li',
+  imgClass: 'faq--img',
+  spanClass: 'faq__contact--email',
 });
 
 const FAQ = () => (
@@ -24,7 +28,7 @@ const FAQ = () => (
       <div id="faq__questions">
         <CollapsePanel
           questions={questions}
-          subCollapse={{ 1: true }}
+          subCollapse={{ 1: true, 2: true, 3: true, 4: true }}
           classes={Classes}
         />
       </div>

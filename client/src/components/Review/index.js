@@ -72,7 +72,7 @@ class Review extends React.Component {
         {magicalFactors.length !== 0 ? (
           <div className="review__magical-factors">
             {magicalFactors.map(({ name, src, followUp }) => (
-              <div className="green-dotted-border" key={src.slice(-20)}>
+              <div className="green-dotted-border" key={name}>
                 <MagicalFactor name={name} src={src} followUp={followUp} />
               </div>
             ))}

@@ -1,3 +1,4 @@
+/* eslint-disable no-extra-boolean-cast */
 const { typeformBase } = require('../config');
 
 const formulaMaker = ({ country, city, type, keywords }) => {
@@ -5,12 +6,17 @@ const formulaMaker = ({ country, city, type, keywords }) => {
   if (country) formula.push(`IF({country} = '${country}',TRUE(),FALSE())`);
   if (city) formula.push(`IF({city} = '${city}',TRUE(),FALSE())`);
   if (type) formula.push(`IF({type} = '${type}',TRUE(),FALSE())`);
-  // keywords.split('&').forEach(e => formula.push(`{${e}}`));
+  if (keywords.length !== 0) keywords.forEach(e => formula.push(`{${e}}`));
   formula.push('{active}');
   return `AND(${formula.join(',')})`;
 };
 
-module.exports = ({ country = null, city = null, type = null, keywords }) =>
+module.exports = ({
+  country = null,
+  city = null,
+  type = null,
+  keywords = [],
+}) =>
   typeformBase('place')
     .select({
       view: 'Grid view',
