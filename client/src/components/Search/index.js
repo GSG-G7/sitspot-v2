@@ -106,7 +106,7 @@ class Search extends Component {
             buttonStyle="solid"
           >
             <p style={{ color: fontColor }} className="button-label">
-              What Are You Looking For
+              WHAT ARE YOU LOOKING FOR?
             </p>
             {Object.entries(this.LookingFor).map(([key, value]) => (
               <Radio.Button
@@ -120,7 +120,7 @@ class Search extends Component {
             ))}
           </Radio.Group>
           <div className="type-filter__container__filter">
-            <p className="button-label">Filter</p>
+            <p className="button-label">FILTER</p>
             <AntButton id="keywords-btn" onClick={this.toggleKeywordList}>
               Keywords
             </AntButton>
