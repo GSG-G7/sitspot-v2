@@ -25,22 +25,26 @@
 .keywords__list {
   display: flex;
   flex-wrap: wrap;
+  justify-content: space-between;
 }
 
 .keywords__list--item {
-  margin-right: 9%;
   width: 40%;
   color: var(--placeholder-color);
   background: 0;
-  font-size: 1.6rem;
-  font-family: 'Raleway', sans-serif;
   display: block;
-  padding: 0.5rem 0;
   font-weight: 600;
-  margin-bottom: 1rem;
-  text-align: left;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.keywords__list--item__img {
+  width: 12rem;
+  height: auto;
+  margin: 1rem auto;
+  text-align: center;
 }
 
 .active-btn {
-  color: var(--main-color);
+  background-color: rgba(246, 91, 28, 0.6);
 }
