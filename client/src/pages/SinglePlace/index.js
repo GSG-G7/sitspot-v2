@@ -40,9 +40,10 @@ class SinglePlace extends Component {
     } = this.state;
     return (
       <>
-        <img
-          src={backgroundImage}
-          alt="background"
+        <div
+          style={{
+            background: `url(${backgroundImage}) no-repeat center center/cover`,
+          }}
           className="single-place__header-img"
         />
         <div className="placename-search-container">
