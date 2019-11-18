@@ -10,7 +10,7 @@ import images from './images';
 import './style.css';
 
 const Home = ({ history }) => {
-  const image = images[parseInt(Math.random() * 5, 10)];
+  const image = images[Math.floor(Math.random() * 5)];
   return (
     <div className="home">
       <div
