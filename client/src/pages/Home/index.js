@@ -16,7 +16,7 @@ const Home = ({ history }) => {
       <div
         className="home__top-container header-container"
         style={{
-          background: `url(${image}) no-repeat center`,
+          background: `url(${image}) no-repeat center center/cover`,
         }}
       >
         <p className="home__top-container__slagon ">
