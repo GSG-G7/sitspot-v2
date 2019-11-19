@@ -1,14 +1,15 @@
 const router = require('express').Router();
 const multer = require('multer');
 const {
-  routes: { place, getKeywords, placeAndReviews, search },
+  routes: { place, getKeywords, placeAndReviews, search, randomPlaces },
   error,
-} = require('../controllers/');
+} = require('../controllers');
 
 const upload = multer({ limits: { fieldSize: 4.5 * 1024 * 1024 } });
 
 router.get('/search', search);
 router.get('/keywords', getKeywords);
+router.get('/randomplaces', randomPlaces);
 
 router
   .route('/sitspot')

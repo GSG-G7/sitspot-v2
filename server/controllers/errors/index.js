@@ -21,5 +21,6 @@ module.exports = (err, req, res, next) => {
         break;
       default:
         res.status(500).json({ message: 'server error' });
+        console.log(err);
     }
 };
