@@ -11,10 +11,11 @@ module.exports = (req, res, next) => {
         throw error;
       } else {
         placesInfo = places.map(place => ({
-          id: place.fields.image1,
+          id: place.fields.id,
           src: imgUrl(place.fields.image1),
           alt: 'sitspot',
           title: place.fields.name,
+          type: place.fields.type,
         }));
         res.json(placesInfo);
       }

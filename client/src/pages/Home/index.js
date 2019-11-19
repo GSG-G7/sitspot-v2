@@ -20,6 +20,13 @@ class Home extends Component {
     });
   }
 
+  onClickSlide = index => {
+    const { suggestedSitspots } = this.state;
+    const { id, type } = suggestedSitspots[index];
+    const { history } = this.props;
+    history.push(`/sitspot/${type}/${id}`);
+  };
+
   render() {
     const { history } = this.props;
     const { suggestedSitspots } = this.state;
@@ -65,6 +72,7 @@ class Home extends Component {
             slides={suggestedSitspots}
             haveDots={false}
             className="home__slider"
+            onClick={this.onClickSlide}
           />
         </div>
       </div>
