@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
+import { Icon } from 'antd';
+
 import { search } from '../../services/api';
 import { Search, SearchResult } from '../../components/index';
 
@@ -9,6 +10,8 @@ import './style.css';
 class SearchPage extends Component {
   state = {
     sitspots: [],
+    loading: false,
+    message: null,
   };
 
   componentDidMount() {
@@ -24,10 +27,17 @@ class SearchPage extends Component {
   }
 
   onSubmit = state => {
+    this.setState({ sitspots: [], loading: true });
     const qs = new URLSearchParams();
     Object.entries(state).forEach(([key, value]) => qs.append(key, value));
     search(qs.toString()).then(({ data }) => {
-      this.setState({ sitspots: data });
+      if (data.length === 0) {
+        this.setState({
+          sitspots: data,
+          loading: false,
+          message: 'Sorry, there are no Sitspots that match your search',
+        });
+      } else this.setState({ sitspots: data, loading: false });
     });
   };
 
@@ -35,6 +45,8 @@ class SearchPage extends Component {
     const { searchState } = this.props;
     const {
       sitspots: [...sitspots],
+      loading,
+      message,
     } = this.state;
     return (
       <>
@@ -48,14 +60,18 @@ class SearchPage extends Component {
           searchState={searchState}
           fontColor="#333"
         />
-        <div style={{ textAlign: 'center' }}>
-          <Link
-            to="/add-place"
-            style={{ color: 'var(--main-color)', fontWeight: 700 }}
-          >
-            Would you like to add a new SitSpot?
-          </Link>
-        </div>
+        {loading && (
+          <Icon
+            type="loading"
+            style={{ fontSize: 100, display: 'block', margin: '2rem auto' }}
+            spin
+          />
+        )}
+        {message !== null && (
+          <p className="sitspots-notfound-message">
+            Sorry, there are no Sitspots that match your search
+          </p>
+        )}
         {sitspots && (
           <SearchResult
             className="search-page__results"
