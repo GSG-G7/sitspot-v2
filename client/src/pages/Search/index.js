@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
+
 import { search } from '../../services/api';
 import { Search, SearchResult } from '../../components/index';
 
@@ -48,13 +48,8 @@ class SearchPage extends Component {
           searchState={searchState}
           fontColor="#333"
         />
-        <div style={{ textAlign: 'center' }}>
-          <Link
-            to="/add-place"
-            style={{ color: 'var(--main-color)', fontWeight: 700 }}
-          >
-            Would you like to add a new SitSpot?
-          </Link>
+        <div className="sitspots-notfound-message">
+          Sorry, there are no Sitspots that match your search
         </div>
         {sitspots && (
           <SearchResult
