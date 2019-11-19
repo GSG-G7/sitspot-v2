@@ -48,9 +48,12 @@ class SearchPage extends Component {
           searchState={searchState}
           fontColor="#333"
         />
-        <div className="sitspots-notfound-message">
-          Sorry, there are no Sitspots that match your search
-        </div>
+        {console.log(sitspots.length)}
+        {sitspots.length === 0 && (
+          <div className="sitspots-notfound-message">
+            Sorry, there are no Sitspots that match your search
+          </div>
+        )}
         {sitspots && (
           <SearchResult
             className="search-page__results"
