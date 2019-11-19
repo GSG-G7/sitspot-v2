@@ -13,6 +13,7 @@
   left: 1.5rem;
   bottom: 1rem;
   font-weight: 600;
+  font-size: 2.8rem;
 }
 
 .faq__content {
@@ -29,4 +30,33 @@
 
 .faq__content--email {
   color: var(--main-color);
+}
+
+.faq__paragraph {
+  margin-bottom: 1.5rem;
+}
+
+.faq--ul {
+  margin-left: 1.5rem;
+  list-style: none;
+}
+
+.faq--li {
+  margin-bottom: 1rem;
+}
+
+.faq--li:before {
+  content: '. ';
+  color: red;
+  display: inline-block;
+  width: 1rem;
+  font-size: 3rem;
+  line-height: 0;
+  margin-left: -1.6rem;
+  margin-bottom: -5rem;
+}
+
+.faq__contact--email {
+  color: var(--main-color);
+  margin: 0 0.5rem;
 }

@@ -6,7 +6,7 @@ const formulaMaker = ({ country, city, type, keywords }) => {
   if (country) formula.push(`IF({country} = '${country}',TRUE(),FALSE())`);
   if (city) formula.push(`IF({city} = '${city}',TRUE(),FALSE())`);
   if (type) formula.push(`IF({type} = '${type}',TRUE(),FALSE())`);
-  if (!(keywords.length === 0)) keywords.forEach(e => formula.push(`{${e}}`));
+  if (keywords.length !== 0) keywords.forEach(e => formula.push(`{${e}}`));
   formula.push('{active}');
   return `AND(${formula.join(',')})`;
 };

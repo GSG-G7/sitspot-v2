@@ -43,8 +43,10 @@ const renderChild = (content, classParent, classChild, keyParent) => {
   const TagName = content.tag;
   return (
     <TagName key={keyParent} className={classParent}>
-      {content.value}
+      {content.values ? content.values[0] : content.value}
+
       <ChildName className={classChild}>{content.child.value}</ChildName>
+      {content.values ? content.values[1] : ''}
     </TagName>
   );
 };

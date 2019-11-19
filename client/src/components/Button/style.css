@@ -18,11 +18,15 @@
   background: var(--main-color);
   font-weight: 600;
   font-size: 1.25rem;
-  padding: 0.1rem 1rem;
+  padding: 0.7rem;
   display: flex;
   align-items: center;
 }
 
 .primary-background > * {
   color: #fff;
+}
+
+#plus-svg {
+  font-size: 1.8rem;
 }
