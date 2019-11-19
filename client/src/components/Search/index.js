@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { Select, Radio, Button as AntButton, Icon } from 'antd';
-import { getCountryNames, getCities } from 'full-countries-cities';
+import { getCities } from 'full-countries-cities';
+import { count } from '../../services/api';
 import Button from '../Button';
 
 import KeywordList from '../KeywordList';
@@ -20,6 +21,8 @@ class Search extends Component {
     viewKeywords: false,
   };
 
+  countries = { place: 'holder' };
+
   LookingFor = Object.freeze({
     STAY: 'Stay',
     EAT: 'Eat & Drink',
@@ -27,6 +30,11 @@ class Search extends Component {
   });
 
   componentDidMount() {
+    count()
+      .then(({ data }) => {
+        this.countries = data;
+      })
+      .then(() => this.forceUpdate());
     const { searchState } = this.props;
     if (searchState) this.setState({ ...searchState });
   }
@@ -35,6 +43,13 @@ class Search extends Component {
     list.map(item => (
       <Option key={item} value={item}>
         {item}
+      </Option>
+    ));
+
+  renderCountries = () =>
+    Object.entries(this.countries).map(([k, v]) => (
+      <Option key={k} value={k}>
+        {k} ({v})
       </Option>
     ));
 
@@ -80,7 +95,7 @@ class Search extends Component {
               onChange={value => this.setState({ country: value, city: '' })}
               filterOption={this.dropDownFilter}
             >
-              {this.renderOptions(getCountryNames())}
+              {this.renderCountries()}
             </Select>
           </div>
           <div className="autocomplete-box">
