@@ -29,7 +29,6 @@ class SinglePlace extends Component {
     const { type, sitspotId } = this.props;
     const { sitspot } = this.state;
     getPlaceReviews(type, sitspotId).then(({ data: newSitspot }) => {
-      console.log(newSitspot);
       this.setState({ sitspot: { ...sitspot, ...newSitspot } });
     });
   }
