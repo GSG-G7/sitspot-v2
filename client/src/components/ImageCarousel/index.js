@@ -10,6 +10,7 @@ const ImageCarousel = ({
   haveDots,
   dotPosition,
   smallTitle,
+  onClick,
 }) => (
   <Carousel
     className="slider"
@@ -17,8 +18,14 @@ const ImageCarousel = ({
     dots={haveDots}
     dotPosition={dotPosition}
   >
-    {slides.map(({ id, src, alt = 'place', title = 'cool image' }) => (
-      <div key={id} className="slider__slide">
+    {slides.map(({ id, src, alt = 'place', title = 'cool image' }, index) => (
+      <div
+        key={id}
+        className="slider__slide"
+        role="button"
+        tabIndex="-1"
+        onClick={() => onClick(index)}
+      >
         {title && smallTitle && (
           <div className="slider__slide__img-smallTitle-container">
             <img className="slider__slide__picture" src={src} alt={alt} />
@@ -44,12 +51,14 @@ ImageCarousel.propTypes = {
   isAuto: PropTypes.bool,
   dotPosition: PropTypes.string,
   smallTitle: PropTypes.bool,
+  onClick: PropTypes.func,
 };
 ImageCarousel.defaultProps = {
   isAuto: true,
   haveDots: true,
   dotPosition: 'bottom',
   smallTitle: false,
+  onClick: () => {},
 };
 
 export default ImageCarousel;
