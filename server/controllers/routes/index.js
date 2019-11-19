@@ -3,6 +3,7 @@ const placeAndReviews = require('./placeAndReviews');
 const place = require('./place');
 const getKeywords = require('./getKeywords');
 const randomPlaces = require('./randomPlaces');
+const getSitspotCount = require('./getSitspotCount');
 
 module.exports = {
   placeAndReviews,
@@ -10,4 +11,5 @@ module.exports = {
   getKeywords,
   place,
   randomPlaces,
+  getSitspotCount,
 };
