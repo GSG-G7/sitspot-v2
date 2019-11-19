@@ -83,3 +83,10 @@ div > .ant-select-selection__placeholder {
 .ant-select-country {
   border-radius: 0 !important;
 }
+
+@media only screen and (max-width: 370px) {
+  .radio-group > * {
+    width:120px;
+  }
+  
+}
