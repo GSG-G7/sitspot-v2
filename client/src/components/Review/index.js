@@ -3,7 +3,7 @@ import propTypes from 'prop-types';
 
 import MagicalFactor from '../MagicalFactor';
 import ProfileDetails from './subcomponent/ProfileDetails';
-
+import ImageCarousel from '../ImageCarousel';
 import './style.css';
 
 class Review extends React.Component {
@@ -32,8 +32,11 @@ class Review extends React.Component {
         tripDetails,
         fullReview,
         preservationFactors,
+        images: imagesUrls,
       },
     } = this.props;
+    const images = imagesUrls.map(e => ({ id: e, src: e }));
+
     const { isProfileShown, expand } = this.state;
 
     return (
@@ -65,6 +68,7 @@ class Review extends React.Component {
             </span>
           </>
         )}
+        <ImageCarousel slides={images} isAuto haveDots dotPosition="bottom" />
         <div className="review__heading green-dotted-border">
           <span className="review__heading__title">{reviewTitle}</span>
           <span className="review__heading__date">{reviewDate}</span>
