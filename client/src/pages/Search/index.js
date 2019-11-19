@@ -11,6 +11,7 @@ class SearchPage extends Component {
   state = {
     sitspots: [],
     loading: false,
+    message: null,
   };
 
   componentDidMount() {
@@ -30,7 +31,13 @@ class SearchPage extends Component {
     const qs = new URLSearchParams();
     Object.entries(state).forEach(([key, value]) => qs.append(key, value));
     search(qs.toString()).then(({ data }) => {
-      this.setState({ sitspots: data, loading: false });
+      if (data.length === 0) {
+        this.setState({
+          sitspots: data,
+          loading: false,
+          message: 'Sorry, there are no Sitspots that match your search',
+        });
+      } else this.setState({ sitspots: data, loading: false });
     });
   };
 
@@ -39,6 +46,7 @@ class SearchPage extends Component {
     const {
       sitspots: [...sitspots],
       loading,
+      message,
     } = this.state;
     return (
       <>
@@ -59,7 +67,7 @@ class SearchPage extends Component {
             spin
           />
         )}
-        {sitspots.length === 0 && loading === false && (
+        {message !== null && (
           <p className="sitspots-notfound-message">
             Sorry, there are no Sitspots that match your search
           </p>
