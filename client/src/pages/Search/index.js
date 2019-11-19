@@ -48,7 +48,6 @@ class SearchPage extends Component {
           searchState={searchState}
           fontColor="#333"
         />
-        {console.log(sitspots.length)}
         {sitspots.length === 0 && (
           <div className="sitspots-notfound-message">
             Sorry, there are no Sitspots that match your search
