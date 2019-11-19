@@ -10,12 +10,12 @@ module.exports = (req, res, next) => {
         error.statusCode = 404;
         throw error;
       } else {
-        placesInfo = places.map(place => ({
-          id: place.fields.id,
-          src: imgUrl(place.fields.image1),
+        placesInfo = places.map(({ fields }) => ({
+          id: fields.id,
+          src: imgUrl(fields.image1),
           alt: 'sitspot',
-          title: place.fields.name,
-          type: place.fields.type,
+          title: fields.name,
+          type: fields.type,
         }));
         res.json(placesInfo);
       }
