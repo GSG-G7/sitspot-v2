@@ -6,5 +6,4 @@ module.exports = placeId =>
       view: 'Grid view',
       filterByFormula: `AND(IF({id} = '${placeId}',TRUE(),FALSE()),{active})`,
     })
-    .firstPage()
-    .then(data => data.filter(e => !!e));
+    .firstPage();
