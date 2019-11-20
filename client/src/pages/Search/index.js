@@ -67,7 +67,7 @@ class SearchPage extends Component {
             spin
           />
         )}
-        {message !== null && (
+        {message !== null && !loading && (
           <p className="sitspots-notfound-message">
             Sorry, there are no Sitspots that match your search
           </p>
