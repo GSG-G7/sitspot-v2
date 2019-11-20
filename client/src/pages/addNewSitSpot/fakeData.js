@@ -19,12 +19,7 @@ const Questions = [
   {
     id: 6,
     title:
-      'Upload some pictures. It helps bring your recommendation to life, and makes it even more trustworthy!',
-  },
-  {
-    id: 7,
-    title:
-      'Upload some pictures. It helps bring your recommendation to life, and makes it even more trustworthy!',
+      'Upload 1 picture if you can. It will help us identify your sitspot. You will be able to upload more pictures at the end of the questionnaire',
   },
 ];
 
