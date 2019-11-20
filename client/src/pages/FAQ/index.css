@@ -1,6 +1,6 @@
 .faq__header {
-  background: url('../../assets/FAQ-img.png') no-repeat center center/cover;
-  height: 19rem;
+  background: url('../../assets/FAQ-header.png') no-repeat center center/cover;
+  height: 30vh;
   position: relative;
 }
 
@@ -57,4 +57,11 @@
 .faq__contact--email {
   color: var(--main-color);
   margin: 0 0.5rem;
+}
+
+@media (min-height: 600px) and (min-width: 600px) {
+  .faq__header {
+    height: 60vh;
+    width: 100%;
+  }
 }

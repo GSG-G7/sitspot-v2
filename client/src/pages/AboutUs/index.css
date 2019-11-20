@@ -1,6 +1,6 @@
 .about__header {
-  background: url('../../assets/FAQ-img.png') no-repeat center center/cover;
-  height: 19rem;
+  background: url('../../assets/images/aboutus-back.jpg') no-repeat center center/cover;
+  height: 30vh;
   position: relative;
 }
 
@@ -26,8 +26,7 @@
   margin-bottom: 1.5rem;
 }
 
-.about__main-title-4 .about--img,
-.about__main-title-5 .about--img {
+.about__main-title-4 .about--img, .about__main-title-5 .about--img {
   width: 100%;
   margin-bottom: 2rem;
 }
@@ -55,4 +54,11 @@
 .about__contact--email {
   color: var(--main-color);
   margin-left: 0.5rem;
+}
+
+@media (min-height: 600px) and (min-width: 600px) {
+  .about__header {
+    height: 60vh;
+    width: 100%;
+  }
 }

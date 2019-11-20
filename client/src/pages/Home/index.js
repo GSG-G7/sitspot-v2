@@ -59,7 +59,7 @@ class Home extends Component {
             of like-minded conscious travellers.
           </p>
           <p className="home__value-paragragh">
-            find and recommend sustainable businesses which deserve kudos.
+            Find and recommend sustainable businesses which deserve kudos.
             We&apos;ll even plant a tree each time we publish a new
             recommendation!
           </p>
