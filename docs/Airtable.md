@@ -20,7 +20,7 @@ After logging in to Airtable, and scroll down to SitSpot 'workspace' and click o
 
 From here you will see all of the incoming data!
 
-#### **Be careful not to alter any of the data as you may not be able to recover it. There are also specific fields that are required and if they are removed or altered it will break the feed on the live version of the site. And if you ever change multiple select options here or on Typeforms, you will need to break the integration from Typeform's connect, and reconnect them, or else you the typeform answers won't reach airtable and as a result won't reach the App**
+#### **Be careful not to alter any of the data as you may not be able to recover it. There are also specific fields that are required and if they are removed or altered it will break the feed on the live version of the site. And if you ever change any multiple select options here or on Typeforms, you will need to break the integration from Typeform's connect, and reconnect them, or else you the typeform answers won't reach airtable and as a result won't reach the App**
 
 Your tables are `places`, `stay`, `eat`, `shop`.
 
@@ -31,17 +31,18 @@ You can click on it to see only Unapproved or Approved Sitspots or reviews.
 ![](https://i.imgur.com/YYYOex8.png)
 
 Moderators and Admins are required to:
- - Review new SitSpots in the `place` table and make sure that the pieces of information are correct, occasionally correct typos and tick the `active` field. (Tip: use the Unapproved Sitspots view)
- - Review new `recommendations` that users submit through different Typeforms that go into the `stay`, `eat` and `shop` tables and make sure that the informations are correct, occasionally correct typos and tick the `active` field.
+  - Review new SitSpots in the `place` table and make sure that the pieces of information are correct, occasionally correct typos and tick the `active` field. (Tip: use the Unapproved Sitspots view and this button to increase your readability)
+  ![](https://i.imgur.com/Va8n8BS.png)
+  - Review new `recommendations` that users submit through different Typeforms that go into the `stay`, `eat` and `shop` tables and make sure that the informations are correct, occasionally correct typos and tick the `active` field.
 
 After finishing previously mentioned tasks and informations, all the website functions as intended, except 1 thing; you have to connect the `place` table, with the table the review is in!
 you will need to select the same id.
-This step is required a lot because it lets us search by the 7 keywords in the search.
-* near the `place_id` the field right to it is `place_relation`
-![](https://i.imgur.com/WHGOfrs.png)
-* Click on the place_relation cell, click on the plus mark:
-![](https://i.imgur.com/2U03GbW.png)
-* This will show a search menu:
-![](https://i.imgur.com/UQrEFxN.png)
-* Type the same place_id, from the field next to it:
-![](https://i.imgur.com/gdjC9ZL.png)
+This step is required a lot because it lets us search by the 7 keywords in the search:
+  * near the `place_id` the field right to it is `place_relation`
+  ![](https://i.imgur.com/WHGOfrs.png)
+  * Click on the place_relation cell, click on the plus mark:
+  ![](https://i.imgur.com/2U03GbW.png)
+  * This will show a search menu:
+  ![](https://i.imgur.com/UQrEFxN.png)
+  * Type the same place_id, from the field next to it:
+  ![](https://i.imgur.com/gdjC9ZL.png)
