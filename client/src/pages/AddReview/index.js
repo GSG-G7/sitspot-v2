@@ -43,7 +43,7 @@ const AddReview = ({ type, sitspotId, history }) => {
           onClick={openForm}
           style={{ cursor: 'pointer' }}
         >
-          Click to start the review!
+          click to start your recommendation!
         </Button>
       </div>
       <ReactTypeformEmbed

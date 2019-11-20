@@ -28,9 +28,9 @@ class SinglePlace extends Component {
   componentDidMount() {
     const { type, sitspotId } = this.props;
     const { sitspot } = this.state;
-    getPlaceReviews(type, sitspotId).then(({ data: newSitspot }) =>
-      this.setState({ sitspot: { ...sitspot, ...newSitspot } })
-    );
+    getPlaceReviews(type, sitspotId).then(({ data: newSitspot }) => {
+      this.setState({ sitspot: { ...sitspot, ...newSitspot } });
+    });
   }
 
   render() {
@@ -83,8 +83,8 @@ class SinglePlace extends Component {
           }}
         />
         <div className="reviews-container">
-          {reviews.map(review => (
-            <Review key={review.reviewId} review={review} />
+          {reviews.map(({ reviewId, ...review }) => (
+            <Review key={reviewId} review={review} />
           ))}
         </div>
       </>
