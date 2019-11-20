@@ -6,7 +6,7 @@
   padding: 3rem 0;
 }
 
-.country-w-city .ant-select-selection-selected-value  {
+.country-w-city .ant-select-selection-selected-value {
   line-height: 5rem;
   font-size: 2rem;
 }
@@ -16,6 +16,13 @@
   margin-top: 2rem;
   border-radius: 6px;
   padding: 0 0.4rem;
+}
+
+.steps-action__buttons {
+  display: flex;
+  justify-content: center;
+  flex-direction: row-reverse;
+  margin-top: 24px;
 }
 
 .steps .title {
@@ -67,6 +74,29 @@
   margin-bottom: 9rem;
 }
 
+.welcome__message {
+  text-align: justify;
+  font-size: 1.8rem;
+  font-weight: 500;
+  line-height: 1.6em;
+}
+
+.span-required {
+  color: red;
+  font-size: 3.5rem;
+  line-height: 0;
+}
+
+.error-box {
+  padding: 0.3rem 0;
+  background-color: #ffbaba;
+}
+
+.error-box__message {
+  color: #d8000c;
+  text-align: center;
+}
+
 /* ================================= */
 /* Type COMPONENT */
 /* ================================= */
@@ -74,7 +104,6 @@
 .type__title {
   margin-bottom: 7rem;
 }
-
 
 /* ================================= */
 /* BUTTON STYLE */
@@ -88,19 +117,25 @@
   right: 1.5rem;
 }
 
-.steps .steps-action  .steps__btn--right {
+.steps .steps-action .steps__btn--right {
   position: relative;
   left: 1.5rem;
 }
 
 @media only screen and (min-width: 760px) {
-  .img__box{
+  .img__box {
     width: 28%;
   }
-} 
+}
 
-@media only screen and (min-width: 1120px){
-  .img__box{
+@media only screen and (min-width: 1120px) {
+  .img__box {
     width: 23%;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  #add-place .ant-steps-horizontal:not(.ant-steps-label-vertical) .ant-steps-item {
+    margin: 0;
   }
 }

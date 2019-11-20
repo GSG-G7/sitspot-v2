@@ -4,9 +4,6 @@ import propTypes from 'prop-types';
 
 import './index.css';
 
-const FIRST_IMAGE_UPLOAD_STEP = 5;
-const SECOND_IMAGE_UPLOAD_STEP = 6;
-
 const getBase64 = (img, callback) => {
   const reader = new FileReader();
   reader.addEventListener('load', () => callback(reader.result));
@@ -38,11 +35,8 @@ class UploadImg extends Component {
     } else if (info.file.status === 'done') {
       // Get this url from response in real world.
       getBase64(info.file.originFileObj, imgUrl => {
-        const { handleChange, currentStep } = this.props;
-        handleChange(
-          imgUrl,
-          currentStep === FIRST_IMAGE_UPLOAD_STEP ? 'img1' : 'img2'
-        );
+        const { handleChange } = this.props;
+        handleChange(imgUrl, 'img1');
         this.setState({ loading: false });
       });
     }
@@ -50,13 +44,8 @@ class UploadImg extends Component {
 
   render() {
     const { loading } = this.state;
-    const { values, currentStep } = this.props;
-    let imgUrl;
-    if (currentStep === FIRST_IMAGE_UPLOAD_STEP) {
-      imgUrl = values.img1;
-    } else if (currentStep === SECOND_IMAGE_UPLOAD_STEP) {
-      imgUrl = values.img2;
-    }
+    const { values } = this.props;
+    const imgUrl = values.img1;
 
     const uploadButton = (
       <div>
@@ -92,7 +81,6 @@ class UploadImg extends Component {
 UploadImg.propTypes = {
   values: propTypes.objectOf(propTypes.any).isRequired,
   handleChange: propTypes.func.isRequired,
-  currentStep: propTypes.number.isRequired,
 };
 
 export default UploadImg;
