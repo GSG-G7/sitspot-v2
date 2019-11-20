@@ -4,8 +4,9 @@
   background-color: transparent;
   display: flex;
   justify-content: space-between;
+  align-items: center;
   padding: 1rem;
-  text-align: center;
+  margin-top: 0.5rem;
   width: 100%;
   z-index: 1;
 }
@@ -13,12 +14,12 @@
 .header__button {
   background-color: transparent;
   border: none;
-  text-align: center;
+  text-align: right;
 }
 
 .header__button__div {
-  width: 3rem;
-  height: 0.25rem;
+  width: 3.2rem;
+  height: 0.2rem;
   background-color: white;
 }
 
@@ -30,9 +31,10 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+  text-align: left;
 }
 
 .header__div__img-container__logo {
-  width: 50%;
+  width: 60%;
   height: auto;
 }

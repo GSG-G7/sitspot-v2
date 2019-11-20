@@ -3,17 +3,8 @@
 }
 
 .add-place__header {
-  background-image: url('../../assets/images/home-background.jpg');
-  background-repeat: no-repeat;
-  background-size: cover;
-  height: 10vh;
-}
-
-.steps-action {
-  display: flex;
-  justify-content: center;
-  flex-direction: row-reverse;
-  margin-top: 24px;
+  background: url('../../assets/images/addrecom.png') no-repeat center bottom/cover;
+  height: 12vh;
 }
 
 .steps__btn {
@@ -21,9 +12,10 @@
 }
 
 /* ================= override on style antd STEPS */
+
 #add-place .ant-steps-horizontal {
   display: flex;
-
+  justify-content: center;
 }
 
 #add-place .ant-steps-item-tail {
@@ -48,7 +40,6 @@
 #add-place .ant-select-selection {
   border: 0;
   outline: 0;
-
   border-bottom: 1px solid gray;
   background-color: inherit;
   height: 5rem;
@@ -57,8 +48,6 @@
 #add-place .ant-select-arrow {
   font-size: 2rem;
 }
-
-
 
 /* ================= override on style antd Radio */
 
@@ -76,7 +65,7 @@
   padding: 1rem 1.5rem;
 }
 
-div.type > div > label.ant-radio-button-wrapper > span {
+div.type>div>label.ant-radio-button-wrapper>span {
   font-size: 1.8rem;
 }
 

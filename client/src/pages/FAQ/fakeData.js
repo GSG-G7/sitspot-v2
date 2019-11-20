@@ -90,18 +90,18 @@ const questions = [
             tag: 'p',
             values: [
               'We have designed a simple questionnaire to guide your recommendation. You will be asked whether you have observed certain practices which demonstrate sustainability efforts such as:',
-              {
-                tag: 'li',
-                parent: 'ul',
-                values: [
-                  'preserving resources',
-                  'reducing and recycling waste',
-                  'lowering food impact',
-                  'promoting low-impact transport',
-                  'supporting local economy',
-                  'sourcing products responsibly',
-                ],
-              },
+            ],
+          },
+          {
+            tag: 'li',
+            parent: 'ul',
+            values: [
+              'preserving resources',
+              'reducing and recycling waste',
+              'lowering food impact',
+              'promoting low-impact transport',
+              'supporting local economy',
+              'sourcing products responsibly',
             ],
           },
         ],
