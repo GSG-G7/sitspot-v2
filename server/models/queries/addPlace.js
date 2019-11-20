@@ -7,7 +7,6 @@ module.exports = ({
   city,
   businessType: type,
   img1: image1,
-  img2: image2,
 }) =>
   typeformBase('place').create([
     {
@@ -16,7 +15,6 @@ module.exports = ({
         country,
         city,
         image1,
-        image2,
         url,
         type,
       },

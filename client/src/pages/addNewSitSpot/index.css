@@ -7,13 +7,6 @@
   height: 12vh;
 }
 
-.steps-action {
-  display: flex;
-  justify-content: center;
-  flex-direction: row-reverse;
-  margin-top: 24px;
-}
-
 .steps__btn {
   margin-right: 1rem;
 }
@@ -22,6 +15,7 @@
 
 #add-place .ant-steps-horizontal {
   display: flex;
+  justify-content: center;
 }
 
 #add-place .ant-steps-item-tail {
