@@ -127,7 +127,7 @@ class Search extends Component {
               <Radio.Button
                 className="radio-button"
                 key={key}
-                value={value}
+                value={key.toLowerCase()}
                 onClick={this.handleRadioButton}
               >
                 {value}
