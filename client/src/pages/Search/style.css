@@ -1,7 +1,6 @@
 .show-case {
   height: 30vh;
-  background: url('https://images.unsplash.com/photo-1522843296789-e5b1fbf3d77e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80')
-    no-repeat center bottom/cover;
+  background: url('../../assets/images/home-background.jpg') no-repeat center bottom/cover;
   position: relative;
 }
 
@@ -19,9 +18,17 @@
   left: 5;
 }
 
-.sitspots-notfound-message{
+.sitspots-notfound-message {
   text-align: center;
   margin-top: 3rem;
   color: #777;
   font-weight: 600;
+}
+
+@media (min-height: 600px) and (min-width: 600px) {
+  .show-case {
+    background: url('../../assets/images/back-single.png') no-repeat center center/cover;
+    height: 60vh;
+    width: 100%;
+  }
 }
