@@ -42,8 +42,7 @@ A website that lets the users find and add reviews on places they have visited, 
 - As a user, I can upload images so that I can provide others with a more visual representation of the SitSpot.
 - As a user I can go back to see my answers before submitting my recommendation.
 - As a user, I can see a progress bar so that I know where I am in the process.
-<!-- - As a user, I am reminded of the incentive for filling out the review and am provided with words of encouragement so that I feel motivated to continue through the process
- -->
+- As a user, I am reminded of the incentive for filling out the review and am provided with words of encouragement so that I feel motivated to continue through the process
 As a user, I can search the database so that I find businesses which align with my values
 - Location (country, city)
 - Tags
@@ -58,13 +57,11 @@ As a user, I can see an individual SitSpot page so that I can have a more in-dep
 - Individual reviews
 - Tags
 
-As a user, I can save my basic info in my local storage to be sent with my reviews (not required to submit the form)
+As a user, I want to insert my basic info once, and then use my alias to identify myself for this app, basic info include:
 - First name
-- Age 
+- Age
 - Location
-- Occupation
-- Values
-- Interests
+
 
 As a user, I can see where many SitSpots in an area are so that I can better plan my trip. (stretch)
 
