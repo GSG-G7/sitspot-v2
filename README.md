@@ -27,7 +27,7 @@ A website that lets the users find and add reviews on places they have visited, 
 
 - As a user, I can find out more about sustainable travel so that I can be more informed about the criteria that SitSpot uses to rate companies.
 
-- **As a user I am incentivized to write reviews so that I feel like I am part of the solution.**
+- As a user I am incentivized to write reviews so that I feel like I am part of the solution.
 
 - As a user, I have access to a dashboard so that I have access to the most important parts of the functionality of the site.
     - The user sees a prominent button to add a review
@@ -42,8 +42,7 @@ A website that lets the users find and add reviews on places they have visited, 
 - As a user, I can upload images so that I can provide others with a more visual representation of the SitSpot.
 - As a user I can go back to see my answers before submitting my recommendation.
 - As a user, I can see a progress bar so that I know where I am in the process.
-<!-- - As a user, I am reminded of the incentive for filling out the review and am provided with words of encouragement so that I feel motivated to continue through the process
- -->
+- As a user, I am reminded of the incentive for filling out the review and am provided with words of encouragement so that I feel motivated to continue through the process
 As a user, I can search the database so that I find businesses which align with my values
 - Location (country, city)
 - Tags
@@ -58,32 +57,20 @@ As a user, I can see an individual SitSpot page so that I can have a more in-dep
 - Individual reviews
 - Tags
 
-As a user, I can save my basic info in my local storage to be sent with my reviews (not required to submit the form)
+As a user, I want to insert my basic info once, and then use my alias to identify myself for this app, basic info include:
 - First name
-- Age 
+- Age
 - Location
-- Occupation
-- Values
-- Interests
 
-<!-- 
-### Stretch goals
-As a user, I can search the database so that I find businesses which align with my values
-- overall rating
-- sub-categories
-- price
-- sub-tag
 
-As a user, I can see the T&Cs so that I trust what the company is doing with the user's data. 
+As a user, I can see where many SitSpots in an area are so that I can better plan my trip. (stretch)
 
-As a user, I can search by location using Google predictive text so that I can streamline the process of adding a location to my review.
+## Running this project locally:
+You actually can't because of the many integration reasons of Typeform and Airtable, if u try to connect an airtable, and use the available typeforms, you will add into our airtable.
 
-As a user, I can see where many SitSpots in an area are so that I can better plan my trip.
-
-As a user, I can see where a SitSpot is on a map so that I know where it is.
-
-As a user, I can contact SitSpot so that I can get in touch if I have any questions or comments.
-
-As a user, I can see a feed of recently added recommendations so that I can feel inspired.
-
-As a user I can register & login... -->
+## Team
+### Team lead: Amin Al Akhsham @aminalakhsham 
+ - Sajeda Ismail @SajedaIsmail
+ - Mossa Dababesh @mossa-Sammer
+ - Asem Abu Musameh @asem1789
+ - Imad Shatali @amoodaa
