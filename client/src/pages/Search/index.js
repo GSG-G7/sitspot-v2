@@ -31,13 +31,21 @@ class SearchPage extends Component {
     const qs = new URLSearchParams();
     Object.entries(state).forEach(([key, value]) => qs.append(key, value));
     search(qs.toString()).then(({ data }) => {
-      if (data.length === 0) {
-        this.setState({
+      if (!data.length) {
+        // eslint-disable-next-line no-unused-vars
+        this.setState(_state => ({
           sitspots: data,
           loading: false,
           message: 'Sorry, there are no Sitspots that match your search',
-        });
-      } else this.setState({ sitspots: data, loading: false });
+        }));
+      } else {
+        // eslint-disable-next-line no-unused-vars
+        this.setState(_state => ({
+          sitspots: data,
+          loading: false,
+          message: null,
+        }));
+      }
     });
   };
 
