@@ -73,7 +73,7 @@ class Search extends Component {
   };
 
   dropDownFilter = (input, option) =>
-    option.props.children.toLowerCase().indexOf(input.toLowerCase()) >= 0;
+    option.props.children[0].toLowerCase().indexOf(input.toLowerCase()) >= 0;
 
   handleRadioButton = e => this.setState({ lookingFor: e.target.value });
 
