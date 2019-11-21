@@ -9,16 +9,16 @@ import './style.css';
 
 class SinglePlace extends Component {
   state = {
+    loading: true,
     sitspot: {
-      name: 'you are probably seeing a placeholder',
-      country: 'country',
-      city: 'city',
+      name: 'Loading',
+      country: '',
+      city: '',
       url: 'https://sitspot.herokuapp.com/',
       images: [
         {
-          id: 1,
-          src:
-            'https://res.cloudinary.com/amoodaa/image/upload/v1573735615/gfxscaodb75ah0uz8l8y.png',
+          id: -1,
+          src: '',
         },
       ],
       reviews: [],
