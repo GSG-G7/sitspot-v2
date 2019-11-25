@@ -5,8 +5,6 @@ import { Search, ImageCarousel } from '../../components/index';
 import { randomplaces } from '../../services/api';
 import plantIcon from '../../assets/images/icon-sign.svg';
 
-import images from './images';
-
 import './style.css';
 
 class Home extends Component {
@@ -28,9 +26,8 @@ class Home extends Component {
   };
 
   render() {
-    const { history } = this.props;
+    const { history, image } = this.props;
     const { suggestedSitspots } = this.state;
-    const image = images[Math.floor(Math.random() * 5)];
     return (
       <div className="home">
         <div
@@ -82,6 +79,7 @@ class Home extends Component {
 
 Home.propTypes = {
   history: PropTypes.shape({ push: PropTypes.func.isRequired }).isRequired,
+  image: PropTypes.string.isRequired,
 };
 
 export default Home;

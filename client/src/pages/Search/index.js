@@ -50,7 +50,7 @@ class SearchPage extends Component {
   };
 
   render() {
-    const { searchState } = this.props;
+    const { searchState, image } = this.props;
     const {
       sitspots: [...sitspots],
       loading,
@@ -58,7 +58,12 @@ class SearchPage extends Component {
     } = this.state;
     return (
       <>
-        <div className="show-case">
+        <div
+          className="show-case"
+          style={{
+            background: `url(${image}) no-repeat center center/cover`,
+          }}
+        >
           {sitspots.length !== 0 && (
             <p className="results-label">{sitspots.length} Search Results</p>
           )}
@@ -99,6 +104,7 @@ SearchPage.propTypes = {
     keywords: PropTypes.arrayOf(PropTypes.string),
     viewKeywords: PropTypes.bool,
   }),
+  image: PropTypes.string.isRequired,
 };
 
 SearchPage.defaultProps = {
