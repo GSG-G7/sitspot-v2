@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import propTypes from 'prop-types';
-import axios from 'axios';
+
 import addPlaceValidation from '../../utils';
+import { addPlace } from '../../services/api';
 
 import { StepsQuestions } from '../../components';
 import Questions from './fakeData';
@@ -50,13 +51,9 @@ class AddNewSitSpot extends Component {
       ([key, value]) => !!value && formData.append(key, value)
     );
 
-    axios
-      .post('/api/v1/sitspot', formData, {
-        headers: { 'content-type': 'multipart/formdata' },
-      })
-      .then(({ data: id }) =>
-        history.push(`/add-review/${businessType}/${id}`)
-      );
+    addPlace(formData).then(({ data: id }) =>
+      history.push(`/add-review/${businessType}/${id}`)
+    );
   };
 
   handleChange = (value, dataKey) => {
