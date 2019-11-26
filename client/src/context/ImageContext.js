@@ -21,7 +21,10 @@ class ImagesContextProvider extends Component {
 }
 
 ImagesContextProvider.propTypes = {
-  children: PropTypes.arrayOf(PropTypes.object).isRequired,
+  children: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.node),
+    PropTypes.node,
+  ]).isRequired,
 };
 
 export default ImagesContextProvider;
