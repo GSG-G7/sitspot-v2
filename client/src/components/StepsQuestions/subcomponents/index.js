@@ -1,3 +1,4 @@
-import TypeQuestion from './TypesQuestion';
+import TypeQuestion from './TypeQuestion';
+import InputQuestion from './InputQuestion';
 
-export default { TypeQuestion };
+export default { TypeQuestion, InputQuestion };

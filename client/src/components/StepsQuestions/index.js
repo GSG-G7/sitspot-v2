@@ -27,10 +27,9 @@ export default class StepsQuestions extends React.Component {
       ({ content: Component, stepNo, key, question }) => {
         const { data } = this.state;
         return (
-          <div>
+          <div key={`content${stepNo}`}>
             <p>{question}</p>
             <Component
-              key={`content${stepNo}`}
               value={data[key]}
               handleStateChange={value =>
                 this.handleStateChange({ key, value })
