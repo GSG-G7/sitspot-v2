@@ -4,6 +4,7 @@ import { Steps, Button, Select, Radio } from 'antd';
 import { getCountryNames, getCities } from 'full-countries-cities';
 
 import UploadImg from './UploadImg';
+import renderOptions from '../../utils/renderOptionsList';
 
 import './index.css';
 
@@ -64,16 +65,6 @@ const renderInput = (values, currentStep, funcs) => {
       }}
     />
   );
-};
-
-const renderOptions = list => {
-  const { Option } = Select;
-
-  return list.map(item => (
-    <Option key={item} value={item}>
-      {item}
-    </Option>
-  ));
 };
 
 const dropDownFilter = (input, option) =>
