@@ -7,44 +7,36 @@ import Button from '../Button';
 
 import './index.css';
 
-class KeywordList extends React.Component {
-  state = {
-    keywordsObj: keywordObj,
-  };
-
-  render() {
-    const { keywords, toggleSelectKeyword, toggleKeywordList } = this.props;
-    const { keywordsObj } = this.state;
-
-    return (
-      <div className="keywords">
-        <div className="keywords__close">
-          <Icon type="close" onClick={toggleKeywordList} />
-        </div>
-        <h2 className="keywords__title">Keywords</h2>
-        <div className="keywords__list">
-          {Object.keys(keywordsObj).map(key => (
-            <Button
-              key={key}
-              onClick={() => toggleSelectKeyword(key)}
-              className={
-                keywords.indexOf(key) !== -1
-                  ? 'keywords__list--item active-btn'
-                  : 'keywords__list--item'
-              }
-            >
-              <img
-                className="keywords__list--item__img"
-                alt="keyword"
-                src={keywordsObj[key].src}
-              />
-            </Button>
-          ))}
-        </div>
+const KeywordList = props => {
+  const { keywords, toggleSelectKeyword, toggleKeywordList } = props;
+  return (
+    <div className="keywords">
+      <div className="keywords__close">
+        <Icon type="close" onClick={toggleKeywordList} />
       </div>
-    );
-  }
-}
+      <h2 className="keywords__title">Keywords</h2>
+      <div className="keywords__list">
+        {Object.keys(keywordObj).map(key => (
+          <Button
+            key={key}
+            onClick={() => toggleSelectKeyword(key)}
+            className={
+              keywords.indexOf(key) !== -1
+                ? 'keywords__list--item active-btn'
+                : 'keywords__list--item'
+            }
+          >
+            <img
+              className="keywords__list--item__img"
+              alt="keyword"
+              src={keywordObj[key].src}
+            />
+          </Button>
+        ))}
+      </div>
+    </div>
+  );
+};
 
 KeywordList.propTypes = {
   keywords: propTypes.arrayOf(propTypes.string).isRequired,
