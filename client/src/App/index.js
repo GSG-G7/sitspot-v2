@@ -17,9 +17,9 @@ import {
 import './style.css';
 
 const App = () => (
-  <ImagesContextProvider>
-    <div className="App">
-      <Layout>
+  <div className="App">
+    <Layout>
+      <ImagesContextProvider>
         <Switch>
           <Route
             path="(/|/home)"
@@ -63,9 +63,9 @@ const App = () => (
             }) => <SinglePlace history={history} type={type} sitspotId={id} />}
           />
         </Switch>
-      </Layout>
-    </div>
-  </ImagesContextProvider>
+      </ImagesContextProvider>
+    </Layout>
+  </div>
 );
 
 export default App;
