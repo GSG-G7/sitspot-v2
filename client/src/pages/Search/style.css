@@ -1,6 +1,5 @@
 .show-case {
   height: 30vh;
-  background: url('../../assets/images/home-background.jpg') no-repeat center bottom/cover;
   position: relative;
 }
 
@@ -27,7 +26,6 @@
 
 @media (min-height: 600px) and (min-width: 600px) {
   .show-case {
-    background: url('../../assets/images/back-single.png') no-repeat center center/cover;
     height: 60vh;
     width: 100%;
   }

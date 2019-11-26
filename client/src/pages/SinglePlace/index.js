@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import propTypes from 'prop-types';
 import { Icon } from 'antd';
+
 import { place as getPlaceReviews } from '../../services/api';
 import { Button, Fab, ImageCarousel, Review } from '../../components/index';
-import backgroundImage from '../../assets/images/back-single.png';
+import { ImagesContext } from '../../context/ImageContext';
 
 import './style.css';
 
@@ -37,12 +38,19 @@ class SinglePlace extends Component {
 
     return (
       <>
-        <div
-          style={{
-            background: `url(${backgroundImage}) no-repeat center center/cover`,
+        <ImagesContext.Consumer>
+          {context => {
+            const { image } = context;
+            return (
+              <div
+                className="single-place__header-img"
+                style={{
+                  background: `url(${image}) no-repeat center bottom/cover`,
+                }}
+              />
+            );
           }}
-          className="single-place__header-img"
-        />
+        </ImagesContext.Consumer>
         <div className="placename-search-container">
           <div className="buttons-container">
             <Button
