@@ -12,10 +12,11 @@ module.exports = (req, res, next) => {
 
   search(query)
     .then(result =>
-      result.map(({ id, fields: { image1, image2, ...fields } }) => ({
+      result.map(({ id, fields: { image1, ...fields } }) => ({
         id,
-        image1: imgUrl(image1),
-        image2: image2 && imgUrl(image2),
+        image1: image1
+          ? imgUrl(image1)
+          : 'https://res.cloudinary.com/amoodaa/image/upload/v1574758979/no-image_xz730l.png',
         ...fields,
       }))
     )

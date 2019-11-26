@@ -78,6 +78,11 @@
   border-top: 1px solid grey;
 }
 
+.spin-box {
+  text-align: center;
+  margin-top: 5rem;
+}
+
 @media (min-height: 600px) and (min-width: 600px) {
   .single-place__header-img {
     height: 50vh;
