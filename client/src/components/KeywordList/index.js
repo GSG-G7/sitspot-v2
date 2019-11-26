@@ -12,12 +12,6 @@ class KeywordList extends React.Component {
     keywordsObj: keywordObj,
   };
 
-  // componentDidMount() {
-  //   reqKywords().then(({ data }) => {
-  //     this.setState({ keywordsObj: data });
-  //   });
-  // }
-
   render() {
     const { keywords, toggleSelectKeyword, toggleKeywordList } = this.props;
     const { keywordsObj } = this.state;
