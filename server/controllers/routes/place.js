@@ -13,7 +13,12 @@ const post = (req, res, next) => {
       return Promise.resolve('NO_IMAGE');
     })
     .then(image => {
-      if (image !== 'NO_IMAGE') body.img1 = image.public_id;
+      if (image !== 'NO_IMAGE') {
+        const { secure_url: url } = image;
+        // 'mmmmm.asdj.com/asdlkasdlakd/upload/image/"vXXXXXXXX/public_id".ext' extracts this "vXXXXXXXX/public_id"
+        // eslint-disable-next-line prefer-destructuring
+        body.img1 = url.split('/image/upload/')[1].split('.')[0];
+      }
       return body;
     })
     .then(addPlace)

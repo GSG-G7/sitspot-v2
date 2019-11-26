@@ -10,6 +10,7 @@ import './style.css';
 
 class SinglePlace extends Component {
   state = {
+    loading: true,
     sitspot: {
       name: null,
       country: null,
@@ -18,7 +19,6 @@ class SinglePlace extends Component {
       images: null,
       reviews: null,
     },
-    loading: true,
   };
 
   componentDidMount() {
@@ -32,8 +32,8 @@ class SinglePlace extends Component {
   render() {
     const { type, sitspotId, history } = this.props;
     const {
-      sitspot: { name, country, city, url, images, reviews },
       loading,
+      sitspot: { name, country, city, url, images, reviews },
     } = this.state;
 
     return (
