@@ -10,10 +10,7 @@ module.exports = (req, res, next) => {
   let placeData = {};
 
   Promise.all([getPlace(id), getPlaceReviews(type, id)])
-    .then(result => {
-      const places = result[0];
-      const incomingReviews = result[1];
-
+    .then(([places, incomingReviews]) => {
       if (!places || places.length === 0) {
         const error = new Error("place doesn't exists");
         error.statusCode = 404;
@@ -32,7 +29,7 @@ module.exports = (req, res, next) => {
           images.push({
             id: 1,
             src:
-              'https://res.cloudinary.com/as1789/image/upload/v1574682144/no-image_yb53nt.png',
+              'https://res.cloudinary.com/amoodaa/image/upload/v1574758979/no-image_xz730l.png',
             alt: 'No img here',
             title: false,
           });

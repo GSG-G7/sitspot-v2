@@ -16,7 +16,7 @@ module.exports = (req, res, next) => {
         id,
         image1: image1
           ? imgUrl(image1)
-          : 'https://res.cloudinary.com/as1789/image/upload/v1574682144/no-image_yb53nt.png',
+          : 'https://res.cloudinary.com/amoodaa/image/upload/v1574758979/no-image_xz730l.png',
         ...fields,
       }))
     )
