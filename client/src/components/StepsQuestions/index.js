@@ -23,16 +23,23 @@ export default class StepsQuestions extends React.Component {
     this.setState(({ data }) => ({ data: { ...data, [key]: value } }));
 
   renderContent = () =>
-    questionsAndComponents.map(({ content: Content, stepNo, key }) => {
-      const { data } = this.state;
-      return (
-        <Content
-          key={`content${stepNo}`}
-          value={data[key]}
-          handleStateChange={value => this.handleStateChange({ key, value })}
-        />
-      );
-    });
+    questionsAndComponents.map(
+      ({ content: Component, stepNo, key, question }) => {
+        const { data } = this.state;
+        return (
+          <div>
+            <p>{question}</p>
+            <Component
+              key={`content${stepNo}`}
+              value={data[key]}
+              handleStateChange={value =>
+                this.handleStateChange({ key, value })
+              }
+            />
+          </div>
+        );
+      }
+    );
 
   renderSteps = () => {
     const { currentStep } = this.state;
