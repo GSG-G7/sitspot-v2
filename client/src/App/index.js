@@ -6,7 +6,7 @@ import ImagesContextProvider from '../context/ImageContext';
 
 import {
   AboutUs,
-  AddReview,
+  // AddReview,
   FAQ,
   Home,
   SearchPage,
@@ -34,7 +34,7 @@ const App = () => (
               <SearchPage searchState={state} />
             )}
           />
-          <Route
+          {/* <Route
             path="/add-review/:type/:sitspotId"
             render={({
               history,
@@ -48,7 +48,7 @@ const App = () => (
                 sitspotId={sitspotId}
               />
             )}
-          />
+          /> */}
           <Route
             path="/add-place"
             component={({ history }) => <AddNewSitSpot history={history} />}
