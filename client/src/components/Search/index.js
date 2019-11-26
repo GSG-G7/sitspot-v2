@@ -2,10 +2,11 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { Select, Radio, Button as AntButton, Icon } from 'antd';
+
 import { getCities } from 'full-countries-cities';
 import { count } from '../../services/api';
 import Button from '../Button';
-
+import renderOptions from '../../utils/renderOptionsList';
 import KeywordList from '../KeywordList';
 
 import './style.css';
@@ -39,13 +40,6 @@ class Search extends Component {
     if (searchState) this.setState({ ...searchState });
   }
 
-  renderOptions = list =>
-    list.map(item => (
-      <Option key={item} value={item}>
-        {item}
-      </Option>
-    ));
-
   renderCountries = () =>
     Object.entries(this.countries).map(([k, v]) => (
       <Option key={k} value={k}>
@@ -67,7 +61,7 @@ class Search extends Component {
       keywords.push(keyword);
       this.setState({ keywords });
     } else {
-      keywords.splice(index, index + 1);
+      keywords.splice(index, 1);
       this.setState({ keywords });
     }
   };
@@ -109,7 +103,7 @@ class Search extends Component {
               onChange={value => this.setState({ city: value })}
               filterOption={this.dropDownFilter}
             >
-              {cities && this.renderOptions(cities)}
+              {cities && renderOptions(cities)}
             </Select>
           </div>
         </div>
