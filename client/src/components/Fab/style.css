@@ -5,6 +5,7 @@
   height: 6rem;
   cursor: pointer;
   color: white;
+  z-index: 2;
 }
 
 .circle-main-color-button:hover {
