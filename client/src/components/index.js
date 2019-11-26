@@ -11,7 +11,8 @@ import MagicalFactor from './MagicalFactor';
 import Review from './Review';
 import ImageCarousel from './ImageCarousel';
 import Layout from './Layout';
-import StepsQuestions from './StepsQuestions';
+import StepsQuestions from './StepsQuestions/old';
+import StepsQuestions2 from './StepsQuestions';
 
 export {
   Button,
@@ -28,4 +29,5 @@ export {
   ImageCarousel,
   Layout,
   StepsQuestions,
+  StepsQuestions2,
 };

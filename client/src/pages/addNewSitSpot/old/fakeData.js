@@ -1,4 +1,4 @@
-import nameImg from '../../assets/question-1.png';
+import nameImg from '../../../assets/question-1.png';
 
 const Questions = [
   {

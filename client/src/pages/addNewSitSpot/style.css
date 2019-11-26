@@ -1,0 +1,12 @@
+.add-place__wrapper {
+    margin: 0 10%;
+  }
+  
+  .add-place__header {
+    background: url('../../assets/images/addrecom.png') no-repeat center bottom/cover;
+    height: 12vh;
+  }
+  
+  .steps__btn {
+    margin-right: 1rem;
+  }
