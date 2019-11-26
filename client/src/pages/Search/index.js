@@ -4,6 +4,7 @@ import { Icon } from 'antd';
 
 import { search } from '../../services/api';
 import { Search, SearchResult } from '../../components/index';
+import { ImagesContext } from '../../context/ImageContext';
 
 import './style.css';
 
@@ -50,7 +51,7 @@ class SearchPage extends Component {
   };
 
   render() {
-    const { searchState, image } = this.props;
+    const { searchState } = this.props;
     const {
       sitspots: [...sitspots],
       loading,
@@ -58,16 +59,25 @@ class SearchPage extends Component {
     } = this.state;
     return (
       <>
-        <div
-          className="show-case"
-          style={{
-            background: `url(${image}) no-repeat center center/cover`,
+        <ImagesContext.Consumer>
+          {context => {
+            const { image } = context;
+            return (
+              <div
+                className="show-case"
+                style={{
+                  background: `url(${image}) no-repeat center center/cover`,
+                }}
+              >
+                {sitspots.length !== 0 && (
+                  <p className="results-label">
+                    {sitspots.length} Search Results
+                  </p>
+                )}
+              </div>
+            );
           }}
-        >
-          {sitspots.length !== 0 && (
-            <p className="results-label">{sitspots.length} Search Results</p>
-          )}
-        </div>
+        </ImagesContext.Consumer>
         <Search
           onSubmit={this.onSubmit}
           searchState={searchState}
@@ -104,7 +114,6 @@ SearchPage.propTypes = {
     keywords: PropTypes.arrayOf(PropTypes.string),
     viewKeywords: PropTypes.bool,
   }),
-  image: PropTypes.string.isRequired,
 };
 
 SearchPage.defaultProps = {

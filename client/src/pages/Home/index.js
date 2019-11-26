@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import { Search, ImageCarousel } from '../../components/index';
 import { randomplaces } from '../../services/api';
 import plantIcon from '../../assets/images/icon-sign.svg';
+import { ImagesContext } from '../../context/ImageContext';
 
 import './style.css';
 
@@ -26,23 +27,30 @@ class Home extends Component {
   };
 
   render() {
-    const { history, image } = this.props;
+    const { history } = this.props;
     const { suggestedSitspots } = this.state;
     return (
       <div className="home">
-        <div
-          className="home__top-container header-container"
-          style={{
-            background: `url(${image}) no-repeat center center/cover`,
+        <ImagesContext.Consumer>
+          {context => {
+            const { image } = context;
+            return (
+              <div
+                className="home__top-container header-container"
+                style={{
+                  background: `url(${image}) no-repeat center center/cover`,
+                }}
+              >
+                <p className="home__top-container__slagon ">
+                  Where conscious travellers find their feel good
+                </p>
+                <div className="home__top-container__search">
+                  <Search onSubmit={state => history.push('/search', state)} />
+                </div>
+              </div>
+            );
           }}
-        >
-          <p className="home__top-container__slagon ">
-            Where conscious travellers find their feel good
-          </p>
-          <div className="home__top-container__search">
-            <Search onSubmit={state => history.push('/search', state)} />
-          </div>
-        </div>
+        </ImagesContext.Consumer>
         <div className="home__second-container">
           <div className="home__welcome-container ">
             <img alt="plant icon" src={plantIcon} />
@@ -79,7 +87,6 @@ class Home extends Component {
 
 Home.propTypes = {
   history: PropTypes.shape({ push: PropTypes.func.isRequired }).isRequired,
-  image: PropTypes.string.isRequired,
 };
 
 export default Home;

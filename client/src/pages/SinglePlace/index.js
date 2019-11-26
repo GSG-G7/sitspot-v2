@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import propTypes from 'prop-types';
 import { Icon } from 'antd';
+
 import { place as getPlaceReviews } from '../../services/api';
 import { Button, Fab, ImageCarousel, Review } from '../../components/index';
+import { ImagesContext } from '../../context/ImageContext';
 
 import './style.css';
 
@@ -33,18 +35,25 @@ class SinglePlace extends Component {
   }
 
   render() {
-    const { type, sitspotId, history, image } = this.props;
+    const { type, sitspotId, history } = this.props;
     const {
       sitspot: { name, country, city, url, images, reviews },
     } = this.state;
     return (
       <>
-        <div
-          className="single-place__header-img"
-          style={{
-            background: `url(${image}) no-repeat center bottom/cover`,
+        <ImagesContext.Consumer>
+          {context => {
+            const { image } = context;
+            return (
+              <div
+                className="single-place__header-img"
+                style={{
+                  background: `url(${image}) no-repeat center bottom/cover`,
+                }}
+              />
+            );
           }}
-        />
+        </ImagesContext.Consumer>
         <div className="placename-search-container">
           <div className="buttons-container">
             <Button
@@ -98,7 +107,6 @@ SinglePlace.propTypes = {
     goBack: propTypes.func.isRequired,
     push: propTypes.func.isRequired,
   }).isRequired,
-  image: propTypes.string.isRequired,
 };
 
 export default SinglePlace;
