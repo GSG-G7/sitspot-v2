@@ -1,6 +1,7 @@
 const router = require('express').Router();
 const multer = require('multer');
 const { middleware: cache } = require('apicache');
+const { NOT_FOUND } = require('../controllers/errors/errorMessages');
 const {
   routes: {
     place,
@@ -25,6 +26,9 @@ router
   .get(cache('8 minutes'), placeAndReviews)
   .post(upload.any(), place.post);
 
+router.all('*', (req, res, next) => {
+  next({ statusCode: 404, message: NOT_FOUND });
+});
 router.use(error);
 
 module.exports = router;
