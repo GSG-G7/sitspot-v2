@@ -14,8 +14,8 @@ div > .ant-select-selection__placeholder {
 }
 
 .autocomplete-box {
-  text-align:left;
-  width:49%;
+  text-align: left;
+  width: 49%;
 }
 
 .type-filter__container {
@@ -26,7 +26,7 @@ div > .ant-select-selection__placeholder {
 
 .radio-group {
   max-width: 70%;
-  margin-left: 0.25rem;
+  margin: 0.2rem;
 }
 
 .button-label {
@@ -45,7 +45,7 @@ div > .ant-select-selection__placeholder {
 
 #keywords-btn {
   border-radius: 0;
-  font-weight: 600;;
+  font-weight: 600;
 }
 
 #search-btn {
@@ -66,7 +66,7 @@ div > .ant-select-selection__placeholder {
 
 #recommendation-btn {
   background-color: var(--main-color);
-  color:#fff;
+  color: #fff;
   border: none;
   opacity: var(--opacity-search-button);
   border-radius: 0;
@@ -86,7 +86,6 @@ div > .ant-select-selection__placeholder {
 
 @media only screen and (max-width: 370px) {
   .radio-group > * {
-    width:120px;
+    width: 120px;
   }
-  
 }

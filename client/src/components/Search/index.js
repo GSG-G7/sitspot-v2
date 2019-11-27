@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-import { Select, Radio, Button as AntButton, Icon } from 'antd';
+import { Select, Button as AntButton, Icon } from 'antd';
 
 import { getCities } from 'full-countries-cities';
 import { count } from '../../services/api';
 import Button from '../Button';
 import renderOptions from '../../utils/renderOptionsList';
 import KeywordList from '../KeywordList';
+import RadioGroup from '../RadioGroup';
 
 import './style.css';
 
@@ -69,7 +70,10 @@ class Search extends Component {
   dropDownFilter = (input, option) =>
     option.props.children[0].toLowerCase().indexOf(input.toLowerCase()) >= 0;
 
-  handleRadioButton = e => this.setState({ lookingFor: e.target.value });
+  handleRadioButton = value =>
+    this.setState(({ lookingFor }) => ({
+      lookingFor: value === lookingFor ? '' : value,
+    }));
 
   render() {
     const { country, city, keywords, viewKeywords, lookingFor } = this.state;
@@ -107,27 +111,18 @@ class Search extends Component {
             </Select>
           </div>
         </div>
-
         <div className="type-filter__container">
-          <Radio.Group
-            className="radio-group"
-            value={lookingFor}
-            buttonStyle="solid"
-          >
+          <div className="radio-group">
             <p style={{ color: fontColor }} className="button-label">
               WHAT ARE YOU LOOKING FOR?
             </p>
-            {Object.entries(this.LookingFor).map(([key, value]) => (
-              <Radio.Button
-                className="radio-button"
-                key={key}
-                value={key.toLowerCase()}
-                onClick={this.handleRadioButton}
-              >
-                {value}
-              </Radio.Button>
-            ))}
-          </Radio.Group>
+            <RadioGroup
+              value={lookingFor}
+              options={this.LookingFor}
+              clickHandler={this.handleRadioButton}
+            />
+          </div>
+
           <div className="type-filter__container__filter">
             <p className="button-label">FILTER</p>
             <AntButton id="keywords-btn" onClick={this.toggleKeywordList}>
