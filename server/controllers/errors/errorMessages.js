@@ -7,4 +7,5 @@ module.exports = {
   NO_SITSPOTS_MATCH: 'There is no any sitspot matches your search',
   SERVER_ERROR: 'Internal server error',
   TIMEOUT_ERROR: 'Timeout: The server could not process your request in time',
+  NOT_FOUND: 'Not Found!',
 };
