@@ -1,9 +1,8 @@
-const { SERVER_ERROE, TIMEOUT_ERROR } = require('../errors/errorMessages');
+const { SERVER_ERROR, TIMEOUT_ERROR } = require('../errors/errorMessages');
 
 module.exports = (err, req, res, next) => {
-  if (process.env.NODE_ENV === 'development')
-    // eslint-disable-next-line no-console
-    console.log(err);
+  // eslint-disable-next-line no-console
+  if (process.env.NODE_ENV === 'development') console.log(err);
   const { statusCode, message } = err;
   switch (statusCode) {
     case 400:
@@ -19,6 +18,6 @@ module.exports = (err, req, res, next) => {
       });
       break;
     default:
-      res.status(500).json({ message: SERVER_ERROE, error: err.message });
+      res.status(500).json({ message: SERVER_ERROR, error: err.message });
   }
 };
