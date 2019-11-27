@@ -27,6 +27,6 @@ module.exports = (req, res, next) => {
         ...fields,
       }));
     })
-    .then(result => res.send(result))
+    .then(result => res.json(result))
     .catch(next);
 };
