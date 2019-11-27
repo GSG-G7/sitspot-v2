@@ -22,23 +22,34 @@ export default class StepsQuestions extends React.Component {
   handleStateChange = ({ key, value }) =>
     this.setState(({ data }) => ({ data: { ...data, [key]: value } }));
 
-  renderContent = () =>
-    questionsAndComponents.map(
-      ({ content: Component, stepNo, key, question }) => {
-        const { data } = this.state;
-        return (
-          <div key={`content${stepNo}`}>
-            <p>{question}</p>
-            <Component
-              value={data[key]}
-              handleStateChange={value =>
-                this.handleStateChange({ key, value })
-              }
-            />
-          </div>
-        );
+  renderContent = currentStep => {
+    const {
+      data,
+      data: { country },
+    } = this.state;
+    return questionsAndComponents.map(
+      ({ content: Component, stepNo, key, question, options = {} }) => {
+        const newOptions = { ...options };
+        if (key === 'city') {
+          newOptions.countrySelected = country;
+        }
+        if (currentStep === stepNo)
+          return (
+            <div key={`content${stepNo}`}>
+              <p>{question}</p>
+              <Component
+                options={newOptions}
+                value={data[key]}
+                handleStateChange={value =>
+                  this.handleStateChange({ key, value })
+                }
+              />
+            </div>
+          );
+        return '';
       }
     );
+  };
 
   renderSteps = () => {
     const { currentStep } = this.state;
@@ -66,7 +77,7 @@ export default class StepsQuestions extends React.Component {
     return (
       <div>
         {this.renderSteps()}
-        {this.renderContent()}
+        {this.renderContent(currentStep)}
         <div className="form-controls">
           {currentStep > 0 && (
             <button type="button" onClick={this.prev}>

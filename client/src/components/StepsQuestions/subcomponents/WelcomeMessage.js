@@ -1,26 +1,9 @@
-// import React from 'react';
-// import { Radio } from 'antd';
+import React from 'react';
 
-// const BusinessTypes = Object.freeze({
-//   stay: 'place to stay',
-//   eat: 'place to eat or drink',
-//   shop: 'place to shop',
-// });
-// export default (values, handleStateChange) => (
-//   <div>
-//     <Radio.Group value={values.businessType} buttonStyle="solid">
-//       {Object.entries(BusinessTypes).map(([key, value]) => (
-//         <Radio.Button
-//           key={key}
-//           value={key}
-//           onClick={
-//             event => {}
-//             // handleStateChange({ businessType: event.target.value })
-//           }
-//         >
-//           {value}
-//         </Radio.Button>
-//       ))}
-//     </Radio.Group>
-//   </div>
-// );
+const Welcome = () => (
+  <div>
+    <h2>Hi, Welcome </h2>
+  </div>
+);
+
+export default Welcome;
