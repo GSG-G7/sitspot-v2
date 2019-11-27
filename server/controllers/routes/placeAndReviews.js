@@ -4,7 +4,7 @@ const { imgUrl, formatReviews } = require('../utils');
 module.exports = (req, res, next) => {
   const { id, type } = req.query;
   if (!id || !type) {
-    next({ statusCode: 400, message: 'id and type required' });
+    res.send({ statusCode: 400, message: 'id and type required' });
   }
 
   let placeData = {};

@@ -31,23 +31,25 @@ class SearchPage extends Component {
     this.setState({ sitspots: [], loading: true });
     const qs = new URLSearchParams();
     Object.entries(state).forEach(([key, value]) => qs.append(key, value));
-    search(qs.toString()).then(({ data }) => {
-      if (!data.length) {
-        // eslint-disable-next-line no-unused-vars
-        this.setState(_state => ({
-          sitspots: data,
-          loading: false,
-          message: 'Sorry, there are no Sitspots that match your search',
-        }));
-      } else {
-        // eslint-disable-next-line no-unused-vars
-        this.setState(_state => ({
-          sitspots: data,
-          loading: false,
-          message: null,
-        }));
-      }
-    });
+    search(qs.toString())
+      .then(({ data }) => {
+        if (!data.length) {
+          // eslint-disable-next-line no-unused-vars
+          this.setState(_state => ({
+            sitspots: data,
+            loading: false,
+            message: 'Sorry, there are no Sitspots that match your search',
+          }));
+        } else {
+          // eslint-disable-next-line no-unused-vars
+          this.setState(_state => ({
+            sitspots: data,
+            loading: false,
+            message: null,
+          }));
+        }
+      })
+      .catch(console.error);
   };
 
   render() {
@@ -110,7 +112,7 @@ SearchPage.propTypes = {
   searchState: PropTypes.shape({
     country: PropTypes.string,
     city: PropTypes.string,
-    lookingFor: PropTypes.string,
+    type: PropTypes.string,
     keywords: PropTypes.arrayOf(PropTypes.string),
     viewKeywords: PropTypes.bool,
   }),

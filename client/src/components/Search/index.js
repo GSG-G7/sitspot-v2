@@ -17,14 +17,14 @@ class Search extends Component {
   state = {
     country: undefined,
     city: undefined,
-    lookingFor: '',
+    type: '',
     keywords: [],
     viewKeywords: false,
   };
 
   countries = { place: 'holder' };
 
-  LookingFor = Object.freeze({
+  placeType = Object.freeze({
     STAY: 'Stay',
     EAT: 'Eat & Drink',
     SHOP: 'Shop',
@@ -69,10 +69,10 @@ class Search extends Component {
   dropDownFilter = (input, option) =>
     option.props.children[0].toLowerCase().indexOf(input.toLowerCase()) >= 0;
 
-  handleRadioButton = e => this.setState({ lookingFor: e.target.value });
+  handleRadioButton = e => this.setState({ type: e.target.value });
 
   render() {
-    const { country, city, keywords, viewKeywords, lookingFor } = this.state;
+    const { country, city, keywords, viewKeywords, type } = this.state;
     const { fontColor, onSubmit } = this.props;
     const cities = country ? getCities(country) : [];
     return (
@@ -109,15 +109,11 @@ class Search extends Component {
         </div>
 
         <div className="type-filter__container">
-          <Radio.Group
-            className="radio-group"
-            value={lookingFor}
-            buttonStyle="solid"
-          >
+          <Radio.Group className="radio-group" value={type} buttonStyle="solid">
             <p style={{ color: fontColor }} className="button-label">
               WHAT ARE YOU LOOKING FOR?
             </p>
-            {Object.entries(this.LookingFor).map(([key, value]) => (
+            {Object.entries(this.placeType).map(([key, value]) => (
               <Radio.Button
                 className="radio-button"
                 key={key}
@@ -170,7 +166,7 @@ Search.propTypes = {
   searchState: PropTypes.shape({
     country: PropTypes.string,
     city: PropTypes.string,
-    lookingFor: PropTypes.string,
+    type: PropTypes.string,
     keywords: PropTypes.arrayOf(PropTypes.string),
     viewKeywords: PropTypes.bool,
   }),

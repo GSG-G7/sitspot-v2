@@ -11,5 +11,9 @@ const countCountries = countries =>
 
 module.exports = (req, res, next) =>
   getPlaces()
-    .then(countries => countCountries(countries))
+    .then(countries => {
+      if (!countries || countries.length === 0)
+        throw { statusCode: 404, message: 'There are no countries to count!' };
+      return countCountries(countries);
+    })
     .then(count => res.json(count));
