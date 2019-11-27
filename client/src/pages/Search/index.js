@@ -49,7 +49,7 @@ class SearchPage extends Component {
           }));
         }
       })
-      .catch(console.error);
+      .catch(() => {});
   };
 
   render() {

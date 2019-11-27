@@ -8,22 +8,15 @@ module.exports = ({
   businessType: type,
   img1: image1,
 }) =>
-  typeformBase('place').create(
-    [
-      {
-        fields: {
-          name,
-          country,
-          city,
-          image1,
-          url,
-          type,
-        },
+  typeformBase('place').create([
+    {
+      fields: {
+        name,
+        country,
+        city,
+        image1,
+        url,
+        type,
       },
-    ],
-    (error, records) => {
-      if (error) {
-        console.log(error);
-      }
-    }
-  );
+    },
+  ]);
