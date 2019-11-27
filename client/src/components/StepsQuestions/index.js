@@ -4,13 +4,12 @@ import subcomponents from './subcomponents';
 import questions from '../../staticDataSet/questions';
 import './style.css';
 
-const { ErrorDisplay } = questions;
+const { ErrorDisplay } = subcomponents;
 
 const { Step } = Steps;
 
 const questionsAndComponents = questions.map(({ type, ...rest }) => ({
   content: subcomponents[type],
-  error: null,
   ...rest,
 }));
 
@@ -21,22 +20,22 @@ export default class StepsQuestions extends React.Component {
       (acc, { key }) => (key ? { ...acc, [key]: '' } : acc),
       {}
     ),
-    isError: false,
+    error: '',
   };
 
   handleStateChange = ({ key, value }) =>
     this.setState(({ data }) => ({ data: { ...data, [key]: value } }));
 
-  changeIsError = isError => this.setState({ isError });
+  changeIsError = error => this.setState({ error });
 
   renderContent = currentStep => {
     const {
       data,
       data: { country },
-      isError,
+      error,
     } = this.state;
     return questionsAndComponents.map(
-      ({ content: Component, stepNo, key, question, options = {}, error }) => {
+      ({ content: Component, stepNo, key, question, options = {} }) => {
         const newOptions = { ...options };
         if (key === 'city') {
           newOptions.countrySelected = country;
@@ -56,8 +55,8 @@ export default class StepsQuestions extends React.Component {
                     }
                   />
                 )}
-                {isError && <ErrorDisplay error={error} />}
               </div>
+              {error && <ErrorDisplay error={error} />}
             </div>
           );
         return '';
@@ -81,8 +80,11 @@ export default class StepsQuestions extends React.Component {
   prev = () =>
     this.setState(({ currentStep }) => ({ currentStep: currentStep - 1 }));
 
-  next = () =>
-    this.setState(({ currentStep }) => ({ currentStep: currentStep + 1 }));
+  next = () => {
+    const { error } = this.state;
+    if (!error)
+      this.setState(({ currentStep }) => ({ currentStep: currentStep + 1 }));
+  };
 
   render() {
     const { currentStep } = this.state;
