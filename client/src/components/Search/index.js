@@ -25,7 +25,7 @@ class Search extends Component {
 
   countries = { place: 'holder' };
 
-  placeType = Object.freeze({
+  placeTypes = Object.freeze({
     STAY: 'Stay',
     EAT: 'Eat & Drink',
     SHOP: 'Shop',
@@ -120,7 +120,7 @@ class Search extends Component {
             </p>
             <RadioGroup
               value={type}
-              options={this.placeType}
+              options={this.placeTypes}
               clickHandler={this.handleRadioButton}
             />
           </div>
