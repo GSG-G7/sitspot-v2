@@ -18,14 +18,14 @@ class Search extends Component {
   state = {
     country: undefined,
     city: undefined,
-    lookingFor: '',
+    type: '',
     keywords: [],
     viewKeywords: false,
   };
 
   countries = { place: 'holder' };
 
-  LookingFor = Object.freeze({
+  placeType = Object.freeze({
     STAY: 'Stay',
     EAT: 'Eat & Drink',
     SHOP: 'Shop',
@@ -71,12 +71,12 @@ class Search extends Component {
     option.props.children[0].toLowerCase().indexOf(input.toLowerCase()) >= 0;
 
   handleRadioButton = value =>
-    this.setState(({ lookingFor }) => ({
-      lookingFor: value === lookingFor ? '' : value,
+    this.setState(({ type }) => ({
+      type: value === type ? '' : value,
     }));
 
   render() {
-    const { country, city, keywords, viewKeywords, lookingFor } = this.state;
+    const { country, city, keywords, viewKeywords, type } = this.state;
     const { fontColor, onSubmit } = this.props;
     const cities = country ? getCities(country) : [];
     return (
@@ -85,6 +85,7 @@ class Search extends Component {
           <div className="autocomplete-box">
             <div>WHICH COUNTRY?</div>
             <Select
+              allowClear
               className="ant-select-country"
               showSearch
               placeholder="Select"
@@ -99,6 +100,7 @@ class Search extends Component {
           <div className="autocomplete-box">
             <div>WHICH CITY?</div>
             <Select
+              allowClear
               id="ant-select-city"
               showSearch
               placeholder="Select"
@@ -117,8 +119,8 @@ class Search extends Component {
               WHAT ARE YOU LOOKING FOR?
             </p>
             <RadioGroup
-              value={lookingFor}
-              options={this.LookingFor}
+              value={type}
+              options={this.placeType}
               clickHandler={this.handleRadioButton}
             />
           </div>
@@ -165,7 +167,7 @@ Search.propTypes = {
   searchState: PropTypes.shape({
     country: PropTypes.string,
     city: PropTypes.string,
-    lookingFor: PropTypes.string,
+    type: PropTypes.string,
     keywords: PropTypes.arrayOf(PropTypes.string),
     viewKeywords: PropTypes.bool,
   }),
