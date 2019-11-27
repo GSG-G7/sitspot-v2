@@ -5,9 +5,10 @@ const {
   PLACE_DOESNT_EXIST,
 } = require('../errors/errorMessages');
 
+const types = ['eat', 'shop', 'stay'];
 module.exports = (req, res, next) => {
   const { id, type } = req.query;
-  if (!id || !type) {
+  if (!id || !type || types.indexOf(type) === -1) {
     throw { statusCode: 400, message: ID_TYPE_REQUIRED };
   }
 
