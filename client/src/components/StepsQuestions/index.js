@@ -1,5 +1,5 @@
 import React from 'react';
-import { Steps } from 'antd';
+import { Steps, Button } from 'antd';
 import subcomponents from './subcomponents';
 import questions from '../../staticDataSet/questions';
 
@@ -37,17 +37,19 @@ export default class StepsQuestions extends React.Component {
         }
         if (currentStep === stepNo)
           return (
-            <div key={`content${stepNo}`}>
+            <div className="content-wrapper" key={`content${stepNo}`}>
               <p>{question}</p>
-              {Component && (
-                <Component
-                  options={newOptions}
-                  value={data[key]}
-                  handleStateChange={value =>
-                    this.handleStateChange({ key, value })
-                  }
-                />
-              )}
+              <div className="content__component">
+                {Component && (
+                  <Component
+                    options={newOptions}
+                    value={data[key]}
+                    handleStateChange={value =>
+                      this.handleStateChange({ key, value })
+                    }
+                  />
+                )}
+              </div>
             </div>
           );
         return '';
@@ -84,24 +86,40 @@ export default class StepsQuestions extends React.Component {
         {this.renderContent(currentStep)}
         <div className="form-controls">
           {currentStep === 0 && (
-            <button type="button" onClick={this.next}>
+            <Button
+              className="steps__btn steps__btn--right"
+              type="primary"
+              onClick={this.next}
+            >
               Start
-            </button>
+            </Button>
           )}
           {currentStep > 0 && (
-            <button type="button" onClick={this.prev}>
+            <Button
+              className="steps__btn steps__btn--left"
+              type="button"
+              onClick={this.prev}
+            >
               Previous
-            </button>
+            </Button>
           )}
           {currentStep < questions.length - 1 && currentStep > 0 && (
-            <button type="button" onClick={this.next}>
+            <Button
+              className="steps__btn steps__btn--right"
+              type="primary"
+              onClick={this.next}
+            >
               Next
-            </button>
+            </Button>
           )}
           {currentStep === questions.length - 1 && (
-            <button type="button" onClick={() => {}}>
+            <Button
+              className="steps__btn steps__btn--right"
+              type="primary"
+              onClick={() => {}}
+            >
               Done
-            </button>
+            </Button>
           )}
         </div>
       </div>
