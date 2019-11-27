@@ -1,5 +1,5 @@
 export default [
-  { stepNo: 0, key: 'welcome', question: 'welcome', type: 'WelcomeMessage' },
+  { stepNo: 0, key: 'welcome', question: 'welcome' },
   { stepNo: 1, key: 'name', question: 'name?', type: 'InputQuestion' },
   { stepNo: 2, key: 'link', question: 'link?', type: 'InputQuestion' },
   {
