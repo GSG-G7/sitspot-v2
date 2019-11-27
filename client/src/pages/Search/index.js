@@ -104,7 +104,7 @@ SearchPage.propTypes = {
   searchState: PropTypes.shape({
     country: PropTypes.string,
     city: PropTypes.string,
-    type: PropTypes.string,
+    lookingFor: PropTypes.string,
     keywords: PropTypes.arrayOf(PropTypes.string),
     viewKeywords: PropTypes.bool,
   }),
