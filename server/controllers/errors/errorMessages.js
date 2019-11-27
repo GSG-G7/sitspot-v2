@@ -5,6 +5,6 @@ module.exports = {
   PLACE_DOESNT_EXIST: "place doesn't exist",
   NO_PLACES: 'There are no places to view!',
   NO_SITSPOTS_MATCH: 'There is no any sitspot matches your search',
-  SERVER_ERROE: 'Internal server error',
+  SERVER_ERROR: 'Internal server error',
   TIMEOUT_ERROR: 'Timeout: The server could not process your request in time',
 };
