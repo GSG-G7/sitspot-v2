@@ -1,4 +1,3 @@
-/* eslint-disable no-extra-boolean-cast */
 const { typeformBase } = require('../config');
 
 const formulaMaker = ({ country, city, type, keywords }) => {

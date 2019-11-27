@@ -14,6 +14,7 @@ module.exports = {
     },
     rules: {
     "arrow-body-style": ["error", "as-needed"],
+    "no-throw-literal":0,
     "no-unused-vars": ["error", { "args": "none" }],
        // configure the prettier plugin
       "prettier/prettier": [
