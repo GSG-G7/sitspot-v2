@@ -1,5 +1,6 @@
 const { search } = require('../../models/queries');
 const { imgUrl } = require('../utils');
+const { NO_SITSPOTS_MATCH } = require('../errors/errorMessages');
 
 module.exports = (req, res, next) => {
   const { country, city, type, keywords } = req.query;
@@ -16,7 +17,7 @@ module.exports = (req, res, next) => {
       if (!result || result.length === 0)
         throw {
           statusCode: 404,
-          message: 'There is no any sitspot matches your search',
+          message: NO_SITSPOTS_MATCH,
         };
       return result.map(({ id, fields: { image1, ...fields } }) => ({
         id,

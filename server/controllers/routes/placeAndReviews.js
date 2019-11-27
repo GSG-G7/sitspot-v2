@@ -1,46 +1,45 @@
 const { getPlace, getPlaceReviews } = require('../../models/queries');
 const { imgUrl, formatReviews } = require('../utils');
+const {
+  ID_TYPE_REQUIRED,
+  PLACE_DOESNT_EXIST,
+} = require('../errors/errorMessages');
 
 module.exports = (req, res, next) => {
   const { id, type } = req.query;
   if (!id || !type) {
-    res.send({ statusCode: 400, message: 'id and type required' });
+    throw { statusCode: 400, message: ID_TYPE_REQUIRED };
   }
 
   let placeData = {};
 
   Promise.all([getPlace(id), getPlaceReviews(type, id)])
-    .then(([places, incomingReviews]) => {
-      if (!places || places.length === 0) {
-        const error = new Error("place doesn't exists");
-        error.statusCode = 404;
-        throw error;
+    .then(([place, incomingReviews]) => {
+      if (!place || place.length === 0)
+        throw { statusCode: 404, message: PLACE_DOESNT_EXIST };
+      const placeFields = { ...place[0].fields };
+      const images = [];
+      if (placeFields.image1) {
+        images.push({
+          id: placeFields.image1,
+          src: imgUrl(placeFields.image1),
+          alt: 'sitSpot',
+          title: placeFields.name,
+        });
       } else {
-        const place = { ...places[0].fields };
-        const images = [];
-        if (place.image1) {
-          images.push({
-            id: place.image1,
-            src: imgUrl(place.image1),
-            alt: 'sitSpot',
-            title: place.name,
-          });
-        } else {
-          images.push({
-            id: 1,
-            src:
-              'https://res.cloudinary.com/amoodaa/image/upload/v1574758979/no-image_xz730l.png',
-            alt: 'No img here',
-            title: false,
-          });
-        }
-
-        delete place.image1;
-        place.images = images;
-
-        placeData = { ...place, reviews: [] };
+        images.push({
+          id: 1,
+          src:
+            'https://res.cloudinary.com/amoodaa/image/upload/v1574758979/no-image_xz730l.png',
+          alt: 'No img here',
+          title: false,
+        });
       }
 
+      delete placeFields.image1;
+      placeFields.images = images;
+
+      placeData = { ...placeFields, reviews: [] };
       placeData.reviews = incomingReviews
         .map(({ fields }) => fields)
         .map(formatReviews);
