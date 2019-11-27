@@ -23,7 +23,7 @@ const RadioGroup = ({ value, options, clickHandler }) => (
 
 RadioGroup.propTypes = {
   value: PropTypes.string.isRequired,
-  options: PropTypes.arrayOf(PropTypes.string).isRequired,
+  options: PropTypes.shape({}).isRequired,
   clickHandler: PropTypes.func.isRequired,
 };
 
