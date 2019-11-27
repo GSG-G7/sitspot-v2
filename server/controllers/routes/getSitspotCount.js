@@ -1,4 +1,5 @@
 const { getPlaces } = require('../../models');
+const { NO_COUNTRIES_COUNT } = require('../errors/errorMessages');
 
 const countCountries = countries =>
   countries.reduce(
@@ -11,5 +12,9 @@ const countCountries = countries =>
 
 module.exports = (req, res, next) =>
   getPlaces()
-    .then(countries => countCountries(countries))
+    .then(countries => {
+      if (!countries || countries.length === 0)
+        throw { statusCode: 404, message: NO_COUNTRIES_COUNT };
+      return countCountries(countries);
+    })
     .then(count => res.json(count));
