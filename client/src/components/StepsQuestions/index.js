@@ -79,12 +79,17 @@ export default class StepsQuestions extends React.Component {
         {this.renderSteps()}
         {this.renderContent(currentStep)}
         <div className="form-controls">
+          {currentStep === 0 && (
+            <button type="button" onClick={this.next}>
+              Start
+            </button>
+          )}
           {currentStep > 0 && (
             <button type="button" onClick={this.prev}>
               Previous
             </button>
           )}
-          {currentStep < questions.length - 1 && (
+          {currentStep < questions.length - 1 && currentStep > 0 && (
             <button type="button" onClick={this.next}>
               Next
             </button>
