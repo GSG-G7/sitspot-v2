@@ -8,7 +8,9 @@ const onSubmit = something => something;
 const AddNewSitspot = () => (
   <div id="add-place" className="add-place">
     <div className="add-place__header"> </div>
-    <Steps onSubmit={onSubmit} />
+    <div className="add-place__content">
+      <Steps onSubmit={onSubmit} />
+    </div>
   </div>
 );
 

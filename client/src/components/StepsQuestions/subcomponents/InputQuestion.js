@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 const InputQuestion = ({ value, handleStateChange }) => (
   <input
-    className="input "
+    className="step__input "
     type="text"
     value={value}
     onChange={e => handleStateChange(e.target.value)}

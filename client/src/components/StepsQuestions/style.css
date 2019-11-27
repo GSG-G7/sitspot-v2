@@ -1,0 +1,75 @@
+/* Basic Style */
+.steps-wrapper{
+  margin: 2rem 0;
+}
+
+/* BUTTON STYLE */
+.form-controls {
+  
+}
+
+/* InputQuestions Style */
+.step__input {
+  display: block;
+  width: 90%;
+  font-family: inherit;
+  font-weight: 600;
+  font-size: 2rem;
+  border: 0;
+  outline: none;
+  background-color: inherit;
+  padding: 0.8rem 0.2rem;
+  margin: 2rem auto;
+  cursor: text;
+  border-bottom: 0.1rem solid #4fb0ae;
+}
+
+.step__input:focus {
+  border-bottom: 0;
+}
+
+.step__input::placeholder {
+  color: #4fb0aeb7;
+  font-size: 1.8rem;
+  letter-spacing: 0.1rem;
+  word-spacing: 0.2rem;
+}
+
+/* ================= override on style antd SELECT */
+
+#add-place .ant-select {
+  width: 100%;
+  outline: 0;
+}
+
+#add-place .ant-select-selection {
+  border: 0;
+  outline: 0;
+  border-bottom: 1px solid gray;
+  background-color: inherit;
+  height: 5rem;
+}
+
+#add-place .ant-select-arrow {
+  font-size: 2rem;
+}
+
+/* ================= override on style antd Radio */
+
+#add-place .ant-radio-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#add-place .ant-radio-button-wrapper {
+  margin-bottom: 1.5rem;
+  width: 70%;
+  text-align: center;
+  height: auto;
+  padding: 1rem 1.5rem;
+}
+
+div.type>div>label.ant-radio-button-wrapper>span {
+  font-size: 1.8rem;
+}

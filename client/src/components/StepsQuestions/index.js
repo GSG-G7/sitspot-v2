@@ -3,6 +3,8 @@ import { Steps } from 'antd';
 import subcomponents from './subcomponents';
 import questions from '../../staticDataSet/questions';
 
+import './style.css';
+
 const { Step } = Steps;
 
 const questionsAndComponents = questions.map(({ type, ...rest }) => ({
