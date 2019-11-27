@@ -37,13 +37,15 @@ export default class StepsQuestions extends React.Component {
           return (
             <div key={`content${stepNo}`}>
               <p>{question}</p>
-              <Component
-                options={newOptions}
-                value={data[key]}
-                handleStateChange={value =>
-                  this.handleStateChange({ key, value })
-                }
-              />
+              {Component && (
+                <Component
+                  options={newOptions}
+                  value={data[key]}
+                  handleStateChange={value =>
+                    this.handleStateChange({ key, value })
+                  }
+                />
+              )}
             </div>
           );
         return '';
