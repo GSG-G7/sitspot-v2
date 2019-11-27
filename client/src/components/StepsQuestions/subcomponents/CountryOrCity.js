@@ -19,6 +19,7 @@ const dropDownFilter = (input, option) =>
 const CountryOrCity = ({
   value,
   handleStateChange,
+  // changeIsError,
   options: { type, countrySelected = '' },
 }) => {
   let data;
@@ -46,6 +47,7 @@ const CountryOrCity = ({
 CountryOrCity.propTypes = {
   value: PropTypes.string.isRequired,
   handleStateChange: PropTypes.func.isRequired,
+  // changeIsError: PropTypes.func.isRequired,
   options: PropTypes.shape({
     type: PropTypes.string.isRequired,
     countrySelected: PropTypes.string,

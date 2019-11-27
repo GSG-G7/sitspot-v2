@@ -2,13 +2,15 @@ import React from 'react';
 import { Steps, Button } from 'antd';
 import subcomponents from './subcomponents';
 import questions from '../../staticDataSet/questions';
-
 import './style.css';
+
+const { ErrorDisplay } = questions;
 
 const { Step } = Steps;
 
 const questionsAndComponents = questions.map(({ type, ...rest }) => ({
   content: subcomponents[type],
+  error: null,
   ...rest,
 }));
 
@@ -19,18 +21,22 @@ export default class StepsQuestions extends React.Component {
       (acc, { key }) => (key ? { ...acc, [key]: '' } : acc),
       {}
     ),
+    isError: false,
   };
 
   handleStateChange = ({ key, value }) =>
     this.setState(({ data }) => ({ data: { ...data, [key]: value } }));
 
+  changeIsError = isError => this.setState({ isError });
+
   renderContent = currentStep => {
     const {
       data,
       data: { country },
+      isError,
     } = this.state;
     return questionsAndComponents.map(
-      ({ content: Component, stepNo, key, question, options = {} }) => {
+      ({ content: Component, stepNo, key, question, options = {}, error }) => {
         const newOptions = { ...options };
         if (key === 'city') {
           newOptions.countrySelected = country;
@@ -44,11 +50,13 @@ export default class StepsQuestions extends React.Component {
                   <Component
                     options={newOptions}
                     value={data[key]}
+                    changeIsError={this.changeIsError}
                     handleStateChange={value =>
                       this.handleStateChange({ key, value })
                     }
                   />
                 )}
+                {isError && <ErrorDisplay error={error} />}
               </div>
             </div>
           );
