@@ -2,6 +2,7 @@ import React from 'react';
 import { Steps, Button } from 'antd';
 import subcomponents from './subcomponents';
 import questions from '../../staticDataSet/questions';
+import requiredStringSchema from '../../utils/addPlaceValidation';
 import './style.css';
 
 const { ErrorDisplay } = subcomponents;
@@ -12,7 +13,10 @@ const questionsAndComponents = questions.map(({ type, ...rest }) => ({
   content: subcomponents[type],
   ...rest,
 }));
-
+const requiredDictionary = questions.reduce(
+  (acc, { required, key }) => ({ ...acc, [key]: required }),
+  {}
+);
 export default class StepsQuestions extends React.Component {
   state = {
     currentStep: 0,
@@ -23,8 +27,22 @@ export default class StepsQuestions extends React.Component {
     error: '',
   };
 
+  validateCurrentField = () => {
+    const { currentStep, data } = this.state;
+    const [key, value] = Object.entries(data)[currentStep];
+    if (requiredDictionary[key])
+      return requiredStringSchema(key)
+        .validate(value)
+        .then(() => this.setState({ error: '' }))
+        .catch(({ message }) => this.setState({ error: message }));
+    return Promise.resolve(value);
+  };
+
   handleStateChange = ({ key, value }) =>
-    this.setState(({ data }) => ({ data: { ...data, [key]: value } }));
+    this.setState(
+      ({ data }) => ({ data: { ...data, [key]: value } }),
+      this.validateCurrentField
+    );
 
   changeIsError = error => this.setState({ error });
 
@@ -78,13 +96,19 @@ export default class StepsQuestions extends React.Component {
   };
 
   prev = () =>
-    this.setState(({ currentStep }) => ({ currentStep: currentStep - 1 }));
+    this.setState(({ currentStep }) => ({
+      currentStep: currentStep - 1,
+      error: '',
+    }));
 
-  next = () => {
-    const { error } = this.state;
-    if (!error)
-      this.setState(({ currentStep }) => ({ currentStep: currentStep + 1 }));
-  };
+  next = () =>
+    this.validateCurrentField().then(() => {
+      const { error } = this.state;
+      if (!error)
+        this.setState(({ currentStep }) => ({
+          currentStep: currentStep + 1,
+        }));
+    });
 
   render() {
     const { currentStep } = this.state;
