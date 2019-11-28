@@ -53,14 +53,14 @@ export default class StepsQuestions extends React.Component {
       error,
     } = this.state;
     return questionsAndComponents.map(
-      ({ content: Component, stepNo, key, question, options = {} }) => {
+      ({ content: Component, key, question, options = {} }, index) => {
         const newOptions = { ...options };
         if (key === 'city') {
           newOptions.countrySelected = country;
         }
-        if (currentStep === stepNo)
+        if (currentStep === index)
           return (
-            <div className="content-wrapper" key={`content${stepNo}`}>
+            <div className="content-wrapper" key={`content${index + 1}`}>
               <p>{question}</p>
               <div className="content__component">
                 {Component && (
@@ -87,8 +87,8 @@ export default class StepsQuestions extends React.Component {
     return (
       <div className="steps-wrapper">
         <Steps current={currentStep}>
-          {questionsAndComponents.map(({ stepNo }) => (
-            <Step key={`step${stepNo}`} />
+          {questionsAndComponents.map(({ key }) => (
+            <Step key={`step${key}`} />
           ))}
         </Steps>
       </div>
