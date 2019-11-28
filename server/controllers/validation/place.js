@@ -2,8 +2,8 @@ const { object, string } = require('yup');
 
 module.exports = object().shape({
   name: string().required(),
-  linkSite: string(),
+  link: string(),
   country: string().required(),
   city: string().required(),
-  businessType: string().required(),
+  type: string().required(),
 });

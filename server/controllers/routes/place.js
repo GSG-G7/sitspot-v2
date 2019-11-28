@@ -4,9 +4,9 @@ const { place } = require('../validation');
 
 const post = (req, res, next) => {
   const body = { ...req.body };
-  const { name, linkSite, country, city, businessType, img1 } = body;
+  const { name, link, country, city, type, img1 } = body;
   place
-    .validate({ name, linkSite, country, city, businessType })
+    .validate({ name, link, country, city, type })
     .then(() => {
       if (img1) return upload(img1);
 

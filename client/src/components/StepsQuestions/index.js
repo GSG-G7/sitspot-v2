@@ -1,4 +1,5 @@
 import React from 'react';
+import propTypes from 'prop-types';
 import { Steps, Button } from 'antd';
 import subcomponents from './subcomponents';
 import questions from '../../staticDataSet/questions';
@@ -17,6 +18,7 @@ const requiredDictionary = questions.reduce(
   (acc, { required, key }) => ({ ...acc, [key]: required }),
   {}
 );
+
 export default class StepsQuestions extends React.Component {
   state = {
     currentStep: 0,
@@ -111,9 +113,8 @@ export default class StepsQuestions extends React.Component {
     });
 
   render() {
-    const { currentStep } = this.state;
-    // const { onSubmit } = this.props;
-    // console.log(this.state.questions);
+    const { onSubmit } = this.props;
+    const { currentStep, data } = this.state;
     return (
       <div>
         {this.renderSteps()}
@@ -150,7 +151,7 @@ export default class StepsQuestions extends React.Component {
             <Button
               className="steps__btn steps__btn--right"
               type="primary"
-              onClick={() => {}}
+              onClick={() => onSubmit(data)}
             >
               Done
             </Button>
@@ -160,3 +161,7 @@ export default class StepsQuestions extends React.Component {
     );
   }
 }
+
+StepsQuestions.propTypes = {
+  onSubmit: propTypes.func.isRequired,
+};

@@ -1,17 +1,44 @@
 import React from 'react';
-import { StepsQuestions2 as Steps } from '../../components';
+import propTypes from 'prop-types';
+import { StepsQuestions } from '../../components';
+import { addPlace } from '../../services/api';
 
 import './style.css';
 
-const onSubmit = something => something;
+class AddNewSitspot extends React.Component {
+  state = {
+    loading: false,
+  };
 
-const AddNewSitspot = () => (
-  <div id="add-place" className="add-place">
-    <div className="add-place__header"> </div>
-    <div className="add-place__content">
-      <Steps onSubmit={onSubmit} />
-    </div>
-  </div>
-);
+  onSubmit = data => {
+    const { history } = this.props;
+    const { type } = data;
+    const formData = new FormData();
+
+    Object.entries(data).forEach(
+      ([key, value]) => !!value && formData.append(key, value)
+    );
+
+    addPlace(formData).then(({ data: id }) =>
+      history.push(`/add-review/${type}/${id}`)
+    );
+  };
+
+  render() {
+    const { loading } = this.state;
+    return (
+      <div id="add-place" className="add-place">
+        <div className="add-place__header"> </div>
+        <div className="add-place__content">
+          {!loading ? <StepsQuestions onSubmit={this.onSubmit} /> : ''}
+        </div>
+      </div>
+    );
+  }
+}
+
+AddNewSitspot.propTypes = {
+  history: propTypes.shape({ push: propTypes.func.isRequired }).isRequired,
+};
 
 export default AddNewSitspot;

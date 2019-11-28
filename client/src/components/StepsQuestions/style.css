@@ -59,6 +59,18 @@
   word-spacing: 0.2rem;
 }
 
+/* ================== Error Display */
+
+.error-box {
+  padding: 0.3rem 0;
+  background-color: #ffbaba;
+}
+
+.error-box__message {
+  color: #d8000c;
+  text-align: center;
+}
+
 /* ================= override on style antd SELECT */
 
 #add-place .ant-select {
