@@ -1,6 +1,6 @@
 import React from 'react';
 import propTypes from 'prop-types';
-import { Steps, Button } from 'antd';
+import { Steps, Button, Spin } from 'antd';
 import subcomponents from './subcomponents';
 import questions from '../../staticDataSet/questions';
 import requiredStringSchema from '../../utils/addPlaceValidation';
@@ -113,9 +113,11 @@ export default class StepsQuestions extends React.Component {
     });
 
   render() {
-    const { onSubmit } = this.props;
+    const { onSubmit, loading } = this.props;
     const { currentStep, data } = this.state;
-    return (
+    return loading ? (
+      <Spin />
+    ) : (
       <div>
         {this.renderSteps()}
         {this.renderContent(currentStep)}
@@ -164,4 +166,5 @@ export default class StepsQuestions extends React.Component {
 
 StepsQuestions.propTypes = {
   onSubmit: propTypes.func.isRequired,
+  loading: propTypes.bool.isRequired,
 };

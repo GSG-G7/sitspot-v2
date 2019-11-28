@@ -11,6 +11,7 @@ class AddNewSitspot extends React.Component {
   };
 
   onSubmit = data => {
+    this.setState({ loading: true });
     const { history } = this.props;
     const { type } = data;
     const formData = new FormData();
@@ -30,7 +31,7 @@ class AddNewSitspot extends React.Component {
       <div id="add-place" className="add-place">
         <div className="add-place__header"> </div>
         <div className="add-place__content">
-          {!loading ? <StepsQuestions onSubmit={this.onSubmit} /> : ''}
+          <StepsQuestions onSubmit={this.onSubmit} loading={loading} />
         </div>
       </div>
     );
