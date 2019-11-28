@@ -1,13 +1,3 @@
-import {
-  placeValidName,
-  placeValidCountry,
-  placeValidCity,
-  placeValidBusinessType,
-} from './addPlaceValidation';
+import requiredStringSchema from './addPlaceValidation';
 
-export default {
-  placeValidName,
-  placeValidCountry,
-  placeValidCity,
-  placeValidBusinessType,
-};
+export default requiredStringSchema;

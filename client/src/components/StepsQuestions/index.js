@@ -1,243 +1,170 @@
 import React from 'react';
 import propTypes from 'prop-types';
-import { Steps, Button, Select, Radio } from 'antd';
-import { getCountryNames, getCities } from 'full-countries-cities';
+import { Steps, Button, Spin } from 'antd';
+import subcomponents from './subcomponents';
+import questions from '../../staticDataSet/questions';
+import requiredStringSchema from '../../utils/addPlaceValidation';
+import './style.css';
 
-import UploadImg from './UploadImg';
-import renderOptions from '../../utils/renderOptionsList';
-
-import './index.css';
+const { ErrorDisplay } = subcomponents;
 
 const { Step } = Steps;
 
-const BusinessTypes = Object.freeze({
-  stay: 'place to stay',
-  eat: 'place to eat or drink',
-  shop: 'place to shop',
-});
-
-const ButtonInfo = Object.freeze({
-  START: 'Start',
-  NEXT: 'Next',
-  PREVIOUS: 'Previous',
-  DONE: 'Done',
-  TYPE: 'primary',
-  MESSAGE: 'Processing complete!',
-});
-
-const renderError = msg => (
-  <div className="error-box">
-    <p className="error-box__message">{msg}</p>
-  </div>
+const questionsAndComponents = questions.map(({ type, ...rest }) => ({
+  content: subcomponents[type],
+  ...rest,
+}));
+const requiredDictionary = questions.reduce(
+  (acc, { required, key }) => ({ ...acc, [key]: required }),
+  {}
 );
 
-const checkError = (currentStep, errors) => {
-  if (currentStep === 1) {
-    if (errors.name) {
-      return renderError(errors.name);
-    }
-  } else if (currentStep === 3) {
-    if (errors.country) {
-      return renderError(errors.country);
-    }
-  } else if (currentStep === 4) {
-    if (errors.city) {
-      return renderError(errors.city);
-    }
-  } else if (currentStep === 5) {
-    if (errors.businessType) {
-      return renderError(errors.businessType);
-    }
-  }
-  return undefined;
-};
+export default class StepsQuestions extends React.Component {
+  state = {
+    currentStep: 0,
+    data: questions.reduce(
+      (acc, { key }) => (key ? { ...acc, [key]: '' } : acc),
+      {}
+    ),
+    error: '',
+  };
 
-const renderInput = (values, currentStep, funcs) => {
-  const stateKey = currentStep === 1 ? 'name' : 'linkSite';
-  return (
-    <input
-      className="input "
-      type="text"
-      placeholder={currentStep === 1 ? 'Type your answer here' : 'http://'}
-      value={currentStep === 1 ? values.name : values.linkSite}
-      onChange={event => {
-        funcs.handleChange(event.target.value, stateKey);
-      }}
-    />
-  );
-};
+  validateCurrentField = () => {
+    const { currentStep, data } = this.state;
+    const [key, value] = Object.entries(data)[currentStep];
+    if (requiredDictionary[key])
+      return requiredStringSchema(key)
+        .validate(value)
+        .then(() => this.setState({ error: '' }))
+        .catch(({ message }) => this.setState({ error: message }));
+    return Promise.resolve(value);
+  };
 
-const dropDownFilter = (input, option) =>
-  option.props.children.toLowerCase().indexOf(input.toLowerCase()) >= 0;
+  handleStateChange = ({ key, value }) =>
+    this.setState(
+      ({ data }) => ({ data: { ...data, [key]: value } }),
+      this.validateCurrentField
+    );
 
-const renderSelect = (values, currentStep, funcs) => {
-  const stateKey = currentStep === 3 ? 'country' : 'city';
-  let cities;
-  if (currentStep === 4) {
-    cities = values.country ? getCities(values.country) : [];
-  }
-  return (
-    <Select
-      className="ant-select-country country-w-city"
-      showSearch
-      placeholder="Select"
-      optionFilterProp="children"
-      value={currentStep === 3 ? values.country : values.city}
-      onChange={value => funcs.handleChange(value, stateKey)}
-      filterOption={dropDownFilter}
-    >
-      {currentStep === 3
-        ? renderOptions(getCountryNames())
-        : renderOptions(cities)}
-    </Select>
-  );
-};
+  changeIsError = error => this.setState({ error });
 
-const renderRadio = (values, funcs) => (
-  <Radio.Group value={values.businessType} buttonStyle="solid">
-    {Object.entries(BusinessTypes).map(([key, value]) => (
-      <Radio.Button
-        key={key}
-        value={key}
-        onClick={event =>
-          funcs.handleChange(event.target.value, 'businessType')
+  renderContent = currentStep => {
+    const {
+      data,
+      data: { country },
+      error,
+    } = this.state;
+    return questionsAndComponents.map(
+      ({ content: Component, key, question, options = {} }, index) => {
+        const newOptions = { ...options };
+        if (key === 'city') {
+          newOptions.countrySelected = country;
         }
-      >
-        {value}
-      </Radio.Button>
-    ))}
-  </Radio.Group>
-);
+        if (currentStep === index)
+          return (
+            <div className="content-wrapper" key={`content${index + 1}`}>
+              <p>{question}</p>
+              <div className="content__component">
+                {Component && (
+                  <Component
+                    options={newOptions}
+                    value={data[key]}
+                    changeIsError={this.changeIsError}
+                    handleStateChange={value =>
+                      this.handleStateChange({ key, value })
+                    }
+                  />
+                )}
+              </div>
+              {error && <ErrorDisplay error={error} />}
+            </div>
+          );
+        return '';
+      }
+    );
+  };
 
-const renderQuestion = (
-  questions,
-  values,
-  currentStep,
-  funcs,
-  classes,
-  required
-) => (
-  <div className={classes[currentStep]}>
-    {currentStep > 0 && (
+  renderSteps = () => {
+    const { currentStep } = this.state;
+    return (
+      <div className="steps-wrapper">
+        <Steps current={currentStep}>
+          {questionsAndComponents.map(({ key }) => (
+            <Step key={`step${key}`} />
+          ))}
+        </Steps>
+      </div>
+    );
+  };
+
+  prev = () =>
+    this.setState(({ currentStep }) => ({
+      currentStep: currentStep - 1,
+      error: '',
+    }));
+
+  next = () =>
+    this.validateCurrentField().then(() => {
+      const { error } = this.state;
+      if (!error)
+        this.setState(({ currentStep }) => ({
+          currentStep: currentStep + 1,
+        }));
+    });
+
+  render() {
+    const { onSubmit, loading } = this.props;
+    const { currentStep, data } = this.state;
+    return loading ? (
+      <Spin />
+    ) : (
       <div>
-        <h2 className={`title ${classes[currentStep]}__title`}>
-          {questions[currentStep].title}
-          {required[currentStep] ? (
-            <span className="span-required">*</span>
-          ) : (
-            ''
+        {this.renderSteps()}
+        {this.renderContent(currentStep)}
+        <div className="form-controls">
+          {currentStep === 0 && (
+            <Button
+              className="steps__btn steps__btn--right"
+              type="primary"
+              onClick={this.next}
+            >
+              Start
+            </Button>
           )}
-        </h2>
-      </div>
-    )}
-    {questions[currentStep].imgUrl && (
-      <div className="img__box">
-        <img
-          className="img__box--img"
-          src={questions[currentStep].imgUrl}
-          alt="img question"
-        />
-      </div>
-    )}
-    {currentStep === 0 && (
-      <p className="welcome__message">{questions[0].message}</p>
-    )}
-    {currentStep <= 2 &&
-      currentStep > 0 &&
-      renderInput(values, currentStep, funcs)}
-    {currentStep >= 3 &&
-      currentStep < 5 &&
-      renderSelect(values, currentStep, funcs, classes)}
-
-    {currentStep === 5 && renderRadio(values, funcs)}
-    {currentStep >= 6 && currentStep <= 7 && (
-      <UploadImg
-        values={values}
-        currentStep={currentStep}
-        handleChange={funcs.handleChange}
-      />
-    )}
-  </div>
-);
-
-const renderButton = (text, type, func, checkRequirdStep = false) => (
-  <Button
-    className={`steps__btn steps__btn--${!type ? 'left' : 'right'}`}
-    type={type || ''}
-    onClick={() => (!checkRequirdStep ? func() : func(true))}
-  >
-    {text}
-  </Button>
-);
-
-const StepsQuestions = ({
-  questions,
-  currentStep,
-  values,
-  funcs,
-  classes,
-  required,
-  errors,
-}) => (
-  <div className="steps">
-    <Steps current={currentStep}>
-      {questions.map(({ id }) => (
-        <Step key={id} />
-      ))}
-    </Steps>
-    <div className="steps-content">
-      {renderQuestion(questions, values, currentStep, funcs, classes, required)}
-    </div>
-    <div className="steps-action">
-      {checkError(currentStep, errors)}
-      <div className="steps-action__buttons">
-        {currentStep < questions.length - 1 &&
-          renderButton(
-            currentStep === 0 ? ButtonInfo.START : ButtonInfo.NEXT,
-            ButtonInfo.TYPE,
-            currentStep === 0 || currentStep === 2 || currentStep === 6
-              ? funcs.next
-              : funcs.handleValidate,
-            true
+          {currentStep > 0 && (
+            <Button
+              className="steps__btn steps__btn--left"
+              type="button"
+              onClick={this.prev}
+            >
+              Previous
+            </Button>
           )}
-
-        {currentStep === questions.length - 1 &&
-          renderButton(ButtonInfo.DONE, ButtonInfo.TYPE, funcs.onSubmit)}
-
-        {currentStep > 0 && renderButton(ButtonInfo.PREVIOUS, null, funcs.prev)}
+          {currentStep < questions.length - 1 && currentStep > 0 && (
+            <Button
+              className="steps__btn steps__btn--right"
+              type="primary"
+              onClick={this.next}
+            >
+              Next
+            </Button>
+          )}
+          {currentStep === questions.length - 1 && (
+            <Button
+              className="steps__btn steps__btn--right"
+              type="primary"
+              onClick={() => onSubmit(data)}
+            >
+              Done
+            </Button>
+          )}
+        </div>
       </div>
-    </div>
-  </div>
-);
+    );
+  }
+}
 
 StepsQuestions.propTypes = {
-  currentStep: propTypes.number.isRequired,
-  classes: propTypes.arrayOf(propTypes.string),
-  questions: propTypes.arrayOf(propTypes.any).isRequired,
-  funcs: propTypes.shape({
-    next: propTypes.func.isRequired,
-    prev: propTypes.func.isRequired,
-    handleChange: propTypes.func.isRequired,
-    onSubmit: propTypes.func.isRequired,
-    handleValidate: propTypes.func.isRequired,
-  }).isRequired,
-  values: propTypes.shape({
-    name: propTypes.string.isRequired,
-    linkSite: propTypes.string.isRequired,
-    country: propTypes.string.isRequired,
-    city: propTypes.string.isRequired,
-    businessType: propTypes.string.isRequired,
-    imgUrlOne: propTypes.string,
-    imgUrlTwo: propTypes.string,
-  }).isRequired,
-  required: propTypes.objectOf(propTypes.bool),
-  errors: propTypes.objectOf(propTypes.any),
+  onSubmit: propTypes.func.isRequired,
+  loading: propTypes.bool.isRequired,
 };
-
-StepsQuestions.defaultProps = {
-  classes: '',
-  required: {},
-  errors: {},
-};
-
-export default StepsQuestions;
