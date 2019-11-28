@@ -27,7 +27,7 @@ export default [
   },
   {
     key: 'city',
-    required: true,
+    required: false,
     question: 'What is the nearest city?',
     type: 'CountryOrCity',
     options: { type: 'city' },
@@ -37,5 +37,11 @@ export default [
     required: true,
     question: 'What type of business is it?',
     type: 'TypeQuestion',
+  },
+  {
+    key: 'image',
+    required: false,
+    question: 'Upload an image please',
+    type: 'ImageUploader',
   },
 ];
