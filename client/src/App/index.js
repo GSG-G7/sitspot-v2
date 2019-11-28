@@ -12,6 +12,8 @@ import {
   SearchPage,
   AddNewSitSpot,
   SinglePlace,
+  Error404,
+  Error500,
 } from '../pages';
 
 import './style.css';
@@ -62,6 +64,8 @@ const App = () => (
               },
             }) => <SinglePlace history={history} type={type} sitspotId={id} />}
           />
+          <Route path="/server-error" component={Error500} />
+          <Route component={Error404} />
         </Switch>
       </ImagesContextProvider>
     </Layout>
